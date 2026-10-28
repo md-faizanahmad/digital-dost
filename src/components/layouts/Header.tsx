@@ -42,7 +42,7 @@ export default function Header() {
 const styles = StyleSheet.create({
   container: {
     minHeight: 76,
-    paddingHorizontal: 20,
+    paddingHorizontal: 12,
     paddingVertical: 35,
     flexDirection: 'row',
     alignItems: 'center',

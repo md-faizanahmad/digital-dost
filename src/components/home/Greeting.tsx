@@ -57,10 +57,9 @@ export default function Greeting({ username }: GreetingProps) {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 20,
-    paddingTop: 24,
+    paddingHorizontal: 28,
+    paddingTop: 20,
     paddingBottom: 20,
-    backgroundColor: '#FFFFFF',
   },
   greeting: {
     fontSize: 23,

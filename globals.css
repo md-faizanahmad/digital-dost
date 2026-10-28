@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand */
+  --color-primary: #0b3181;
+  --color-primary-foreground: #ffffff;
+
+  /* Accent */
+  --color-accent: #16a34a;
+  --color-accent-foreground: #ffffff;
+
+  /* Backgrounds */
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+
+  /* Text */
+  --color-foreground: #0f172a;
+  --color-muted: #64748b;
+
+  /* Borders */
+  --color-border: #e2e8f0;
+
+  /* Status */
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+}

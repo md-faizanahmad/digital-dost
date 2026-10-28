@@ -1,128 +1,88 @@
 import React, { useState } from 'react';
-import { Pressable, Text, TextInput, View, ScrollView } from 'react-native';
-import { BookOpen, Search, X } from 'lucide-react-native';
+import { Keyboard, Pressable, TextInput, View } from 'react-native';
+import { Search, X } from 'lucide-react-native';
 
+import SearchResults from './SearchResults';
 import { searchGuides } from '../../utils/searchGuides';
-import type { Guide } from '../../types/guide';
 
-interface SearchBarProps {
-  onSelectGuide?: (guide: Guide) => void;
-}
-
-export default function SearchBar({ onSelectGuide }: SearchBarProps) {
+export default function SearchBar() {
   const [query, setQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
 
-  const searchResult = searchGuides(query);
   const hasQuery = query.trim().length > 0;
-  const shouldShowResults = isFocused || hasQuery;
+  const searchResult = searchGuides(query);
 
   const displayedGuides = hasQuery
-    ? searchResult.results
+    ? searchResult.results.length > 0
+      ? searchResult.results
+      : searchResult.suggestions
     : searchResult.suggestions;
+
+  const shouldShowResults = isFocused;
 
   const handleClear = () => {
     setQuery('');
   };
 
-  const handleSelectGuide = (guide: Guide) => {
-    onSelectGuide?.(guide);
+  const handleSubmit = () => {
+    Keyboard.dismiss();
     setIsFocused(false);
   };
 
   return (
-    <View className="w-full">
+    <View className="z-10 w-full">
+      {/* Search input */}
       <View
-        className={`flex-row items-center border bg-white px-4 ${
-          isFocused ? 'border-neutral-900' : 'border-neutral-200'
+        className={`flex-row items-center bg-neutral-100 px-4 ${
+          isFocused ? 'border border-neutral-400' : 'border border-transparent'
         }`}
-        style={{ minHeight: 52 }}
+        style={{
+          minHeight: 54,
+          borderRadius: 16,
+        }}
       >
-        <Search size={20} color="#737373" />
+        <Search
+          size={21}
+          color={isFocused ? '#171717' : '#737373'}
+          strokeWidth={2}
+        />
 
         <TextInput
           value={query}
           onChangeText={setQuery}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
-          placeholder="What do you want to learn?"
+          onSubmitEditing={handleSubmit}
+          placeholder="Search anything you want to learn"
           placeholderTextColor="#737373"
           accessibilityLabel="Search learning guides"
           returnKeyType="search"
-          className="ml-3 flex-1 py-3 text-base text-neutral-900"
+          autoCorrect={false}
+          className="ml-3 flex-1 py-3 text-[15px] text-neutral-900"
         />
 
-        {query.length > 0 && (
+        {hasQuery && (
           <Pressable
             onPress={handleClear}
             accessibilityRole="button"
             accessibilityLabel="Clear search"
             hitSlop={10}
-            className="p-1"
+            className="ml-2 h-8 w-8 items-center justify-center"
           >
-            <X size={18} color="#737373" />
+            <X size={19} color="#525252" />
           </Pressable>
         )}
       </View>
 
+      {/* Search results */}
       {shouldShowResults && (
-        <View className="mt-3">
-          <Text className="mb-2 text-sm font-semibold text-neutral-700">
-            {hasQuery
-              ? searchResult.results.length > 0
-                ? 'Learning guides'
-                : 'You might like these'
-              : 'Popular guides'}
-          </Text>
-
-          {displayedGuides.length > 0 ? (
-            <ScrollView
-              keyboardShouldPersistTaps="handled"
-              nestedScrollEnabled
-              className="max-h-64"
-            >
-              {displayedGuides.map(guide => (
-                <Pressable
-                  key={guide.id}
-                  onPress={() => handleSelectGuide(guide)}
-                  accessibilityRole="button"
-                  className="mb-2 flex-row items-start border border-neutral-200 bg-white p-3"
-                >
-                  <View className="mr-3 mt-0.5">
-                    <BookOpen size={19} color="#404040" />
-                  </View>
-
-                  <View className="flex-1">
-                    <Text className="text-sm font-semibold text-neutral-900">
-                      {guide.title}
-                    </Text>
-
-                    <Text
-                      numberOfLines={2}
-                      className="mt-1 text-xs leading-5 text-neutral-600"
-                    >
-                      {guide.description}
-                    </Text>
-
-                    <Text className="mt-2 text-xs text-neutral-500">
-                      {guide.estimatedMinutes} min ·{' '}
-                      {guide.difficulty.charAt(0).toUpperCase() +
-                        guide.difficulty.slice(1)}
-                    </Text>
-                  </View>
-                </Pressable>
-              ))}
-            </ScrollView>
-          ) : (
-            <View className="border border-neutral-200 bg-neutral-50 p-4">
-              <Text className="text-sm font-medium text-neutral-800">
-                No matching guide found
-              </Text>
-              <Text className="mt-1 text-xs leading-5 text-neutral-600">
-                Try searching for Instagram, YouTube, Facebook, or AI prompts.
-              </Text>
-            </View>
-          )}
+        <View
+          className="mt-3 overflow-hidden border border-neutral-200 bg-white"
+          style={{ borderRadius: 16 }}
+        >
+          <View className="px-4 pt-3">
+            <SearchResults guides={displayedGuides} query={query} />
+          </View>
         </View>
       )}
     </View>

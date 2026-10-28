@@ -1,15 +1,20 @@
-import React from 'react';
-import { View, Text, Image, Pressable, StyleSheet } from 'react-native';
-
-import { UserRound } from 'lucide-react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
+import { formatDate, formatTime } from '../../utils/dateTime';
 
 const headerLogo = require('../../assets/header-logo.png');
 
-type HeaderProps = {
-  onProfilePress?: () => void;
-};
+export default function Header() {
+  const [now, setNow] = useState(() => new Date());
 
-export default function Header({ onProfilePress }: HeaderProps) {
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setNow(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  });
+
   return (
     <View style={styles.container}>
       <View style={styles.brand}>
@@ -26,16 +31,10 @@ export default function Header({ onProfilePress }: HeaderProps) {
           <Text style={styles.tagline}>Learn. Create. Grow.</Text>
         </View>
       </View>
-
-      <Pressable
-        onPress={onProfilePress}
-        style={styles.profileButton}
-        accessibilityRole="button"
-        accessibilityLabel="Open profile"
-        hitSlop={8}
-      >
-        <UserRound size={23} color="#111111" strokeWidth={1.8} />
-      </Pressable>
+      <View style={styles.dateTime}>
+        <Text style={styles.time}>{formatTime(now)}</Text>
+        <Text style={styles.date}>{formatDate(now)}</Text>
+      </View>
     </View>
   );
 }
@@ -44,13 +43,11 @@ const styles = StyleSheet.create({
   container: {
     minHeight: 76,
     paddingHorizontal: 20,
-    paddingVertical: 12,
+    paddingVertical: 35,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: '#FFFFFF',
-    borderBottomWidth: 1,
-    borderBottomColor: '#EEEEEE',
   },
 
   brand: {
@@ -60,12 +57,12 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    width: 42,
-    height: 42,
+    width: 62,
+    height: 62,
   },
 
   brandText: {
-    marginLeft: 10,
+    marginLeft: 3,
     flexShrink: 1,
   },
 
@@ -82,11 +79,19 @@ const styles = StyleSheet.create({
     color: '#666666',
   },
 
-  profileButton: {
-    width: 42,
-    height: 42,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginLeft: 12,
+  dateTime: {
+    alignItems: 'flex-end',
+    marginLeft: 8,
+  },
+  time: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#111111',
+    fontVariant: ['tabular-nums'],
+  },
+  date: {
+    marginTop: 3,
+    fontSize: 10,
+    color: '#666666',
   },
 });

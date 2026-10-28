@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="160" viewBox="0 0 640 160" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Digital Dost</title>
+  <desc id="desc">Geometric black DD monogram with a green accent, followed by the Digital Dost wordmark.</desc>
+  <g transform="translate(12 20)">
+    <!-- First D -->
+    <path d="M8 12H52C82 12 102 33 102 60S82 108 52 108H8V12ZM32 34V86H51C69 86 79 75 79 60S69 34 51 34H32Z" fill="#111111" fill-rule="evenodd"/>
+    <!-- Second D, interlocked with the first -->
+    <path d="M48 44H78C104 44 122 61 122 84S104 120 78 120H36L43 98H77C90 98 99 92 99 83S90 66 77 66H48V44Z" fill="#111111" fill-rule="evenodd"/>
+    <!-- Green signal accent -->
+    <path d="M77 12H108V42H77C69 29 60 20 48 12H77Z" fill="#39C957"/>
+  </g>
+  <path d="M158 30V130" stroke="#D9D9D9" stroke-width="2"/>
+  <text x="185" y="101" font-family="Inter, Arial, Helvetica, sans-serif" font-size="55" font-weight="750" letter-spacing="-2.2" fill="#111111">Digital</text>
+  <text x="361" y="101" font-family="Inter, Arial, Helvetica, sans-serif" font-size="55" font-weight="750" letter-spacing="-2.2" fill="#39C957">Dost</text>
+</svg>

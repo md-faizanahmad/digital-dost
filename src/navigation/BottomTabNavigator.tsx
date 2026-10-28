@@ -1,4 +1,5 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { House, BookOpen, Bookmark, UserRound } from 'lucide-react-native';
@@ -18,23 +19,40 @@ export default function BottomTabNavigator() {
       initialRouteName="Home"
       screenOptions={{
         headerShown: false,
+
         tabBarActiveTintColor: '#111111',
         tabBarInactiveTintColor: '#888888',
 
+        tabBarShowLabel: true,
+        tabBarHideOnKeyboard: true,
+
         tabBarStyle: {
           backgroundColor: '#FFFFFF',
-          borderTopColor: '#E5E5E5',
+          borderTopColor: '#E8E8E8',
           borderTopWidth: 1,
-          elevation: 0,
-          height: 64,
+          height: Platform.OS === 'ios' ? 84 : 64,
           paddingTop: 8,
-          paddingBottom: 8,
+          paddingBottom: Platform.OS === 'ios' ? 24 : 8,
+          elevation: 0,
+        },
+
+        tabBarItemStyle: {
+          paddingVertical: 2,
         },
 
         tabBarLabelStyle: {
           fontSize: 11,
           fontWeight: '500',
+          marginTop: 3,
         },
+
+        tabBarIconStyle: {
+          marginTop: 0,
+        },
+
+        tabBarActiveBackgroundColor: '#FFFFFF',
+
+        animation: 'shift',
       }}
     >
       <Tab.Screen
@@ -42,12 +60,8 @@ export default function BottomTabNavigator() {
         component={HomeScreen}
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: ({ color, size, focused }) => (
-            <House
-              color={color}
-              size={size}
-              strokeWidth={focused ? 2.5 : 1.8}
-            />
+          tabBarIcon: ({ color, focused }) => (
+            <House color={color} size={22} strokeWidth={focused ? 2.4 : 1.8} />
           ),
         }}
       />
@@ -57,11 +71,11 @@ export default function BottomTabNavigator() {
         component={LearnScreen}
         options={{
           tabBarLabel: 'Learn',
-          tabBarIcon: ({ color, size, focused }) => (
+          tabBarIcon: ({ color, focused }) => (
             <BookOpen
               color={color}
-              size={size}
-              strokeWidth={focused ? 2.5 : 1.8}
+              size={22}
+              strokeWidth={focused ? 2.4 : 1.8}
             />
           ),
         }}
@@ -72,11 +86,11 @@ export default function BottomTabNavigator() {
         component={SavedScreen}
         options={{
           tabBarLabel: 'Saved',
-          tabBarIcon: ({ color, size, focused }) => (
+          tabBarIcon: ({ color, focused }) => (
             <Bookmark
               color={color}
-              size={size}
-              strokeWidth={focused ? 2.5 : 1.8}
+              size={22}
+              strokeWidth={focused ? 2.4 : 1.8}
             />
           ),
         }}
@@ -87,11 +101,11 @@ export default function BottomTabNavigator() {
         component={ProfileScreen}
         options={{
           tabBarLabel: 'Profile',
-          tabBarIcon: ({ color, size, focused }) => (
+          tabBarIcon: ({ color, focused }) => (
             <UserRound
               color={color}
-              size={size}
-              strokeWidth={focused ? 2.5 : 1.8}
+              size={22}
+              strokeWidth={focused ? 2.4 : 1.8}
             />
           ),
         }}

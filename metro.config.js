@@ -5,5 +5,5 @@ const config = {};
 
 module.exports = withNativeWind(
   mergeConfig(getDefaultConfig(__dirname), config),
-  { input: './global.css' },
+  { input: './globals.css' },
 );

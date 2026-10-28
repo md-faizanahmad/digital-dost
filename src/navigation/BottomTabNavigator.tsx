@@ -1,7 +1,6 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
 import { House, BookOpen, Bookmark, UserRound } from 'lucide-react-native';
 
 import type { RootTabParamList } from './navigation.types';
@@ -14,6 +13,8 @@ import ProfileScreen from '../screens/ProfileScreen';
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
 export default function BottomTabNavigator() {
+  const insets = useSafeAreaInsets();
+
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -23,21 +24,21 @@ export default function BottomTabNavigator() {
         tabBarActiveTintColor: '#111111',
         tabBarInactiveTintColor: '#888888',
 
-        tabBarShowLabel: true,
         tabBarHideOnKeyboard: true,
 
         tabBarStyle: {
           backgroundColor: '#FFFFFF',
-          borderTopColor: '#E8E8E8',
+          borderTopColor: '#E5E5E5',
           borderTopWidth: 1,
-          height: Platform.OS === 'ios' ? 84 : 64,
-          paddingTop: 8,
-          paddingBottom: Platform.OS === 'ios' ? 24 : 8,
           elevation: 0,
+
+          height: 64 + insets.bottom,
+          paddingTop: 8,
+          paddingBottom: Math.max(insets.bottom, 8),
         },
 
         tabBarItemStyle: {
-          paddingVertical: 2,
+          paddingVertical: 0,
         },
 
         tabBarLabelStyle: {
@@ -45,14 +46,6 @@ export default function BottomTabNavigator() {
           fontWeight: '500',
           marginTop: 3,
         },
-
-        tabBarIconStyle: {
-          marginTop: 0,
-        },
-
-        tabBarActiveBackgroundColor: '#FFFFFF',
-
-        animation: 'shift',
       }}
     >
       <Tab.Screen

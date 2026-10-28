@@ -1,13 +1,11 @@
-import { Text, View } from 'react-native';
-import './globals.css';
+import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import AppNavigator from './src/navigation/AppNavigator';
 
-function App() {
+export default function App() {
   return (
-    <View>
-      <Text>Digital Dost</Text>
-      <Text>Learn.Create.Grow</Text>
-    </View>
+    <SafeAreaProvider>
+      <AppNavigator />
+    </SafeAreaProvider>
   );
 }
-
-export default App;

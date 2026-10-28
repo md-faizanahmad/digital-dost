@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Keyboard, Pressable, TextInput, View } from 'react-native';
+import { Keyboard, Pressable, StyleSheet, TextInput, View } from 'react-native';
 import { Search, X } from 'lucide-react-native';
 
 import SearchResults from './SearchResults';
@@ -18,8 +18,6 @@ export default function SearchBar() {
       : searchResult.suggestions
     : searchResult.suggestions;
 
-  const shouldShowResults = isFocused;
-
   const handleClear = () => {
     setQuery('');
   };
@@ -30,16 +28,13 @@ export default function SearchBar() {
   };
 
   return (
-    <View className="z-10 w-full">
+    <View style={styles.container}>
       {/* Search input */}
       <View
-        className={`flex-row items-center bg-neutral-100 px-4 ${
-          isFocused ? 'border border-neutral-400' : 'border border-transparent'
-        }`}
-        style={{
-          minHeight: 54,
-          borderRadius: 16,
-        }}
+        style={[
+          styles.searchInputContainer,
+          isFocused && styles.searchInputFocused,
+        ]}
       >
         <Search
           size={21}
@@ -58,7 +53,7 @@ export default function SearchBar() {
           accessibilityLabel="Search learning guides"
           returnKeyType="search"
           autoCorrect={false}
-          className="ml-3 flex-1 py-3 text-[15px] text-neutral-900"
+          style={styles.textInput}
         />
 
         {hasQuery && (
@@ -67,7 +62,7 @@ export default function SearchBar() {
             accessibilityRole="button"
             accessibilityLabel="Clear search"
             hitSlop={10}
-            className="ml-2 h-8 w-8 items-center justify-center"
+            style={styles.clearButton}
           >
             <X size={19} color="#525252" />
           </Pressable>
@@ -75,16 +70,66 @@ export default function SearchBar() {
       </View>
 
       {/* Search results */}
-      {shouldShowResults && (
-        <View
-          className="mt-3 overflow-hidden border border-neutral-200 bg-white"
-          style={{ borderRadius: 16 }}
-        >
-          <View className="px-4 pt-3">
-            <SearchResults guides={displayedGuides} query={query} />
-          </View>
+      {isFocused && (
+        <View style={styles.resultsContainer}>
+          <SearchResults guides={displayedGuides} query={query} />
         </View>
       )}
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    width: '80%',
+    maxWidth: 600,
+    alignSelf: 'center',
+    position: 'relative',
+    zIndex: 10,
+  },
+
+  searchInputContainer: {
+    minHeight: 54,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    backgroundColor: '#F5F5F5',
+    borderWidth: 1,
+    borderColor: 'transparent',
+    borderRadius: 16,
+  },
+
+  searchInputFocused: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#A3A3A3',
+  },
+
+  textInput: {
+    flex: 1,
+    minWidth: 0,
+    marginLeft: 12,
+    paddingVertical: 12,
+    fontSize: 15,
+    color: '#171717',
+  },
+
+  clearButton: {
+    width: 32,
+    height: 32,
+    marginLeft: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  resultsContainer: {
+    marginTop: 12,
+    paddingHorizontal: 16,
+    paddingTop: 4,
+    paddingBottom: 8,
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#E5E5E5',
+    borderRadius: 16,
+    overflow: 'hidden',
+  },
+});

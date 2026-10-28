@@ -27,67 +27,99 @@ export default function SearchBar() {
     setIsFocused(false);
   };
 
+  const handleDismiss = () => {
+    Keyboard.dismiss();
+    setIsFocused(false);
+  };
+
   return (
-    <View style={styles.container}>
-      {/* Search input */}
-      <View
-        style={[
-          styles.searchInputContainer,
-          isFocused && styles.searchInputFocused,
-        ]}
-      >
-        <Search
-          size={21}
-          color={isFocused ? '#171717' : '#737373'}
-          strokeWidth={2}
+    <View style={styles.wrapper}>
+      {/* Transparent backdrop: dismisses results when tapped outside. */}
+      {isFocused && (
+        <Pressable
+          style={styles.backdrop}
+          onPress={handleDismiss}
+          accessibilityLabel="Close search results"
         />
+      )}
 
-        <TextInput
-          value={query}
-          onChangeText={setQuery}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          onSubmitEditing={handleSubmit}
-          placeholder="Search anything you want to learn"
-          placeholderTextColor="#737373"
-          accessibilityLabel="Search learning guides"
-          returnKeyType="search"
-          autoCorrect={false}
-          style={styles.textInput}
-        />
+      {/* Search input and results remain above the backdrop. */}
+      <View style={styles.container}>
+        {/* Search input */}
+        <View
+          style={[
+            styles.searchInputContainer,
+            isFocused && styles.searchInputFocused,
+          ]}
+        >
+          <TextInput
+            value={query}
+            onChangeText={setQuery}
+            onFocus={() => setIsFocused(true)}
+            onSubmitEditing={handleSubmit}
+            placeholder="Search anything you want to learn"
+            placeholderTextColor="#737373"
+            accessibilityLabel="Search learning guides"
+            returnKeyType="search"
+            autoCorrect={false}
+            style={styles.textInput}
+          />
 
-        {hasQuery && (
-          <Pressable
-            onPress={handleClear}
-            accessibilityRole="button"
-            accessibilityLabel="Clear search"
-            hitSlop={10}
-            style={styles.clearButton}
-          >
-            <X size={19} color="#525252" />
-          </Pressable>
+          <Search
+            size={21}
+            color={isFocused ? '#171717' : '#737373'}
+            strokeWidth={2}
+          />
+
+          {hasQuery && (
+            <Pressable
+              onPress={handleClear}
+              accessibilityRole="button"
+              accessibilityLabel="Clear search"
+              hitSlop={10}
+              style={styles.clearButton}
+            >
+              <X size={19} color="#525252" />
+            </Pressable>
+          )}
+        </View>
+
+        {/* Search results: visible only while the input is focused. */}
+        {isFocused && (
+          <View style={styles.resultsContainer}>
+            <SearchResults guides={displayedGuides} query={query} />
+          </View>
         )}
       </View>
-
-      {/* Search results */}
-      {isFocused && (
-        <View style={styles.resultsContainer}>
-          <SearchResults guides={displayedGuides} query={query} />
-        </View>
-      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    width: '80%',
-    maxWidth: 600,
-    alignSelf: 'center',
+  // Root wrapper for the backdrop and search interface.
+  wrapper: {
+    width: '100%',
     position: 'relative',
     zIndex: 10,
   },
 
+  // Centered search container with 90% width and a desktop-friendly limit.
+  container: {
+    width: '90%',
+    maxWidth: 600,
+    alignSelf: 'center',
+    position: 'relative',
+    zIndex: 2,
+  },
+
+  // Transparent layer that captures taps outside the search interface.
+  backdrop: {
+    ...StyleSheet.absoluteFill,
+    position: 'absolute',
+    zIndex: 1,
+  },
+
+  // Main search field.
   searchInputContainer: {
     minHeight: 54,
     flexDirection: 'row',
@@ -96,23 +128,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
     borderWidth: 1,
     borderColor: 'transparent',
-    borderRadius: 16,
+    borderRadius: 5,
   },
 
+  // Focused search field appearance.
   searchInputFocused: {
     backgroundColor: '#FFFFFF',
     borderColor: '#A3A3A3',
   },
 
+  // Search text input.
   textInput: {
     flex: 1,
     minWidth: 0,
-    marginLeft: 12,
+    marginRight: 12,
     paddingVertical: 12,
     fontSize: 15,
     color: '#171717',
   },
 
+  // Clear-query button.
   clearButton: {
     width: 32,
     height: 32,
@@ -121,6 +156,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  // Results panel below the search field.
   resultsContainer: {
     marginTop: 12,
     paddingHorizontal: 16,
@@ -129,7 +165,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
     borderColor: '#E5E5E5',
-    borderRadius: 16,
+    borderRadius: 5,
     overflow: 'hidden',
   },
 });

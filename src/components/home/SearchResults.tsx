@@ -1,6 +1,5 @@
 import React from 'react';
-import { Pressable, ScrollView, Text, View } from 'react-native';
-import { BookOpen } from 'lucide-react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import type { Guide } from '../../types/guide';
 
@@ -24,56 +23,38 @@ export default function SearchResults({
     : 'Popular guides';
 
   return (
-    <View className="mt-3 w-full">
-      <Text className="mb-2 text-sm font-semibold text-neutral-700">
-        {heading}
-      </Text>
+    <View style={styles.container}>
+      <Text style={styles.heading}>{heading}</Text>
 
       {guides.length > 0 ? (
         <ScrollView
-          className="max-h-64"
+          style={styles.list}
           nestedScrollEnabled
           keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
         >
           {guides.map(guide => (
             <Pressable
               key={guide.id}
               onPress={() => onSelectGuide?.(guide)}
               accessibilityRole="button"
-              className="mb-2 flex-row items-start border border-neutral-200 bg-white p-3"
+              accessibilityLabel={`Open guide: ${guide.title}`}
+              style={({ pressed }) => [
+                styles.guideItem,
+                pressed && styles.guideItemPressed,
+              ]}
             >
-              <View className="mr-3 mt-0.5">
-                <BookOpen size={19} color="#404040" />
-              </View>
-
-              <View className="flex-1">
-                <Text className="text-sm font-semibold text-neutral-900">
-                  {guide.title}
-                </Text>
-
-                <Text
-                  numberOfLines={2}
-                  className="mt-1 text-xs leading-5 text-neutral-600"
-                >
-                  {guide.description}
-                </Text>
-
-                <Text className="mt-2 text-xs text-neutral-500">
-                  {guide.estimatedMinutes} min ·{' '}
-                  {guide.difficulty.charAt(0).toUpperCase() +
-                    guide.difficulty.slice(1)}
-                </Text>
-              </View>
+              <Text style={styles.guideTitle} numberOfLines={2}>
+                {guide.title}
+              </Text>
             </Pressable>
           ))}
         </ScrollView>
       ) : (
-        <View className="border border-neutral-200 bg-neutral-50 p-4">
-          <Text className="text-sm font-medium text-neutral-800">
-            No matching guide found
-          </Text>
+        <View style={styles.emptyState}>
+          <Text style={styles.emptyTitle}>No matching guide found</Text>
 
-          <Text className="mt-1 text-xs leading-5 text-neutral-600">
+          <Text style={styles.emptyDescription}>
             Try searching for Instagram, YouTube, Facebook, or AI prompts.
           </Text>
         </View>
@@ -81,3 +62,68 @@ export default function SearchResults({
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  // Main container: occupies the full width of the search bar.
+  container: {
+    width: '100%',
+    alignSelf: 'center',
+    backgroundColor: '#FFFFFF',
+  },
+
+  // Section heading: labels the list as learning guides or suggestions.
+  heading: {
+    marginBottom: 10,
+    fontSize: 12,
+    fontWeight: '500',
+    color: '#70757A',
+  },
+
+  // Scrollable list: limits the height when many guides match.
+  list: {
+    maxHeight: 280,
+  },
+
+  // Individual result: provides vertical spacing around each guide title.
+  guideItem: {
+    minHeight: 54,
+    justifyContent: 'center',
+    paddingVertical: 11,
+    paddingHorizontal: 8,
+  },
+
+  // Pressed result: gives subtle feedback when a guide is tapped.
+  guideItemPressed: {
+    backgroundColor: '#F1F3F4',
+  },
+
+  // Guide title: displays only the guide name in Google-style typography.
+  guideTitle: {
+    fontSize: 14,
+    lineHeight: 21,
+    fontWeight: '400',
+    color: '#202124',
+  },
+
+  // Empty state container: adds spacing when no guides are available.
+  emptyState: {
+    paddingVertical: 16,
+    backgroundColor: '#F8F9FA',
+  },
+
+  // Empty state title: displays the no-results message.
+  emptyTitle: {
+    fontSize: 14,
+    lineHeight: 21,
+    fontWeight: '500',
+    color: '#202124',
+  },
+
+  // Empty state description: explains how to find other guides.
+  emptyDescription: {
+    marginTop: 8,
+    fontSize: 12,
+    lineHeight: 19,
+    color: '#70757A',
+  },
+});

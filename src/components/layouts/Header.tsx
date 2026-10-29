@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { formatDate, formatTime } from '../../utils/dateTime';
-
+import { SafeAreaView } from 'react-native-safe-area-context';
 const headerLogo = require('../../assets/header-logo.png');
 
 export default function Header() {
@@ -16,34 +16,40 @@ export default function Header() {
   });
 
   return (
-    <View style={styles.container}>
-      <View style={styles.brand}>
-        <Image
-          source={headerLogo}
-          style={styles.logo}
-          resizeMode="contain"
-          accessibilityLabel="Digital Dost logo"
-        />
+    <SafeAreaView edges={['top']} style={styles.safeArea}>
+      <View style={styles.container}>
+        <View style={styles.brand}>
+          <Image
+            source={headerLogo}
+            style={styles.logo}
+            resizeMode="contain"
+            accessibilityLabel="Digital Dost logo"
+          />
 
-        <View style={styles.brandText}>
-          <Text style={styles.appName}>Digital Dost</Text>
+          <View style={styles.brandText}>
+            <Text style={styles.appName}>Digital Dost</Text>
 
-          <Text style={styles.tagline}>Learn. Create. Grow.</Text>
+            <Text style={styles.tagline}>Learn. Create. Grow.</Text>
+          </View>
+        </View>
+        <View style={styles.dateTime}>
+          <Text style={styles.time}>{formatTime(now)}</Text>
+          <Text style={styles.date}>{formatDate(now)}</Text>
         </View>
       </View>
-      <View style={styles.dateTime}>
-        <Text style={styles.time}>{formatTime(now)}</Text>
-        <Text style={styles.date}>{formatDate(now)}</Text>
-      </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    backgroundColor: '#FFFFFF',
+  },
+
   container: {
     minHeight: 76,
     paddingHorizontal: 12,
-    paddingVertical: 35,
+    paddingVertical: 12,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

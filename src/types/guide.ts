@@ -6,10 +6,8 @@
 
 /** Difficulty level of a guide. */
 export type GuideDifficulty = 'beginner' | 'intermediate' | 'advanced';
-
 /** Publication status of a guide. */
 export type GuideStatus = 'draft' | 'published' | 'archived';
-
 /** Type of image used in a guide. */
 export type GuideImageType = 'cover' | 'step' | 'illustration';
 
@@ -17,13 +15,10 @@ export type GuideImageType = 'cover' | 'step' | 'illustration';
 export interface GuideImage {
   /** Key used to resolve a bundled image or remote image. */
   key: string;
-
   /** Image type: cover, step, or illustration. */
   type: GuideImageType;
-
   /** Accessible description of the image. */
   alt: string;
-
   /** Optional caption displayed below the image. */
   caption?: string;
 }
@@ -32,10 +27,8 @@ export interface GuideImage {
 export interface GuideSource {
   /** Human-readable resource title. */
   title: string;
-
   /** External resource URL. */
   url: string;
-
   /** Optional description of the resource. */
   description?: string;
 }
@@ -44,22 +37,24 @@ export interface GuideSource {
 export interface GuideStep {
   /** Unique identifier within the guide. */
   id: string;
-
-  /** Short heading describing the action. */
+  /** English step heading. */
   title: string;
-
-  /** Instructions explaining what the user should do. */
+  /** Hinglish step heading in Roman script. */
+  titleHinglish: string;
+  /** English instructions. */
   description: string;
-
+  /** Hinglish instructions in Roman script. */
+  descriptionHinglish: string;
   /** Optional image illustrating this step. */
   image?: GuideImage;
-
-  /** Optional helpful tip. */
+  /** Optional helpful tip in English. */
   tip?: string;
-
-  /** Optional warning or important caution. */
+  /** Optional helpful tip in Hinglish. */
+  tipHinglish?: string;
+  /** Optional warning or important caution in English. */
   warning?: string;
-
+  /** Optional warning or important caution in Hinglish. */
+  warningHinglish?: string;
   /** Optional external link for additional instructions. */
   externalLink?: GuideSource;
 }
@@ -93,11 +88,17 @@ export interface Guide {
   /** URL-friendly identifier. */
   slug: string;
 
-  /** Guide title displayed to users. */
+  /** Guide title in English. */
   title: string;
 
-  /** Short summary for cards and search results. */
+  /** Guide title in Hinglish (Roman script). */
+  titleHinglish: string;
+
+  /** Short English summary for cards and search results. */
   description: string;
+
+  /** Short Hinglish summary for cards and search results. */
+  descriptionHinglish: string;
 
   /** ID of the guide's category. */
   categoryId: string;
@@ -114,10 +115,13 @@ export interface Guide {
   /** Search terms, alternate phrases, and common spellings. */
   searchKeywords: string[];
 
-  /** Requirements or items needed before starting. */
+  /** Requirements or items needed before starting (English). */
   prerequisites?: string[];
 
-  /** Ordered tutorial instructions. */
+  /** Requirements or items needed before starting (Hinglish). */
+  prerequisitesHinglish?: string[];
+
+  /** Ordered tutorial instructions in English and Hinglish. */
   steps: GuideStep[];
 
   /** IDs of related guides. */

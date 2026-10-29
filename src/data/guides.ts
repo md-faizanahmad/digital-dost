@@ -10,7 +10,7 @@ export const GUIDES: Guide[] = [
   {
     id: 'instagram-professional-account',
     slug: 'create-instagram-professional-account',
-    title: 'How to Create an Instagram Professional Account',
+    title: 'How to Create an Instagram Professional Account?',
     description:
       'Learn how to set up a professional Instagram account for your business, creator profile, or personal brand.',
     categoryId: 'social-media',

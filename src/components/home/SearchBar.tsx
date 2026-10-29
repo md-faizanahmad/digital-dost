@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { Keyboard, Pressable, StyleSheet, TextInput, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Search, X } from 'lucide-react-native';
 
 import SearchResults from './SearchResults';
 import { searchGuides } from '../../utils/searchGuides';
+import type { Guide } from '../../types/guide';
+import type { RootStackParamList } from '../../navigation/rootStack.types';
+
+type Navigation = NativeStackNavigationProp<RootStackParamList>;
 
 export default function SearchBar() {
+  const navigation = useNavigation<Navigation>();
   const [query, setQuery] = useState('');
   const [isFocused, setIsFocused] = useState(false);
 
@@ -25,6 +32,12 @@ export default function SearchBar() {
   const handleDismiss = () => {
     Keyboard.dismiss();
     setIsFocused(false);
+  };
+
+  const handleSelectGuide = (guide: Guide) => {
+    Keyboard.dismiss();
+    setIsFocused(false);
+    navigation.navigate('GuideContent', { guideId: guide.id });
   };
 
   return (
@@ -79,7 +92,11 @@ export default function SearchBar() {
 
         {shouldShowResults && (
           <View style={styles.resultsContainer}>
-            <SearchResults guides={displayedGuides} query={query} />
+            <SearchResults
+              guides={displayedGuides}
+              query={query}
+              onSelectGuide={handleSelectGuide}
+            />
           </View>
         )}
       </View>

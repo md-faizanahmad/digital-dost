@@ -15,18 +15,17 @@ export default function SearchResults({
   onSelectGuide,
 }: SearchResultsProps) {
   const hasQuery = query.trim().length > 0;
-
-  const heading = hasQuery
-    ? guides.length > 0
+  const heading = guides.length
+    ? hasQuery
       ? 'Learning guides'
-      : 'You might like these'
-    : 'Popular guides';
+      : 'Popular guides'
+    : 'Suggested guides';
 
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>{heading}</Text>
 
-      {guides.length > 0 ? (
+      {guides.length ? (
         <ScrollView
           style={styles.list}
           nestedScrollEnabled
@@ -52,10 +51,10 @@ export default function SearchResults({
         </ScrollView>
       ) : (
         <View style={styles.emptyState}>
-          <Text style={styles.emptyTitle}>No matching guide found</Text>
-
+          <Text style={styles.emptyTitle}>No guides available yet</Text>
           <Text style={styles.emptyDescription}>
-            Try searching for Instagram, YouTube, Facebook, or AI prompts.
+            Try another keyword, such as Instagram, YouTube, Facebook, or AI
+            prompts.
           </Text>
         </View>
       )}
@@ -64,62 +63,45 @@ export default function SearchResults({
 }
 
 const styles = StyleSheet.create({
-  // Main container: occupies the full width of the search bar.
   container: {
     width: '100%',
     alignSelf: 'center',
     backgroundColor: '#FFFFFF',
   },
-
-  // Section heading: labels the list as learning guides or suggestions.
   heading: {
     marginBottom: 10,
     fontSize: 12,
     fontWeight: '500',
     color: '#70757A',
   },
-
-  // Scrollable list: limits the height when many guides match.
   list: {
     maxHeight: 280,
   },
-
-  // Individual result: provides vertical spacing around each guide title.
   guideItem: {
     minHeight: 54,
     justifyContent: 'center',
     paddingVertical: 11,
     paddingHorizontal: 8,
   },
-
-  // Pressed result: gives subtle feedback when a guide is tapped.
   guideItemPressed: {
     backgroundColor: '#F1F3F4',
   },
-
-  // Guide title: displays only the guide name in Google-style typography.
   guideTitle: {
     fontSize: 14,
     lineHeight: 21,
     fontWeight: '400',
     color: '#202124',
   },
-
-  // Empty state container: adds spacing when no guides are available.
   emptyState: {
     paddingVertical: 16,
     backgroundColor: '#F8F9FA',
   },
-
-  // Empty state title: displays the no-results message.
   emptyTitle: {
     fontSize: 14,
     lineHeight: 21,
     fontWeight: '500',
     color: '#202124',
   },
-
-  // Empty state description: explains how to find other guides.
   emptyDescription: {
     marginTop: 8,
     fontSize: 12,

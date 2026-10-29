@@ -16,40 +16,34 @@ export default function Header() {
   });
 
   return (
-    <SafeAreaView edges={['top']} style={styles.safeArea}>
-      <View style={styles.container}>
-        <View style={styles.brand}>
-          <Image
-            source={headerLogo}
-            style={styles.logo}
-            resizeMode="contain"
-            accessibilityLabel="Digital Dost logo"
-          />
+    <View style={styles.container}>
+      <View style={styles.brand}>
+        <Image
+          source={headerLogo}
+          style={styles.logo}
+          resizeMode="contain"
+          accessibilityLabel="Digital Dost logo"
+        />
 
-          <View style={styles.brandText}>
-            <Text style={styles.appName}>Digital Dost</Text>
+        <View style={styles.brandText}>
+          <Text style={styles.appName}>Digital Dost</Text>
 
-            <Text style={styles.tagline}>Learn. Create. Grow.</Text>
-          </View>
-        </View>
-        <View style={styles.dateTime}>
-          <Text style={styles.time}>{formatTime(now)}</Text>
-          <Text style={styles.date}>{formatDate(now)}</Text>
+          <Text style={styles.tagline}>Learn. Create. Grow.</Text>
         </View>
       </View>
-    </SafeAreaView>
+      <View style={styles.dateTime}>
+        <Text style={styles.time}>{formatTime(now)}</Text>
+        <Text style={styles.date}>{formatDate(now)}</Text>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  safeArea: {
-    backgroundColor: '#FFFFFF',
-  },
-
   container: {
     minHeight: 76,
     paddingHorizontal: 12,
-    paddingVertical: 12,
+    paddingVertical: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

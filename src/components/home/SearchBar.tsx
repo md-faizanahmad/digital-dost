@@ -10,17 +10,12 @@ export default function SearchBar() {
   const [isFocused, setIsFocused] = useState(false);
 
   const hasQuery = query.trim().length > 0;
-  const searchResult = searchGuides(query);
+  const { results, suggestions } = searchGuides(query);
 
-  const displayedGuides = hasQuery
-    ? searchResult.results.length > 0
-      ? searchResult.results
-      : searchResult.suggestions
-    : searchResult.suggestions;
+  const displayedGuides = results.length ? results : suggestions;
+  const shouldShowResults = isFocused && hasQuery;
 
-  const handleClear = () => {
-    setQuery('');
-  };
+  const handleClear = () => setQuery('');
 
   const handleSubmit = () => {
     Keyboard.dismiss();
@@ -34,18 +29,16 @@ export default function SearchBar() {
 
   return (
     <View style={styles.wrapper}>
-      {/* Transparent backdrop: dismisses results when tapped outside. */}
-      {isFocused && (
+      {shouldShowResults && (
         <Pressable
           style={styles.backdrop}
           onPress={handleDismiss}
+          accessibilityRole="button"
           accessibilityLabel="Close search results"
         />
       )}
 
-      {/* Search input and results remain above the backdrop. */}
       <View style={styles.container}>
-        {/* Search input */}
         <View
           style={[
             styles.searchInputContainer,
@@ -84,8 +77,7 @@ export default function SearchBar() {
           )}
         </View>
 
-        {/* Search results: visible only while the input is focused. */}
-        {isFocused && (
+        {shouldShowResults && (
           <View style={styles.resultsContainer}>
             <SearchResults guides={displayedGuides} query={query} />
           </View>
@@ -96,14 +88,11 @@ export default function SearchBar() {
 }
 
 const styles = StyleSheet.create({
-  // Root wrapper for the backdrop and search interface.
   wrapper: {
     width: '100%',
     position: 'relative',
     zIndex: 10,
   },
-
-  // Centered search container with 90% width and a desktop-friendly limit.
   container: {
     width: '90%',
     maxWidth: 600,
@@ -111,15 +100,10 @@ const styles = StyleSheet.create({
     position: 'relative',
     zIndex: 2,
   },
-
-  // Transparent layer that captures taps outside the search interface.
   backdrop: {
     ...StyleSheet.absoluteFill,
-    position: 'absolute',
     zIndex: 1,
   },
-
-  // Main search field.
   searchInputContainer: {
     minHeight: 54,
     flexDirection: 'row',
@@ -130,14 +114,10 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
     borderRadius: 5,
   },
-
-  // Focused search field appearance.
   searchInputFocused: {
     backgroundColor: '#FFFFFF',
     borderColor: '#A3A3A3',
   },
-
-  // Search text input.
   textInput: {
     flex: 1,
     minWidth: 0,
@@ -146,8 +126,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#171717',
   },
-
-  // Clear-query button.
   clearButton: {
     width: 32,
     height: 32,
@@ -155,8 +133,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
-  // Results panel below the search field.
   resultsContainer: {
     marginTop: 12,
     paddingHorizontal: 16,

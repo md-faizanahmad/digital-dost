@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { formatDate, formatTime } from '../../utils/dateTime';
-import { SafeAreaView } from 'react-native-safe-area-context';
 const headerLogo = require('../../assets/header-logo.png');
 
 export default function Header() {

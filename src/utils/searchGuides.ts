@@ -8,147 +8,137 @@ export interface GuideSearchResult {
   hasExactMatch: boolean;
 }
 
-interface ScoredGuide {
-  guide: Guide;
-  score: number;
-}
+type ScoredGuide = { guide: Guide; score: number };
 
 const MAX_SEARCH_RESULTS = 10;
 const MAX_SUGGESTIONS = 3;
 
-function normalizeText(value: string): string {
-  return value
+const normalizeText = (value: string): string =>
+  value
     .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, ' ')
-    .replace(/\s+/g, ' ');
-}
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}\s-]/gu, ' ')
+    .replace(/[-\s]+/g, ' ')
+    .trim();
 
-function getCategoryName(categoryId: string): string {
-  return (
-    GUIDE_CATEGORIES.find(category => category.id === categoryId)?.name ?? ''
+const getCategoryName = (categoryId: string): string =>
+  GUIDE_CATEGORIES.find(({ id }) => id === categoryId)?.name ?? '';
+
+const getSearchableText = (guide: Guide): string => {
+  const {
+    title,
+    titleHinglish,
+    description,
+    descriptionHinglish,
+    searchKeywords,
+    prerequisites,
+    prerequisitesHinglish,
+    steps,
+    categoryId,
+  } = guide;
+
+  return normalizeText(
+    [
+      title,
+      titleHinglish,
+      description,
+      descriptionHinglish,
+      getCategoryName(categoryId),
+      ...searchKeywords,
+      ...(prerequisites ?? []),
+      ...(prerequisitesHinglish ?? []),
+      ...steps.flatMap(
+        ({
+          title,
+          titleHinglish,
+          description,
+          descriptionHinglish,
+          tip,
+          tipHinglish,
+          warning,
+          warningHinglish,
+        }) => [
+          title,
+          titleHinglish,
+          description,
+          descriptionHinglish,
+          tip ?? '',
+          tipHinglish ?? '',
+          warning ?? '',
+          warningHinglish ?? '',
+        ],
+      ),
+    ]
+      .filter(Boolean)
+      .join(' '),
   );
-}
+};
 
-function scoreGuide(guide: Guide, query: string): number {
-  const normalizedQuery = normalizeText(query);
+const scoreGuide = (guide: Guide, query: string): number => {
+  const q = normalizeText(query);
+  if (!q) return 0;
 
-  if (!normalizedQuery) {
-    return 0;
-  }
-
-  const title = normalizeText(guide.title);
-  const description = normalizeText(guide.description);
+  const title = normalizeText(`${guide.title} ${guide.titleHinglish}`);
+  const description = normalizeText(
+    `${guide.description} ${guide.descriptionHinglish}`,
+  );
   const category = normalizeText(getCategoryName(guide.categoryId));
   const keywords = guide.searchKeywords.map(normalizeText);
-  const queryWords = normalizedQuery.split(' ');
+  const searchableText = getSearchableText(guide);
+  const words = q.split(' ');
+  const matchedWords = words.filter(word => searchableText.includes(word));
 
   let score = 0;
 
-  // Give the highest priority to title matches.
-  if (title === normalizedQuery) {
-    score += 100;
-  } else if (title.includes(normalizedQuery)) {
-    score += 60;
-  }
+  if (title === q) score += 120;
+  else if (title.includes(q)) score += 80;
 
-  // Match searchable keywords.
-  for (const keyword of keywords) {
-    if (keyword === normalizedQuery) {
-      score += 50;
-    } else if (keyword.includes(normalizedQuery)) {
-      score += 30;
-    } else if (normalizedQuery.includes(keyword)) {
-      score += 15;
-    }
-  }
+  if (keywords.includes(q)) score += 60;
+  else if (keywords.some(keyword => keyword.includes(q))) score += 40;
+  else if (keywords.some(keyword => q.includes(keyword))) score += 20;
 
-  // Match the description and category.
-  if (description.includes(normalizedQuery)) {
-    score += 20;
-  }
-
-  if (category.includes(normalizedQuery)) {
-    score += 15;
-  }
-
-  // Reward guides matching multiple query words.
-  const searchableText = normalizeText(
-    `${guide.title} ${guide.description} ${category} ${keywords.join(' ')}`,
-  );
-
-  const matchedWords = queryWords.filter(word => searchableText.includes(word));
+  if (description.includes(q)) score += 25;
+  if (category.includes(q)) score += 20;
 
   score += matchedWords.length * 5;
 
-  // Slightly prioritize featured guides when relevance is equal.
-  if (guide.isFeatured) {
-    score += 1;
-  }
+  if (matchedWords.length === words.length) score += 15;
+  if (guide.isFeatured) score += 1;
 
   return score;
-}
+};
 
-function getPublishedGuides(): Guide[] {
-  return GUIDES.filter(guide => guide.status === 'published');
-}
+const getPublishedGuides = (): Guide[] =>
+  GUIDES.filter(({ status }) => status === 'published');
 
-function getScoredGuides(query: string): ScoredGuide[] {
-  return getPublishedGuides()
-    .map(guide => ({
-      guide,
-      score: scoreGuide(guide, query),
-    }))
-    .filter(item => item.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .map(item => item);
-}
+const getSuggestions = (guides: Guide[]): Guide[] =>
+  guides.filter(({ isFeatured }) => isFeatured).slice(0, MAX_SUGGESTIONS);
 
-/**
- * Searches published guides using titles, descriptions, keywords, and categories.
- *
- * If no relevant match is found, returns up to three featured guides
- * as fallback suggestions.
- */
 export function searchGuides(query: string): GuideSearchResult {
   const normalizedQuery = normalizeText(query);
   const publishedGuides = getPublishedGuides();
 
   if (!normalizedQuery) {
-    const popularGuides = publishedGuides
-      .filter(guide => guide.isFeatured)
-      .slice(0, MAX_SUGGESTIONS);
-
     return {
       results: [],
-      suggestions: popularGuides,
+      suggestions: getSuggestions(publishedGuides),
       hasExactMatch: false,
     };
   }
 
-  const scoredGuides = getScoredGuides(normalizedQuery);
+  const scoredGuides: ScoredGuide[] = publishedGuides
+    .map(guide => ({ guide, score: scoreGuide(guide, normalizedQuery) }))
+    .filter(({ score }) => score >= 10)
+    .sort((a, b) => b.score - a.score);
 
-  const matchedGuides = scoredGuides
-    .filter(item => item.score >= 10)
+  const results = scoredGuides
     .slice(0, MAX_SEARCH_RESULTS)
-    .map(item => item.guide);
-
-  if (matchedGuides.length > 0) {
-    return {
-      results: matchedGuides,
-      suggestions: [],
-      hasExactMatch: true,
-    };
-  }
-
-  // No relevant match: suggest existing guides instead of inventing results.
-  const suggestions = publishedGuides
-    .filter(guide => guide.isFeatured)
-    .slice(0, MAX_SUGGESTIONS);
+    .map(({ guide }) => guide);
 
   return {
-    results: [],
-    suggestions,
-    hasExactMatch: false,
+    results,
+    suggestions: results.length ? [] : getSuggestions(publishedGuides),
+    hasExactMatch: results.length > 0,
   };
 }

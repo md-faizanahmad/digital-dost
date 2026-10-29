@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Pressable,
   ScrollView,
@@ -14,6 +14,8 @@ import { ArrowLeft } from 'lucide-react-native';
 
 import type { RootStackParamList } from '../navigation/rootStack.types';
 import { GUIDES } from '../data/guides';
+import TranslateButton, { type GuideLanguage } from '../shared/TranslateButton';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 type Navigation = NativeStackNavigationProp<RootStackParamList>;
 type GuideRoute = RouteProp<RootStackParamList, 'GuideContent'>;
@@ -22,7 +24,10 @@ export default function GuideContentScreen() {
   const navigation = useNavigation<Navigation>();
   const { params } = useRoute<GuideRoute>();
 
+  const [language, setLanguage] = useState<GuideLanguage>('en');
+
   const guide = GUIDES.find(({ id }) => id === params.guideId);
+  const isHinglish = language === 'hinglish';
 
   if (!guide) {
     return (
@@ -40,88 +45,133 @@ export default function GuideContentScreen() {
   }
 
   return (
-    <View style={styles.screen}>
-      <StatusBar barStyle="dark-content" />
+    <SafeAreaView style={styles.screen} edges={['top']}>
+      <View style={styles.screen}>
+        <StatusBar barStyle="dark-content" />
 
-      <View style={styles.header}>
-        <Pressable
-          onPress={() => navigation.goBack()}
-          accessibilityRole="button"
-          accessibilityLabel="Go back"
-          hitSlop={10}
-          style={styles.backButton}
-        >
-          <ArrowLeft size={22} color="#171717" />
-        </Pressable>
+        <View style={styles.header}>
+          <Pressable
+            onPress={() => navigation.goBack()}
+            accessibilityRole="button"
+            accessibilityLabel="Go back"
+            hitSlop={10}
+            style={styles.backButton}
+          >
+            <ArrowLeft size={22} color="#171717" />
+          </Pressable>
 
-        <Text style={styles.headerTitle}>Learning Guide</Text>
-      </View>
-
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.content}
-        showsVerticalScrollIndicator={false}
-      >
-        <Text style={styles.category}>
-          {guide.categoryId.replaceAll('-', ' ').toUpperCase()}
-        </Text>
-
-        <Text style={styles.title}>{guide.title}</Text>
-
-        <Text style={styles.description}>{guide.description}</Text>
-
-        <View style={styles.meta}>
-          <Text style={styles.metaText}>{guide.steps.length} steps</Text>
-
-          <Text style={styles.metaText}>{guide.estimatedMinutes} min read</Text>
+          <Text style={styles.headerTitle}>Learning Guide</Text>
         </View>
 
-        <View style={styles.divider} />
-
-        <Text style={styles.sectionTitle}>Step-by-step guide</Text>
-
-        {guide.steps.map((step, index) => (
-          <View key={step.id} style={styles.step}>
-            <View style={styles.stepNumber}>
-              <Text style={styles.stepNumberText}>{index + 1}</Text>
-            </View>
-
-            <View style={styles.stepContent}>
-              <Text style={styles.stepTitle}>{step.title}</Text>
-
-              <Text style={styles.stepDescription}>{step.description}</Text>
-
-              {step.tip && (
-                <View style={styles.tipBox}>
-                  <Text style={styles.tipLabel}>TIP</Text>
-                  <Text style={styles.tipText}>{step.tip}</Text>
-                </View>
-              )}
-
-              {step.warning && (
-                <View style={styles.warningBox}>
-                  <Text style={styles.warningLabel}>IMPORTANT</Text>
-                  <Text style={styles.warningText}>{step.warning}</Text>
-                </View>
-              )}
-            </View>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.content}
+          showsVerticalScrollIndicator={false}
+        >
+          <View style={styles.translateContainer}>
+            <TranslateButton
+              language={language}
+              onToggle={() =>
+                setLanguage(current => (current === 'en' ? 'hinglish' : 'en'))
+              }
+            />
           </View>
-        ))}
-      </ScrollView>
-    </View>
+
+          <Text style={styles.category}>
+            {guide.categoryId.replaceAll('-', ' ').toUpperCase()}
+          </Text>
+
+          <Text style={styles.title}>
+            {isHinglish ? guide.titleHinglish || guide.title : guide.title}
+          </Text>
+
+          <Text style={styles.description}>
+            {isHinglish
+              ? guide.descriptionHinglish || guide.description
+              : guide.description}
+          </Text>
+
+          {isHinglish && guide.prerequisitesHinglish ? (
+            <View style={styles.prerequisites}>
+              <Text style={styles.sectionTitle}>Before you start</Text>
+              {guide.prerequisitesHinglish.map((item, index) => (
+                <Text key={index} style={styles.stepDescription}>
+                  • {item}
+                </Text>
+              ))}
+            </View>
+          ) : null}
+
+          <View style={styles.meta}>
+            <Text style={styles.metaText}>{guide.steps.length} steps</Text>
+            <Text style={styles.metaText}>
+              {guide.estimatedMinutes} min read
+            </Text>
+          </View>
+
+          <View style={styles.divider} />
+
+          <Text style={styles.sectionTitle}>Step-by-step guide</Text>
+
+          {guide.steps.map((step, index) => (
+            <View key={step.id} style={styles.step}>
+              <View style={styles.stepNumber}>
+                <Text style={styles.stepNumberText}>{index + 1}</Text>
+              </View>
+
+              <View style={styles.stepContent}>
+                <Text style={styles.stepTitle}>
+                  {isHinglish ? step.titleHinglish || step.title : step.title}
+                </Text>
+
+                <Text style={styles.stepDescription}>
+                  {isHinglish
+                    ? step.descriptionHinglish || step.description
+                    : step.description}
+                </Text>
+
+                {(isHinglish ? step.tipHinglish || step.tip : step.tip) ? (
+                  <View style={styles.tipBox}>
+                    <Text style={styles.tipLabel}>TIP</Text>
+                    <Text style={styles.tipText}>
+                      {isHinglish ? step.tipHinglish || step.tip : step.tip}
+                    </Text>
+                  </View>
+                ) : null}
+
+                {(
+                  isHinglish
+                    ? step.warningHinglish || step.warning
+                    : step.warning
+                ) ? (
+                  <View style={styles.warningBox}>
+                    <Text style={styles.warningLabel}>IMPORTANT</Text>
+                    <Text style={styles.warningText}>
+                      {isHinglish
+                        ? step.warningHinglish || step.warning
+                        : step.warning}
+                    </Text>
+                  </View>
+                ) : null}
+              </View>
+            </View>
+          ))}
+        </ScrollView>
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
   },
   header: {
     minHeight: 58,
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
+
     borderBottomWidth: 1,
     borderBottomColor: '#E5E5E5',
   },
@@ -145,6 +195,10 @@ const styles = StyleSheet.create({
     paddingTop: 28,
     paddingBottom: 40,
   },
+  translateContainer: {
+    alignItems: 'flex-end',
+    marginBottom: 22,
+  },
   category: {
     marginBottom: 12,
     fontSize: 11,
@@ -163,6 +217,9 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 24,
     color: '#525252',
+  },
+  prerequisites: {
+    marginTop: 20,
   },
   meta: {
     flexDirection: 'row',

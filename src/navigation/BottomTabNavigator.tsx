@@ -1,13 +1,7 @@
 import React from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {
-  House,
-  BookOpen,
-  Bookmark,
-  UserRound,
-  Settings,
-} from 'lucide-react-native';
+import { House, BookOpen, Bookmark, Settings } from 'lucide-react-native';
 
 import type { RootTabParamList } from './navigation.types';
 

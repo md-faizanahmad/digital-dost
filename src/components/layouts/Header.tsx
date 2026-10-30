@@ -41,11 +41,10 @@ export default function Header() {
 const styles = StyleSheet.create({
   container: {
     minHeight: 76,
-    paddingHorizontal: 12,
+    paddingHorizontal: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#FFFFFF',
   },
 
   brand: {

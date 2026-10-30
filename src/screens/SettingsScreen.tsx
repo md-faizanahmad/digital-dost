@@ -1,16 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function ProfileScreen() {
+export default function SettingsScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Profile</Text>
+      <Text style={styles.title}>Settings</Text>
 
-      <Text style={styles.subtitle}>Your learning journey.</Text>
+      <Text style={styles.subtitle}>Customize your experience.</Text>
 
       <Text style={styles.description}>
-        Manage your learning preferences, personalize your experience, and
-        configure your app settings.
+        Manage your language preferences, view app information, access the
+        Privacy Policy, and get help using Digital Dost.
       </Text>
     </View>
   );

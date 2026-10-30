@@ -1,14 +1,20 @@
 import React from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { House, BookOpen, Bookmark, UserRound } from 'lucide-react-native';
+import {
+  House,
+  BookOpen,
+  Bookmark,
+  UserRound,
+  Settings,
+} from 'lucide-react-native';
 
 import type { RootTabParamList } from './navigation.types';
 
 import HomeScreen from '../screens/HomeScreen';
 import LearnScreen from '../screens/LearnScreen';
 import SavedScreen from '../screens/SavedScreen';
-import ProfileScreen from '../screens/ProfileScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
@@ -90,12 +96,12 @@ export default function BottomTabNavigator() {
       />
 
       <Tab.Screen
-        name="Profile"
-        component={ProfileScreen}
+        name="Settings"
+        component={SettingsScreen}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'Settings',
           tabBarIcon: ({ color, focused }) => (
-            <UserRound
+            <Settings
               color={color}
               size={22}
               strokeWidth={focused ? 2.4 : 1.8}

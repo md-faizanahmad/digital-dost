@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
+  FlatList,
   Pressable,
   ScrollView,
   StatusBar,
@@ -10,12 +11,12 @@ import {
 import { useNavigation, useRoute } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RouteProp } from '@react-navigation/native';
-import { ArrowLeft } from 'lucide-react-native';
+import { ArrowLeft, ChevronRight } from 'lucide-react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import type { RootStackParamList } from '../navigation/rootStack.types';
 import { GUIDES } from '../data/guides';
 import TranslateButton, { type GuideLanguage } from '../shared/TranslateButton';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 type Navigation = NativeStackNavigationProp<RootStackParamList>;
 type GuideRoute = RouteProp<RootStackParamList, 'GuideContent'>;
@@ -26,8 +27,89 @@ export default function GuideContentScreen() {
 
   const [language, setLanguage] = useState<GuideLanguage>('en');
 
-  const guide = GUIDES.find(({ id }) => id === params.guideId);
+  const isCategoryMode = 'categoryId' in params;
+  const categoryId = isCategoryMode ? params.categoryId : undefined;
+
+  const guide = !isCategoryMode
+    ? GUIDES.find(({ id }) => id === params.guideId)
+    : undefined;
+
+  const categoryGuides = categoryId
+    ? GUIDES.filter(({ categoryId: id }) => id === categoryId)
+    : [];
+
   const isHinglish = language === 'hinglish';
+
+  if (isCategoryMode) {
+    const categoryName = categoryId
+      ?.replaceAll('-', ' ')
+      .replace(/\b\w/g, char => char.toUpperCase());
+
+    return (
+      <SafeAreaView style={styles.screen} edges={['top']}>
+        <StatusBar barStyle="dark-content" />
+
+        <View style={styles.header}>
+          <Pressable
+            onPress={() => navigation.goBack()}
+            accessibilityRole="button"
+            accessibilityLabel="Go back"
+            hitSlop={10}
+            style={styles.backButton}
+          >
+            <ArrowLeft size={22} color="#171717" />
+          </Pressable>
+
+          <Text style={styles.headerTitle}>{categoryName}</Text>
+        </View>
+
+        <FlatList
+          data={categoryGuides}
+          keyExtractor={item => item.id}
+          contentContainerStyle={styles.categoryList}
+          ListHeaderComponent={
+            <Text style={styles.listSubtitle}>
+              {categoryGuides.length} learning guides
+            </Text>
+          }
+          ListEmptyComponent={
+            <View style={styles.emptyContainer}>
+              <Text style={styles.emptyTitle}>No guides available yet</Text>
+              <Text style={styles.emptyDescription}>
+                Guides for this category will appear here when available.
+              </Text>
+            </View>
+          }
+          renderItem={({ item }) => (
+            <Pressable
+              onPress={() =>
+                navigation.push('GuideContent', { guideId: item.id })
+              }
+              accessibilityRole="button"
+              style={({ pressed }) => [
+                styles.guideCard,
+                pressed && styles.pressed,
+              ]}
+            >
+              <View style={styles.guideCardContent}>
+                <Text style={styles.guideTitle}>{item.title}</Text>
+
+                <Text style={styles.guideDescription} numberOfLines={2}>
+                  {item.description}
+                </Text>
+
+                <Text style={styles.guideMeta}>
+                  {item.steps.length} steps · {item.estimatedMinutes} min read
+                </Text>
+              </View>
+
+              <ChevronRight size={20} color="#737373" />
+            </Pressable>
+          )}
+        />
+      </SafeAreaView>
+    );
+  }
 
   if (!guide) {
     return (
@@ -94,6 +176,7 @@ export default function GuideContentScreen() {
           {isHinglish && guide.prerequisitesHinglish ? (
             <View style={styles.prerequisites}>
               <Text style={styles.sectionTitle}>Before you start</Text>
+
               {guide.prerequisitesHinglish.map((item, index) => (
                 <Text key={index} style={styles.stepDescription}>
                   • {item}
@@ -165,13 +248,13 @@ export default function GuideContentScreen() {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+    backgroundColor: '#FFFFFF',
   },
   header: {
     minHeight: 58,
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
-
     borderBottomWidth: 1,
     borderBottomColor: '#E5E5E5',
   },
@@ -182,6 +265,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   headerTitle: {
+    flex: 1,
     marginLeft: 12,
     fontSize: 16,
     fontWeight: '600',
@@ -311,25 +395,66 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     color: '#991B1B',
   },
+  categoryList: {
+    padding: 20,
+    paddingBottom: 32,
+    flexGrow: 1,
+  },
+  listSubtitle: {
+    marginBottom: 16,
+    fontSize: 13,
+    color: '#737373',
+  },
+  guideCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: '#E5E5E5',
+    backgroundColor: '#FFFFFF',
+  },
+  guideCardContent: {
+    flex: 1,
+    marginRight: 12,
+  },
+  guideTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#171717',
+  },
+  guideDescription: {
+    marginTop: 6,
+    fontSize: 13,
+    lineHeight: 19,
+    color: '#525252',
+  },
+  guideMeta: {
+    marginTop: 10,
+    fontSize: 11,
+    color: '#737373',
+  },
+  pressed: {
+    opacity: 0.65,
+  },
   emptyContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 24,
     backgroundColor: '#FFFFFF',
   },
   emptyTitle: {
     fontSize: 18,
     fontWeight: '600',
+    textAlign: 'center',
     color: '#171717',
-  },
-  emptyText: {
-    marginTop: 8,
-    fontSize: 14,
-    color: '#737373',
   },
   emptyDescription: {
     marginTop: 8,
     fontSize: 14,
+    lineHeight: 21,
+    textAlign: 'center',
     color: '#737373',
   },
   backText: {

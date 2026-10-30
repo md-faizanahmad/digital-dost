@@ -99,7 +99,11 @@ export const guideContentStyles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 22,
   },
-
+  stepImage: {
+    width: '100%',
+    height: 180,
+    marginTop: 12,
+  },
   // Tips and warnings
   tipBox: {
     marginTop: 12,

@@ -1,18 +1,21 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function SettingsScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Settings</Text>
+    <SafeAreaView edges={['top']} style={styles.container}>
+      <View style={styles.container}>
+        <Text style={styles.title}>Settings</Text>
 
-      <Text style={styles.subtitle}>Customize your experience.</Text>
+        <Text style={styles.subtitle}>Customize your experience.</Text>
 
-      <Text style={styles.description}>
-        Manage your language preferences, view app information, access the
-        Privacy Policy, and get help using Digital Dost.
-      </Text>
-    </View>
+        <Text style={styles.description}>
+          Manage your language preferences, view app information, access the
+          Privacy Policy, and get help using Digital Dost.
+        </Text>
+      </View>
+    </SafeAreaView>
   );
 }
 

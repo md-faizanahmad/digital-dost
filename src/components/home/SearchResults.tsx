@@ -2,6 +2,7 @@ import React from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import type { Guide } from '../../types/guide';
+import EmptyState from '../../shared/EmptyState';
 
 interface SearchResultsProps {
   guides: Guide[];
@@ -50,13 +51,10 @@ export default function SearchResults({
           ))}
         </ScrollView>
       ) : (
-        <View style={styles.emptyState}>
-          <Text style={styles.emptyTitle}>No guides available yet</Text>
-          <Text style={styles.emptyDescription}>
-            Try another keyword, such as Instagram, YouTube, Facebook, or AI
-            prompts.
-          </Text>
-        </View>
+        <EmptyState
+          title="No guides available yet"
+          description="Try another keyword, such as Instagram, YouTube, Facebook, or AI prompts."
+        />
       )}
     </View>
   );

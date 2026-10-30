@@ -3,6 +3,7 @@ import { Guide } from '../../../types/guide';
 import { GuideLanguage } from '../../../shared/TranslateButton';
 import { guideContentStyles } from '../../../styles/guideContent.styles';
 import GuideDetails from './GuideDetails';
+import EmptyState from '../../../shared/EmptyState';
 
 type CategoryGuidesContentProps = {
   guides: Guide[];
@@ -15,12 +16,10 @@ export default function CategoryGuidesContent({
 }: CategoryGuidesContentProps) {
   if (!guides.length) {
     return (
-      <View style={guideContentStyles.emptyContainer}>
-        <Text style={guideContentStyles.emptyTitle}>No guides found</Text>
-        <Text style={guideContentStyles.emptyDescription}>
-          There are no guides available in this category yet.
-        </Text>
-      </View>
+      <EmptyState
+        title="No guides available yet"
+        description="Guides for this category will appear here when available."
+      />
     );
   }
 

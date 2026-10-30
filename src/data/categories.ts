@@ -94,17 +94,17 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
     isFeatured: true,
     order: 7,
   },
-  {
-    id: 'online-business',
-    name: 'Online Business',
-    description:
-      'Build your online presence and learn practical business skills.',
-    image: {
-      key: 'online-business-cover',
-      type: 'cover',
-      alt: 'Online business learning category',
-    },
-    isFeatured: true,
-    order: 8,
-  },
+  // {
+  //   id: 'online-business',
+  //   name: 'Online Business',
+  //   description:
+  //     'Build your online presence and learn practical business skills.',
+  //   image: {
+  //     key: 'online-business-cover',
+  //     type: 'cover',
+  //     alt: 'Online business learning category',
+  //   },
+  //   isFeatured: true,
+  //   order: 8,
+  // },
 ];

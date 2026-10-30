@@ -34,7 +34,7 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView edges={['top']} style={styles.container}>
-      <View style={styles.container}>
+      <View style={styles.content}>
         <Header />
         <Greeting />
         <SearchBar />
@@ -51,5 +51,9 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  content: {
+    flex: 1,
+    gap: 20,
   },
 });

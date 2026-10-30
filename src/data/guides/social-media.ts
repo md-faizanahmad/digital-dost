@@ -19,7 +19,7 @@ export const SOCIAL_MEDIA_GUIDES: Guide[] = [
       'Learn how to create or switch to a professional Instagram account for your business or creator profile.',
     descriptionHinglish:
       'Apne business ya creator profile ke liye Instagram Professional Account banana aur setup karna seekhein.',
-    categoryId: 'social-media',
+    categoryId: 'instagram',
     difficulty: 'beginner',
     estimatedMinutes: 5,
     coverImage: {
@@ -160,7 +160,7 @@ export const SOCIAL_MEDIA_GUIDES: Guide[] = [
       'Learn how to create and set up a Facebook Page for your shop, service, organization, or business.',
     descriptionHinglish:
       'Apni shop, service, organization ya business ke liye Facebook Page banana aur setup karna seekhein.',
-    categoryId: 'social-media',
+    categoryId: 'facebook',
     difficulty: 'beginner',
     estimatedMinutes: 6,
     coverImage: {
@@ -300,7 +300,7 @@ export const SOCIAL_MEDIA_GUIDES: Guide[] = [
       'Learn how to create a YouTube channel and prepare it for uploading videos.',
     descriptionHinglish:
       'Apna YouTube channel banana aur videos upload karne ke liye use ready karna seekhein.',
-    categoryId: 'social-media',
+    categoryId: 'youtube',
     difficulty: 'beginner',
     estimatedMinutes: 7,
     coverImage: {
@@ -440,7 +440,7 @@ export const SOCIAL_MEDIA_GUIDES: Guide[] = [
       'Learn how to set up WhatsApp Business for your shop or service and help customers find important business information.',
     descriptionHinglish:
       'Apni shop ya service ke liye WhatsApp Business setup karna aur customers ko zaroori business information dena seekhein.',
-    categoryId: 'social-media',
+    categoryId: 'whatsapp-business',
     difficulty: 'beginner',
     estimatedMinutes: 6,
     coverImage: {

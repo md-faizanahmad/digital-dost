@@ -8,17 +8,54 @@ import type { GuideCategory } from '../types/guide';
  */
 export const GUIDE_CATEGORIES: GuideCategory[] = [
   {
-    id: 'social-media',
-    name: 'Social Media',
-    description:
-      'Create professional profiles and learn to grow on social platforms.',
+    id: 'youtube',
+    name: 'YouTube',
+    description: 'Learn to create channels, upload videos, and make Shorts.',
     image: {
-      key: 'social-media-cover',
+      key: 'youtube-cover',
       type: 'cover',
-      alt: 'Social media learning category',
+      alt: 'YouTube learning category',
     },
     isFeatured: true,
     order: 1,
+  },
+  {
+    id: 'instagram',
+    name: 'Instagram',
+    description: 'Learn account setup, posts, Reels, and profile management.',
+    image: {
+      key: 'instagram-cover',
+      type: 'cover',
+      alt: 'Instagram learning category',
+    },
+    isFeatured: true,
+    order: 2,
+  },
+  {
+    id: 'whatsapp-business',
+    name: 'WhatsApp Business',
+    description:
+      'Set up business profiles, catalogs, and customer communication.',
+    image: {
+      key: 'whatsapp-business-cover',
+      type: 'cover',
+      alt: 'WhatsApp Business learning category',
+    },
+    isFeatured: true,
+    order: 3,
+  },
+  {
+    id: 'facebook',
+    name: 'Facebook',
+    description:
+      'Learn Facebook Pages, posts, and business profile management.',
+    image: {
+      key: 'facebook-cover',
+      type: 'cover',
+      alt: 'Facebook learning category',
+    },
+    isFeatured: true,
+    order: 4,
   },
   {
     id: 'ai-tools',
@@ -31,7 +68,7 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
       alt: 'Artificial intelligence learning category',
     },
     isFeatured: true,
-    order: 2,
+    order: 5,
   },
   {
     id: 'digital-skills',
@@ -43,7 +80,19 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
       alt: 'Digital skills learning category',
     },
     isFeatured: true,
-    order: 3,
+    order: 6,
+  },
+  {
+    id: 'online-safety',
+    name: 'Online Safety',
+    description: 'Learn about privacy, online scams, and account security.',
+    image: {
+      key: 'online-safety-cover',
+      type: 'cover',
+      alt: 'Online safety learning category',
+    },
+    isFeatured: true,
+    order: 7,
   },
   {
     id: 'online-business',
@@ -56,6 +105,6 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
       alt: 'Online business learning category',
     },
     isFeatured: true,
-    order: 4,
+    order: 8,
   },
 ];

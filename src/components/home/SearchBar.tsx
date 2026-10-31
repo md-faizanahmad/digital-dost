@@ -58,23 +58,23 @@ export default function SearchBar() {
             isFocused && styles.searchInputFocused,
           ]}
         >
+          <Search
+            size={20}
+            color={isFocused ? '#171717' : '#737373'}
+            strokeWidth={2}
+          />
+
           <TextInput
             value={query}
             onChangeText={setQuery}
             onFocus={() => setIsFocused(true)}
             onSubmitEditing={handleSubmit}
             placeholder="Search anything you want to learn"
-            placeholderTextColor="#737373"
+            placeholderTextColor="#8A8A8A"
             accessibilityLabel="Search learning guides"
             returnKeyType="search"
             autoCorrect={false}
             style={styles.textInput}
-          />
-
-          <Search
-            size={21}
-            color={isFocused ? '#171717' : '#737373'}
-            strokeWidth={2}
           />
 
           {hasQuery && (
@@ -85,7 +85,7 @@ export default function SearchBar() {
               hitSlop={10}
               style={styles.clearButton}
             >
-              <X size={19} color="#525252" />
+              <X size={18} color="#737373" />
             </Pressable>
           )}
         </View>
@@ -126,39 +126,39 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#F8F9FA',
     borderWidth: 1,
-    borderColor: 'transparent',
-    borderRadius: 5,
+    borderColor: '#206a0b',
+    borderRadius: 10,
   },
   searchInputFocused: {
     backgroundColor: '#FFFFFF',
-    borderColor: '#A3A3A3',
+    borderColor: '#469010',
   },
   textInput: {
     flex: 1,
     minWidth: 0,
-    marginRight: 12,
+    marginLeft: 12,
     paddingVertical: 12,
-    fontSize: 15,
+    fontSize: 14,
     color: '#171717',
   },
   clearButton: {
     width: 32,
     height: 32,
-    marginLeft: 8,
+    marginLeft: 6,
     alignItems: 'center',
     justifyContent: 'center',
   },
   resultsContainer: {
-    marginTop: 12,
-    paddingHorizontal: 16,
+    marginTop: 8,
+    paddingHorizontal: 12,
     paddingTop: 4,
     paddingBottom: 8,
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
-    borderColor: '#E5E5E5',
-    borderRadius: 5,
+    borderColor: '#E5E7EB',
+    borderRadius: 10,
     overflow: 'hidden',
   },
 });

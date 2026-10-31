@@ -48,17 +48,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
     borderColor: '#E5E7EB',
+    borderRadius: 8,
     overflow: 'hidden',
   },
   pressed: {
-    opacity: 0.75,
+    opacity: 0.8,
   },
   imageContainer: {
-    height: 130,
+    aspectRatio: 1.5,
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F9FAFB',
-    padding: 12,
+    padding: 10,
   },
   image: {
     width: '100%',
@@ -66,16 +67,17 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 12,
-    gap: 6,
+    gap: 5,
+    minHeight: 76,
   },
   title: {
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: 15,
+    fontWeight: '700',
     color: '#111827',
   },
   description: {
     fontSize: 12,
-    lineHeight: 18,
+    lineHeight: 17,
     color: '#6B7280',
   },
 });

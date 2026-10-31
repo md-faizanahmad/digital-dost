@@ -18,6 +18,7 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
     },
     isFeatured: true,
     order: 1,
+    group: 'social-media',
   },
   {
     id: 'instagram',
@@ -30,6 +31,7 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
     },
     isFeatured: true,
     order: 2,
+    group: 'social-media',
   },
   {
     id: 'whatsapp-business',
@@ -43,6 +45,7 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
     },
     isFeatured: true,
     order: 3,
+    group: 'social-media',
   },
   {
     id: 'facebook',
@@ -56,6 +59,7 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
     },
     isFeatured: true,
     order: 4,
+    group: 'social-media',
   },
   {
     id: 'ai-tools',
@@ -69,6 +73,7 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
     },
     isFeatured: true,
     order: 5,
+    group: 'ai-tools',
   },
   {
     id: 'digital-skills',
@@ -81,6 +86,7 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
     },
     isFeatured: true,
     order: 6,
+    group: 'digital-skills',
   },
   {
     id: 'online-safety',
@@ -93,6 +99,7 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
     },
     isFeatured: true,
     order: 7,
+    group: 'online-safety',
   },
   // {
   //   id: 'online-business',

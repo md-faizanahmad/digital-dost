@@ -11,6 +11,12 @@ export type GuideStatus = 'draft' | 'published' | 'archived';
 /** Type of image used in a guide. */
 export type GuideImageType = 'cover' | 'step' | 'illustration';
 
+export type CategoryGroup =
+  | 'social-media'
+  | 'ai-tools'
+  | 'digital-skills'
+  | 'online-safety';
+
 /** Image asset used in a guide or one of its steps. */
 export interface GuideImage {
   /** Key used to resolve a bundled image or remote image. */
@@ -78,6 +84,9 @@ export interface GuideCategory {
 
   /** Display order in the category list. */
   order: number;
+
+  /** Group used for Learn screen filtering. */
+  group: CategoryGroup;
 }
 
 /** Complete learning guide. */

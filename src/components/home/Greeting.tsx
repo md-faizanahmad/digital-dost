@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+
 import {
   getGreeting,
   getGreetingName,
   GREETING_HOOKS,
   getNextHookIndex,
 } from '../../utils/greeting';
+import { COLORS } from '../../theme/colors';
 
 type GreetingProps = {
   username?: string | null;
@@ -15,16 +17,11 @@ export default function Greeting({ username }: GreetingProps) {
   const [now, setNow] = useState(() => new Date());
   const [hookIndex, setHookIndex] = useState(0);
 
-  // Keep the greeting updated when the time period changes.
   useEffect(() => {
-    const timer = setInterval(() => {
-      setNow(new Date());
-    }, 60_000);
-
+    const timer = setInterval(() => setNow(new Date()), 60_000);
     return () => clearInterval(timer);
   }, []);
 
-  // Rotate the catchy hook every 8 seconds.
   useEffect(() => {
     if (GREETING_HOOKS.length <= 1) return;
 
@@ -64,7 +61,7 @@ const styles = StyleSheet.create({
   greeting: {
     fontSize: 23,
     fontWeight: '700',
-    color: '#111111',
+    color: COLORS.text,
     letterSpacing: -0.5,
   },
   wave: {
@@ -74,6 +71,6 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 14,
     lineHeight: 21,
-    color: '#666666',
+    color: COLORS.textSecondary,
   },
 });

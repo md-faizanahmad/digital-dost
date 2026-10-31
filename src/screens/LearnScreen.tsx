@@ -61,6 +61,7 @@ export default function LearnScreen() {
           categories={categories}
           selectedFilter={selectedFilter}
           onCategoryPress={handleCategoryPress}
+          style={styles.categoryGrid}
         />
       </ScrollView>
     </SafeAreaView>
@@ -74,9 +75,8 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingHorizontal: 20,
-    paddingTop: 24,
+    paddingTop: 20,
     paddingBottom: 32,
-    gap: 16,
   },
   title: {
     fontSize: 28,
@@ -84,15 +84,20 @@ const styles = StyleSheet.create({
     color: '#111111',
   },
   subtitle: {
-    marginTop: -8,
+    marginTop: 5,
+    marginBottom: 22,
     fontSize: 15,
     lineHeight: 22,
     color: '#666666',
   },
   sectionTitle: {
-    marginTop: 8,
+    marginTop: 28,
+    marginBottom: 14,
     fontSize: 18,
     fontWeight: '600',
     color: '#111111',
+  },
+  categoryGrid: {
+    marginTop: 20,
   },
 });

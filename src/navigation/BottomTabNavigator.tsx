@@ -2,13 +2,14 @@ import React from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { House, BookOpen, Bookmark, Settings } from 'lucide-react-native';
-
+import { Pressable } from 'react-native';
 import type { RootTabParamList } from './navigation.types';
 
 import HomeScreen from '../screens/HomeScreen';
 import LearnScreen from '../screens/LearnScreen';
 import SavedScreen from '../screens/SavedScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import { COLORS } from '../theme/colors';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
@@ -19,16 +20,25 @@ export default function BottomTabNavigator() {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
+        tabBarButton: props => (
+          <Pressable
+            {...props}
+            android_ripple={{
+              color: COLORS.primaryLight,
+              borderless: false,
+            }}
+          />
+        ),
         headerShown: false,
 
-        tabBarActiveTintColor: '#111111',
-        tabBarInactiveTintColor: '#888888',
+        tabBarActiveTintColor: COLORS.primaryDark,
+        tabBarInactiveTintColor: COLORS.textMuted,
 
         tabBarHideOnKeyboard: true,
 
         tabBarStyle: {
-          backgroundColor: '#FFFFFF',
-          borderTopColor: '#E5E5E5',
+          backgroundColor: COLORS.surface,
+          borderTopColor: COLORS.border,
           borderTopWidth: 1,
           elevation: 0,
 
@@ -43,7 +53,7 @@ export default function BottomTabNavigator() {
 
         tabBarLabelStyle: {
           fontSize: 11,
-          fontWeight: '500',
+          fontWeight: '600',
           marginTop: 3,
         },
       }}

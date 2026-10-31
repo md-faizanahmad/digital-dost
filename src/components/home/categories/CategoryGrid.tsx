@@ -1,5 +1,12 @@
 import React, { useMemo } from 'react';
-import { View, StyleSheet } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  StyleProp,
+  ViewStyle,
+  useWindowDimensions,
+} from 'react-native';
+
 import { CategoryGroup, GuideCategory } from '../../../types/guide';
 import CategoryCard from './CategoryCard';
 
@@ -9,13 +16,19 @@ interface CategoryGridProps {
   categories: GuideCategory[];
   selectedFilter: FilterValue;
   onCategoryPress: (categoryId: string) => void;
+  style?: StyleProp<ViewStyle>;
 }
 
 export default function CategoryGrid({
   categories,
   selectedFilter,
   onCategoryPress,
+  style,
 }: CategoryGridProps) {
+  const { width: screenWidth } = useWindowDimensions();
+
+  const cardWidth = (screenWidth - 40 - 12) / 2;
+
   const filteredCategories = useMemo(
     () =>
       [...categories]
@@ -28,9 +41,9 @@ export default function CategoryGrid({
   );
 
   return (
-    <View style={styles.grid}>
+    <View style={[styles.grid, style]}>
       {filteredCategories.map(category => (
-        <View key={category.id} style={styles.cardWrapper}>
+        <View key={category.id} style={{ width: cardWidth }}>
           <CategoryCard
             category={category}
             onPress={() => onCategoryPress(category.id)}
@@ -45,9 +58,7 @@ const styles = StyleSheet.create({
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 12,
-  },
-  cardWrapper: {
-    width: '48%',
+    columnGap: 12,
+    rowGap: 16,
   },
 });

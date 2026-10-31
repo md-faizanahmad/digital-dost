@@ -14,6 +14,8 @@ import type { RootTabParamList } from '../navigation/navigation.types';
 import type { RootStackParamList } from '../navigation/rootStack.types';
 import type { GuideCategory } from '../types/guide';
 
+import { COLORS } from '../theme/colors';
+
 type HomeNavigation = CompositeNavigationProp<
   BottomTabNavigationProp<RootTabParamList, 'Home'>,
   NativeStackNavigationProp<RootStackParamList>
@@ -51,9 +53,11 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: COLORS.background,
   },
   content: {
     flex: 1,
     gap: 20,
+    backgroundColor: COLORS.background,
   },
 });

@@ -5,7 +5,6 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RouteProp } from '@react-navigation/native';
 import { ArrowLeft } from 'lucide-react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
 import type { RootStackParamList } from '../navigation/rootStack.types';
 import { GUIDES } from '../data/guides';
 import TranslateButton, { type GuideLanguage } from '../shared/TranslateButton';
@@ -15,6 +14,7 @@ import GuideDetails from '../components/screens/guides/GuideDetails';
 
 import { guideContentStyles as styles } from '../styles/guideContent.styles';
 import EmptyState from '../shared/EmptyState';
+import SaveGuideButton from './guides/SaveGuideButton';
 
 type Navigation = NativeStackNavigationProp<RootStackParamList>;
 type GuideRoute = RouteProp<RootStackParamList, 'GuideContent'>;
@@ -58,7 +58,7 @@ export default function GuideContentScreen() {
     </View>
   );
 
-  const renderTranslateButton = () => (
+  const renderGuideActions = () => (
     <View style={styles.translateContainer}>
       <TranslateButton
         language={language}
@@ -66,6 +66,8 @@ export default function GuideContentScreen() {
           setLanguage(current => (current === 'en' ? 'hinglish' : 'en'))
         }
       />
+
+      {!isCategoryMode && guide && <SaveGuideButton guideId={guide.id} />}
     </View>
   );
 
@@ -81,7 +83,7 @@ export default function GuideContentScreen() {
           contentContainerStyle={styles.content}
           showsVerticalScrollIndicator={false}
         >
-          {renderTranslateButton()}
+          {renderGuideActions()}
 
           <CategoryGuidesContent guides={categoryGuides} language={language} />
         </ScrollView>
@@ -114,7 +116,7 @@ export default function GuideContentScreen() {
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
       >
-        {renderTranslateButton()}
+        {renderGuideActions()}
 
         <GuideDetails guide={guide} language={language} />
       </ScrollView>

@@ -1,6 +1,16 @@
 import type { Guide } from '../../types/guide';
 
+/**
+ * Digital Dost — AI Tools Guides
+ *
+ * Guides for using AI tools, writing prompts, practical prompt examples,
+ * and generating images with AI.
+ * Supports English and Hinglish (Roman script).
+ */
 export const AI_TOOLS_GUIDES: Guide[] = [
+  // ─────────────────────────────────────────────
+  // HOW TO USE AI TOOLS
+  // ─────────────────────────────────────────────
   {
     id: 'how-to-use-ai-tools',
     slug: 'how-to-use-ai-tools',
@@ -137,6 +147,9 @@ export const AI_TOOLS_GUIDES: Guide[] = [
     updatedAt: '2026-10-29T00:00:00.000Z',
   },
 
+  // ─────────────────────────────────────────────
+  // AI PROMPTS
+  // ─────────────────────────────────────────────
   {
     id: 'write-better-ai-prompts',
     slug: 'write-better-ai-prompts',
@@ -146,7 +159,7 @@ export const AI_TOOLS_GUIDES: Guide[] = [
       'Learn a simple prompt-writing pattern to get clearer, more useful results from AI tools.',
     descriptionHinglish:
       'AI se clear aur useful answers paane ke liye achhe prompts likhne ka simple tareeka seekhein.',
-    categoryId: 'ai-tools',
+    categoryId: 'ai-prompts',
     difficulty: 'beginner',
     estimatedMinutes: 6,
     coverImage: {
@@ -272,6 +285,9 @@ export const AI_TOOLS_GUIDES: Guide[] = [
     updatedAt: '2026-10-29T00:00:00.000Z',
   },
 
+  // ─────────────────────────────────────────────
+  // AI PROMPT EXAMPLES
+  // ─────────────────────────────────────────────
   {
     id: 'practical-ai-prompt-examples',
     slug: 'practical-ai-prompt-examples',
@@ -281,7 +297,7 @@ export const AI_TOOLS_GUIDES: Guide[] = [
       'Explore ready-to-use prompts for learning, writing, small businesses, resumes, and coding.',
     descriptionHinglish:
       'Learning, writing, small business, resume aur coding ke liye ready-to-use AI prompts dekhein.',
-    categoryId: 'ai-tools',
+    categoryId: 'ai-prompt-examples',
     difficulty: 'beginner',
     estimatedMinutes: 6,
     coverImage: {
@@ -407,6 +423,9 @@ export const AI_TOOLS_GUIDES: Guide[] = [
     updatedAt: '2026-10-29T00:00:00.000Z',
   },
 
+  // ─────────────────────────────────────────────
+  // AI IMAGE GENERATION
+  // ─────────────────────────────────────────────
   {
     id: 'generate-images-with-ai',
     slug: 'generate-images-with-ai',
@@ -416,7 +435,7 @@ export const AI_TOOLS_GUIDES: Guide[] = [
       'Learn how to describe an image, write an image-generation prompt, review results, and improve the final image.',
     descriptionHinglish:
       'AI se image banane ke liye sahi description likhna, prompt banana, result check karna aur image improve karna seekhein.',
-    categoryId: 'ai-tools',
+    categoryId: 'ai-image-generation',
     difficulty: 'beginner',
     estimatedMinutes: 7,
     coverImage: {

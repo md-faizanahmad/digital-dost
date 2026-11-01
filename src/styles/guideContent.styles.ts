@@ -30,7 +30,10 @@ export const guideContentStyles = StyleSheet.create({
     paddingBottom: 32,
   },
   translateContainer: {
-    alignItems: 'flex-end',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    gap: 12,
     marginBottom: 16,
   },
 

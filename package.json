@@ -18,6 +18,8 @@
     "nativewind": "^4.2.7",
     "react": "19.3.0",
     "react-native": "0.88.0",
+    "react-native-nitro-modules": "^0.37.1",
+    "react-native-nitro-sqlite": "^10.2.0",
     "react-native-reanimated": "^4.7.1",
     "react-native-safe-area-context": "^5.11.0",
     "react-native-screens": "^4.30.0",

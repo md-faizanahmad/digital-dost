@@ -62,6 +62,20 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
     group: 'social-media',
   },
   {
+    id: 'ai-tools',
+    name: 'AI Tools',
+    description:
+      'Explore popular AI tools and discover which tools are best for different tasks and types of work.',
+    image: {
+      key: 'ai-tools-cover',
+      type: 'cover',
+      alt: 'AI tools learning category',
+    },
+    isFeatured: true,
+    order: 5,
+    group: 'ai-tools',
+  },
+  {
     id: 'ai-prompts',
     name: 'AI Prompts',
     description: 'Learn to write clear and effective prompts for AI tools.',
@@ -110,7 +124,7 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
       alt: 'Digital skills learning category',
     },
     isFeatured: true,
-    order: 6,
+    order: 9,
     group: 'digital-skills',
   },
   {
@@ -123,7 +137,7 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
       alt: 'Online safety learning category',
     },
     isFeatured: true,
-    order: 7,
+    order: 10,
     group: 'online-safety',
   },
   // {

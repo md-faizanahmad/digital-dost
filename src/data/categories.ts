@@ -80,7 +80,7 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
     name: 'AI Prompts',
     description: 'Learn to write clear and effective prompts for AI tools.',
     image: {
-      key: 'ai-prompt-cover',
+      key: 'ai-prompts-cover',
       type: 'cover',
       alt: 'AI prompts learning category',
     },
@@ -93,7 +93,7 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
     name: 'AI Prompt Examples',
     description: 'Explore practical prompts for everyday tasks and work.',
     image: {
-      key: 'ai-prompt-example-cover',
+      key: 'ai-prompt-examples-cover',
       type: 'cover',
       alt: 'AI prompt examples learning category',
     },

@@ -1,6 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, StyleSheet, Text } from 'react-native';
+import { Pressable, StyleSheet, ActivityIndicator } from 'react-native';
 import { Bookmark, BookmarkCheck } from 'lucide-react-native';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSequence,
+  withSpring,
+} from 'react-native-reanimated';
+
 import {
   isGuideSaved,
   removeSavedGuide,
@@ -11,47 +18,56 @@ type SaveGuideButtonProps = {
   guideId: string;
 };
 
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+
 export default function SaveGuideButton({ guideId }: SaveGuideButtonProps) {
   const [isSaved, setIsSaved] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [isInitializing, setIsInitializing] = useState<boolean>(true);
+  const [isUpdating, setIsUpdating] = useState<boolean>(false);
+
+  const scale = useSharedValue(1);
 
   /**
-   * Retrieves the current bookmark status from SQLite.
+   * Provides a subtle scale animation when bookmark state changes.
+   */
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: scale.value }],
+  }));
+
+  /**
+   * Checks the existing bookmark status from SQLite.
    */
   const checkSavedStatus = useCallback(async (): Promise<void> => {
-    setIsLoading(true);
-    setError(null);
+    setIsInitializing(true);
 
     try {
       const savedStatus = await isGuideSaved(guideId);
       setIsSaved(savedStatus);
     } catch (error: unknown) {
       console.error('Failed to check saved guide status:', error);
-      setError('Unable to load saved status.');
     } finally {
-      setIsLoading(false);
+      setIsInitializing(false);
     }
   }, [guideId]);
 
   /**
-   * Loads the saved status whenever the guide ID changes.
+   * Loads the bookmark status when the component mounts
+   * or when the guide ID changes.
    */
   useEffect(() => {
     void checkSavedStatus();
   }, [checkSavedStatus]);
 
   /**
-   * Toggles the bookmark status and updates the UI
-   * only after the SQLite operation succeeds.
+   * Saves or removes a guide without replacing the bookmark icon
+   * with a loading indicator during database operations.
    */
   const handleToggleSave = async (): Promise<void> => {
-    if (isLoading) {
+    if (isUpdating || isInitializing) {
       return;
     }
 
-    setIsLoading(true);
-    setError(null);
+    setIsUpdating(true);
 
     try {
       if (isSaved) {
@@ -61,64 +77,64 @@ export default function SaveGuideButton({ guideId }: SaveGuideButtonProps) {
         await saveGuide(guideId);
         setIsSaved(true);
       }
+
+      // Animate the bookmark after a successful database operation.
+      scale.value = withSequence(
+        withSpring(1.2, { damping: 5, stiffness: 250 }),
+        withSpring(1, { damping: 8, stiffness: 180 }),
+      );
     } catch (error: unknown) {
       console.error('Failed to update saved guide:', error);
-      setError('Unable to update saved guide.');
     } finally {
-      setIsLoading(false);
+      setIsUpdating(false);
     }
   };
 
-  if (isLoading) {
+  /**
+   * Prevents interaction until the initial saved status is known.
+   */
+  if (isInitializing) {
     return (
       <ActivityIndicator
         size="small"
         color="#16A34A"
-        accessibilityLabel="Loading saved status"
+        accessibilityLabel="Loading bookmark status"
       />
     );
   }
 
   return (
-    <Pressable
+    <AnimatedPressable
       onPress={handleToggleSave}
+      disabled={isUpdating}
       accessibilityRole="button"
       accessibilityLabel={isSaved ? 'Remove saved guide' : 'Save guide'}
-      accessibilityState={{ selected: isSaved }}
-      disabled={isLoading}
-      style={({ pressed }) => [styles.button, pressed && styles.pressed]}
+      accessibilityState={{
+        selected: isSaved,
+        disabled: isUpdating,
+      }}
+      style={[styles.button, animatedStyle]}
     >
       {isSaved ? (
-        <BookmarkCheck size={20} color="#16A34A" />
+        <BookmarkCheck
+          size={22}
+          color="#16A34A"
+          fill="#16A34A"
+          strokeWidth={2}
+        />
       ) : (
-        <Bookmark size={20} color="#171717" />
+        <Bookmark size={22} color="#171717" strokeWidth={2} />
       )}
-
-      <Text style={[styles.label, isSaved && styles.savedLabel]}>
-        {isSaved ? 'Saved' : 'Save'}
-      </Text>
-    </Pressable>
+    </AnimatedPressable>
   );
 }
 
 const styles = StyleSheet.create({
   button: {
-    flexDirection: 'row',
+    width: 40,
+    height: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 6,
-    paddingVertical: 8,
-    paddingHorizontal: 10,
-  },
-  pressed: {
-    opacity: 0.65,
-  },
-  label: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: '#171717',
-  },
-  savedLabel: {
-    color: '#16A34A',
+    borderRadius: 20,
   },
 });

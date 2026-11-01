@@ -67,7 +67,11 @@ export default function GuideContentScreen() {
         }
       />
 
-      {!isCategoryMode && guide && <SaveGuideButton guideId={guide.id} />}
+      {isCategoryMode
+        ? categoryGuides.map(guide => (
+            <SaveGuideButton key={guide.id} guideId={guide.id} />
+          ))
+        : guide && <SaveGuideButton guideId={guide.id} />}
     </View>
   );
 

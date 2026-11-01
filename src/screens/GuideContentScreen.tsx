@@ -5,6 +5,7 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RouteProp } from '@react-navigation/native';
 import { ArrowLeft } from 'lucide-react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
 import type { RootStackParamList } from '../navigation/rootStack.types';
 import { GUIDES } from '../data/guides';
 import TranslateButton, { type GuideLanguage } from '../shared/TranslateButton';
@@ -42,88 +43,66 @@ export default function GuideContentScreen() {
 
   const handleBack = () => navigation.goBack();
 
-  const renderHeader = (title: string) => (
-    <View style={styles.header}>
-      <Pressable
-        onPress={handleBack}
-        accessibilityRole="button"
-        accessibilityLabel="Go back"
-        hitSlop={10}
-        style={styles.backButton}
-      >
-        <ArrowLeft size={22} color="#171717" />
-      </Pressable>
+  const handleLanguageToggle = () => {
+    setLanguage(current => (current === 'en' ? 'hinglish' : 'en'));
+  };
 
-      <Text style={styles.headerTitle}>{title}</Text>
-    </View>
-  );
+  const headerTitle = isCategoryMode
+    ? categoryName ?? 'Category'
+    : 'Learning Guide';
 
-  const renderGuideActions = () => (
-    <View style={styles.translateContainer}>
-      <TranslateButton
-        language={language}
-        onToggle={() =>
-          setLanguage(current => (current === 'en' ? 'hinglish' : 'en'))
-        }
-      />
+  return (
+    <SafeAreaView style={styles.screen} edges={['top']}>
+      <StatusBar barStyle="dark-content" />
 
-      {isCategoryMode
-        ? categoryGuides.map(guide => (
-            <SaveGuideButton key={guide.id} guideId={guide.id} />
-          ))
-        : guide && <SaveGuideButton guideId={guide.id} />}
-    </View>
-  );
+      <View style={styles.header}>
+        <Pressable
+          onPress={handleBack}
+          accessibilityRole="button"
+          accessibilityLabel="Go back"
+          hitSlop={10}
+          style={styles.backButton}
+        >
+          <ArrowLeft size={22} color="#171717" />
+        </Pressable>
 
-  if (isCategoryMode) {
-    return (
-      <SafeAreaView style={styles.screen} edges={['top']}>
-        <StatusBar barStyle="dark-content" />
+        <Text style={styles.headerTitle}>{headerTitle}</Text>
+      </View>
 
-        {renderHeader(categoryName ?? 'Category')}
-
+      {!isCategoryMode && !guide ? (
+        <EmptyState
+          title="Guide not found"
+          description="This guide may have been removed or is no longer available."
+        />
+      ) : (
         <ScrollView
           style={styles.scrollView}
           contentContainerStyle={styles.content}
           showsVerticalScrollIndicator={false}
         >
-          {renderGuideActions()}
+          <View style={styles.translateContainer}>
+            <TranslateButton
+              language={language}
+              onToggle={handleLanguageToggle}
+            />
 
-          <CategoryGuidesContent guides={categoryGuides} language={language} />
+            {isCategoryMode
+              ? categoryGuides.map(guide => (
+                  <SaveGuideButton key={guide.id} guideId={guide.id} />
+                ))
+              : guide && <SaveGuideButton guideId={guide.id} />}
+          </View>
+
+          {isCategoryMode ? (
+            <CategoryGuidesContent
+              guides={categoryGuides}
+              language={language}
+            />
+          ) : (
+            guide && <GuideDetails guide={guide} language={language} />
+          )}
         </ScrollView>
-      </SafeAreaView>
-    );
-  }
-
-  if (!guide) {
-    return (
-      <SafeAreaView style={styles.screen} edges={['top']}>
-        <StatusBar barStyle="dark-content" />
-
-        {renderHeader('Learning Guide')}
-
-        <EmptyState
-          title="Guide not found"
-          description="This guide may have been removed or is no longer available."
-        />
-      </SafeAreaView>
-    );
-  }
-  return (
-    <SafeAreaView style={styles.screen} edges={['top']}>
-      <StatusBar barStyle="dark-content" />
-
-      {renderHeader('Learning Guide')}
-
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.content}
-        showsVerticalScrollIndicator={false}
-      >
-        {renderGuideActions()}
-
-        <GuideDetails guide={guide} language={language} />
-      </ScrollView>
+      )}
     </SafeAreaView>
   );
 }

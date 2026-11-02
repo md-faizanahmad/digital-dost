@@ -565,4 +565,171 @@ export const AI_TOOLS_GUIDES: Guide[] = [
     createdAt: '2026-10-29T00:00:00.000Z',
     updatedAt: '2026-10-29T00:00:00.000Z',
   },
+
+  // ─────────────────────────────────────────────
+  // AI IMAGE GENERATION
+
+  {
+    id: 'getting-started-with-ai-tools',
+    slug: 'getting-started-with-ai-tools',
+    title: 'Getting Started with AI Tools',
+    titleHinglish: 'AI Tools Ka Use Karna Seekhein',
+    description:
+      'Learn how to use AI tools effectively for writing, research, learning, brainstorming, and everyday tasks. Understand how to write prompts and improve AI-generated results.',
+    descriptionHinglish:
+      'Writing, research, learning, naye ideas aur daily tasks ke liye AI tools ka sahi use karna seekhein. Prompts likhna aur AI se better results lena samjhein.',
+    categoryId: 'ai-tools',
+    difficulty: 'beginner',
+    estimatedMinutes: 10,
+    coverImage: {
+      key: 'getting-started-ai-cover',
+      type: 'cover',
+      alt: 'Beginner learning to use AI tools on a laptop and smartphone',
+    },
+    searchKeywords: [
+      'AI tools',
+      'artificial intelligence',
+      'how to use AI',
+      'AI for beginners',
+      'AI prompts',
+      'AI learning',
+      'ChatGPT',
+      'AI productivity',
+      'AI tools kaise use karein',
+      'AI seekhna',
+      'AI prompts kaise likhein',
+    ],
+    whatyouneed: [
+      'A smartphone or computer',
+      'An internet connection',
+      'Basic knowledge of using apps or websites',
+    ],
+    whatyouneedHinglish: [
+      'Smartphone ya computer',
+      'Internet connection',
+      'Apps ya websites use karne ki basic knowledge',
+    ],
+    steps: [
+      {
+        id: 'ai-getting-started-step-1',
+        title: 'Understand What AI Tools Can Do',
+        titleHinglish: 'Samjhein AI Tools Kya Kar Sakte Hain',
+        description:
+          'AI tools can help you write content, summarize information, generate ideas, explain difficult topics, create images, and assist with everyday tasks. Different tools are designed for different purposes.',
+        descriptionHinglish:
+          'AI tools content likhne, information summarize karne, ideas generate karne, difficult topics samjhane, images banane aur daily tasks mein help kar sakte hain. Alag-alag tools alag kaam ke liye design kiye gaye hain.',
+        image: {
+          key: 'ai-understand-tools-step',
+          type: 'step',
+          alt: 'Different AI tools helping with writing, research and creativity',
+        },
+      },
+      {
+        id: 'ai-getting-started-step-2',
+        title: 'Choose the Right AI Tool',
+        titleHinglish: 'Sahi AI Tool Choose Karein',
+        description:
+          'Identify what you want to accomplish first. Choose a suitable AI tool for writing, research, image creation, coding, or productivity. Check its features, pricing, and limitations before using it.',
+        descriptionHinglish:
+          'Sabse pehle decide karein ki aapko kya kaam karna hai. Writing, research, image creation, coding ya productivity ke liye suitable AI tool choose karein. Use karne se pehle features, pricing aur limitations check karein.',
+        image: {
+          key: 'ai-choose-tool-step',
+          type: 'step',
+          alt: 'Comparing different AI tools for different tasks',
+        },
+        tip: 'You do not need multiple AI subscriptions to get started. Begin with a suitable free option.',
+        tipHinglish:
+          'Shuru karne ke liye multiple AI subscriptions ki zaroorat nahi hai. Ek suitable free option se start karein.',
+      },
+      {
+        id: 'ai-getting-started-step-3',
+        title: 'Create an Account and Explore',
+        titleHinglish: 'Account Banayein Aur Explore Karein',
+        description:
+          'Visit the official website or app of your selected AI tool. Create an account if required, explore its main features, and understand where to enter your instructions.',
+        descriptionHinglish:
+          'Apne selected AI tool ki official website ya app open karein. Zaroorat ho toh account banayein, main features explore karein aur samjhein ki instructions kahan enter karni hain.',
+        image: {
+          key: 'ai-create-account-step',
+          type: 'step',
+          alt: 'Opening an AI tool and exploring its interface',
+        },
+        tip: 'Always use the official website or app to avoid fake AI services.',
+        tipHinglish:
+          'Fake AI services se bachne ke liye hamesha official website ya app use karein.',
+      },
+      {
+        id: 'ai-getting-started-step-4',
+        title: 'Write Your First Prompt',
+        titleHinglish: 'Apna Pehla Prompt Likhein',
+        description:
+          'A prompt is an instruction or question you give to an AI tool. Clearly explain what you need. For example, instead of writing "Write something", try "Write a short professional introduction for a small clothing business."',
+        descriptionHinglish:
+          'Prompt ek instruction ya question hota hai jo aap AI tool ko dete hain. Clearly batayein ki aapko kya chahiye. Jaise "Write something" ke bajaye likhein "Ek small clothing business ke liye short professional introduction likho."',
+        image: {
+          key: 'ai-write-prompt-step',
+          type: 'step',
+          alt: 'Writing a clear instruction in an AI chat interface',
+        },
+        tip: 'Be specific about your task, audience, language, and expected result.',
+        tipHinglish:
+          'Apne task, audience, language aur expected result ke baare mein clearly batayein.',
+      },
+      {
+        id: 'ai-getting-started-step-5',
+        title: 'Give More Context and Instructions',
+        titleHinglish: 'AI Ko Detailed Instructions Dein',
+        description:
+          'Help the AI understand your requirements by adding relevant details, examples, preferred tone, format, and length. Better context can lead to more useful responses.',
+        descriptionHinglish:
+          'AI ko apni requirements samjhane ke liye relevant details, examples, preferred tone, format aur content ki length batayein. Better context se zyada useful responses mil sakte hain.',
+        image: {
+          key: 'ai-add-context-step',
+          type: 'step',
+          alt: 'Adding context and specific instructions to an AI prompt',
+        },
+      },
+      {
+        id: 'ai-getting-started-step-6',
+        title: 'Review and Improve the Results',
+        titleHinglish: 'Results Check Aur Improve Karein',
+        description:
+          'Read the AI-generated response carefully. If something is unclear or incorrect, ask follow-up questions and provide corrections. You can request shorter, clearer, or more detailed results.',
+        descriptionHinglish:
+          'AI ke response ko dhyan se padhein. Agar kuch unclear ya incorrect hai, toh follow-up questions poochein aur corrections dein. Aap shorter, clearer ya more detailed results maang sakte hain.',
+        image: {
+          key: 'ai-improve-results-step',
+          type: 'step',
+          alt: 'Reviewing and refining AI-generated responses',
+        },
+        tip: 'You can continue the same conversation to improve the result instead of starting again.',
+        tipHinglish:
+          'Result improve karne ke liye baar-baar nayi chat start karne ke bajaye same conversation continue kar sakte hain.',
+      },
+      {
+        id: 'ai-getting-started-step-7',
+        title: 'Verify Information Before Using It',
+        titleHinglish: 'Information Use Karne Se Pehle Verify Karein',
+        description:
+          'AI tools can sometimes generate incorrect or outdated information. Verify important facts, figures, links, and recommendations using reliable sources before sharing or acting on them.',
+        descriptionHinglish:
+          'AI tools kabhi-kabhi incorrect ya outdated information de sakte hain. Important facts, numbers, links aur recommendations ko share ya use karne se pehle reliable sources se verify karein.',
+        image: {
+          key: 'ai-verify-information-step',
+          type: 'step',
+          alt: 'Checking AI-generated information against reliable sources',
+        },
+        warning:
+          'Avoid entering passwords, financial details, or sensitive personal information into AI tools.',
+        warningHinglish:
+          'AI tools mein passwords, financial details ya sensitive personal information enter na karein.',
+      },
+    ],
+    relatedGuideIds: [],
+    sources: [],
+    isFeatured: true,
+    status: 'published',
+    createdAt: '2026-11-03T00:00:00.000Z',
+    updatedAt: '2026-11-03T00:00:00.000Z',
+  },
 ];

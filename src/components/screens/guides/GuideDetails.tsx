@@ -13,13 +13,13 @@ type GuideDetailsProps = {
 export default function GuideDetails({ guide, language }: GuideDetailsProps) {
   const isHinglish = language === 'hinglish';
 
-  const prerequisites = isHinglish
-    ? guide.prerequisitesHinglish ?? guide.prerequisites
-    : guide.prerequisites;
+  const whatyouneed = isHinglish
+    ? guide.whatyouneedHinglish ?? guide.whatyouneed
+    : guide.whatyouneed;
 
   return (
     <View>
-      <Text style={guideContentStyles.category}>{guide.categoryId}</Text>
+      {/* <Text style={guideContentStyles.category}>{guide.categoryId}</Text> */}
 
       <Text style={guideContentStyles.title}>
         {isHinglish ? guide.titleHinglish || guide.title : guide.title}
@@ -31,24 +31,24 @@ export default function GuideDetails({ guide, language }: GuideDetailsProps) {
           : guide.description}
       </Text>
 
-      {prerequisites?.length ? (
-        <View style={guideContentStyles.prerequisites}>
-          <Text style={guideContentStyles.sectionTitle}>Prerequisites</Text>
+      {whatyouneed?.length ? (
+        <View style={guideContentStyles.whatyouneed}>
+          <Text style={guideContentStyles.sectionTitle}>What You Need</Text>
 
-          {prerequisites.map((prerequisite, index) => (
+          {whatyouneed.map((whatyouneed, index) => (
             <Text key={`${guide.id}-prerequisite-${index}`}>
               {'• '}
-              {prerequisite}
+              {whatyouneed}
             </Text>
           ))}
         </View>
       ) : null}
 
-      <View style={guideContentStyles.meta}>
+      {/* <View style={guideContentStyles.meta}>
         <Text>
           {guide.difficulty} · {guide.estimatedMinutes} min
         </Text>
-      </View>
+      </View> */}
 
       <View style={guideContentStyles.divider} />
 

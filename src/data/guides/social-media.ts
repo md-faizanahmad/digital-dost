@@ -55,79 +55,119 @@ export const SOCIAL_MEDIA_GUIDES: Guide[] = [
         title: 'Open Your Instagram Profile',
         titleHinglish: 'Apni Instagram Profile Kholein',
         description:
-          'Open Instagram and log in to your account. Tap your profile picture at the bottom-right corner to open your profile.',
+          'Open Instagram and sign in to your account. Tap your profile picture at the bottom-right corner to open your profile.',
         descriptionHinglish:
-          'Instagram kholein aur apne account mein login karein. Apni profile kholne ke liye neeche right side mein profile picture par tap karein.',
+          'Instagram kholein aur apne account mein sign in karein. Apni profile kholne ke liye bottom-right corner mein profile picture par tap karein.',
         image: {
           key: 'instagram-profile-step',
           type: 'step',
           alt: 'Instagram profile screen',
         },
-        tip: 'Use an account you want to manage professionally.',
+        tip: 'Use the account you want to manage for your business or creator activities.',
         tipHinglish:
-          'Wahi account use karein jise aap professionally manage karna chahte hain.',
+          'Wahi account use karein jise aap apne business ya creator activities ke liye manage karna chahte hain.',
       },
       {
         id: 'instagram-step-2',
-        title: 'Open Account Settings',
-        titleHinglish: 'Account Settings Kholein',
+        title: 'Open Settings and Account Tools',
+        titleHinglish: 'Settings Aur Account Tools Kholein',
         description:
-          'Tap the menu icon in the top-right corner of your profile. Look for the account type and professional tools options. Menu names may vary by app version.',
+          'Tap the three-line menu in the top-right corner of your profile. Open Settings and activity and look for Account type and tools.',
         descriptionHinglish:
-          'Profile ke top-right corner mein menu icon par tap karein. Account type aur professional tools se related options dekhein. App version ke hisaab se menu ke naam alag ho sakte hain.',
+          'Apni profile ke top-right corner mein three-line menu par tap karein. Settings and activity open karein aur Account type and tools option dhoondhein.',
         image: {
           key: 'instagram-settings-step',
           type: 'step',
-          alt: 'Instagram settings menu',
+          alt: 'Instagram settings and account tools menu',
         },
+        tip: 'Menu names and locations may change with Instagram updates.',
+        tipHinglish:
+          'Instagram updates ke saath menu ke naam aur location change ho sakte hain.',
       },
       {
         id: 'instagram-step-3',
         title: 'Switch to a Professional Account',
         titleHinglish: 'Professional Account Mein Switch Karein',
         description:
-          'Find the option to switch to a professional account. Follow the on-screen instructions to begin the setup.',
+          'Select Switch to professional account. Read the introduction and follow the on-screen instructions to start setting up your professional profile.',
         descriptionHinglish:
-          'Professional account mein switch karne ka option dhoondhein. Setup shuru karne ke liye screen par diye gaye instructions follow karein.',
+          'Switch to professional account option select karein. Introduction padhein aur apni professional profile setup karne ke liye screen par diye gaye instructions follow karein.',
         image: {
           key: 'instagram-professional-step',
           type: 'step',
-          alt: 'Instagram professional account setup',
+          alt: 'Instagram switch to professional account screen',
         },
-        tip: 'Instagram may offer Business and Creator account types.',
+        tip: 'Professional accounts provide access to insights, professional tools, and additional account features.',
         tipHinglish:
-          'Instagram aapko Business aur Creator account types ke options de sakta hai.',
+          'Professional account se aapko insights, professional tools aur additional account features milte hain.',
       },
       {
         id: 'instagram-step-4',
-        title: 'Choose Your Category',
-        titleHinglish: 'Apni Category Chunein',
+        title: 'Choose Business or Creator Account',
+        titleHinglish: 'Business Ya Creator Account Chunein',
         description:
-          'Choose the category that best describes your business or creator activity. Review the available contact and display options.',
+          'Choose Business if you manage a shop, company, or service. Choose Creator if you create content as an influencer, artist, or public personality.',
         descriptionHinglish:
-          'Apne business ya creator activity ke liye sahi category chunein. Contact details aur profile par dikhne wale options check karein.',
+          'Agar aap shop, company ya service manage karte hain toh Business choose karein. Agar aap influencer, artist ya content creator hain toh Creator choose karein.',
         image: {
-          key: 'instagram-category-step',
+          key: 'instagram-account-type-step',
           type: 'step',
-          alt: 'Instagram professional category selection',
+          alt: 'Instagram Business and Creator account selection',
         },
+        tip: 'Choose the account type that best matches how you plan to use Instagram.',
+        tipHinglish:
+          'Apne Instagram use karne ke purpose ke according sahi account type choose karein.',
       },
       {
         id: 'instagram-step-5',
-        title: 'Complete and Review Your Profile',
-        titleHinglish: 'Profile Complete Karke Check Karein',
+        title: 'Select Your Business or Creator Category',
+        titleHinglish: 'Apni Business Ya Creator Category Chunein',
         description:
-          'Add a clear profile photo, a useful bio, and relevant contact details. Review your profile to make sure the information is correct.',
+          'Choose a category that describes your work, such as Clothing Store, Restaurant, Digital Creator, or Photographer. Decide whether to display the category on your profile.',
         descriptionHinglish:
-          'Achhi profile photo, useful bio aur zaroori contact details add karein. Apni profile check karein taaki saari information sahi ho.',
+          'Apne kaam se related category choose karein, jaise Clothing Store, Restaurant, Digital Creator ya Photographer. Decide karein ki category ko profile par dikhana hai ya nahi.',
+        image: {
+          key: 'instagram-category-step',
+          type: 'step',
+          alt: 'Instagram professional account category selection',
+        },
+        tip: 'Select the most relevant category so visitors can understand what you do.',
+        tipHinglish:
+          'Sabse relevant category select karein, taaki visitors samajh sakein ki aap kya kaam karte hain.',
+      },
+      {
+        id: 'instagram-step-6',
+        title: 'Add Contact Information',
+        titleHinglish: 'Contact Information Add Karein',
+        description:
+          'Add your business email, phone number, or business address if needed. Choose which contact details should appear publicly on your profile.',
+        descriptionHinglish:
+          'Zarurat ke according apna business email, phone number ya business address add karein. Decide karein ki kaunsi contact details aapki profile par public dikhni chahiye.',
+        image: {
+          key: 'instagram-contact-step',
+          type: 'step',
+          alt: 'Instagram professional account contact information setup',
+        },
+        tip: 'Use business contact details instead of personal information whenever possible.',
+        tipHinglish:
+          'Jahan possible ho, personal information ki jagah business contact details use karein.',
+      },
+      {
+        id: 'instagram-step-7',
+        title: 'Complete and Review Your Professional Profile',
+        titleHinglish: 'Professional Profile Complete Karke Check Karein',
+        description:
+          'Add a clear profile picture, write a useful bio, and review your category and contact details. Check your profile to make sure everything is correct. Your professional account is now ready to use.',
+        descriptionHinglish:
+          'Clear profile picture add karein, useful bio likhein aur apni category aur contact details check karein. Profile open karke confirm karein ki saari information sahi hai. Ab aapka professional account use karne ke liye ready hai.',
         image: {
           key: 'instagram-complete-profile-step',
           type: 'step',
-          alt: 'Completed Instagram professional profile',
+          alt: 'Completed Instagram professional account profile',
         },
-        tip: 'Only display contact information you are comfortable sharing publicly.',
+        tip: 'Professional accounts are public. Make sure you are comfortable sharing your profile content publicly.',
         tipHinglish:
-          'Sirf wahi contact information public karein jise share karne mein aap comfortable hain.',
+          'Professional accounts public hote hain. Confirm karein ki aap apni profile ka content public share karne mein comfortable hain.',
       },
     ],
     relatedGuideIds: [
@@ -202,7 +242,7 @@ export const SOCIAL_MEDIA_GUIDES: Guide[] = [
         image: {
           key: 'facebook-home-step',
           type: 'step',
-          alt: 'Facebook home screen',
+          alt: 'Facebook home screen on mobile and desktop',
         },
         tip: 'A Facebook Page is different from your personal profile.',
         tipHinglish: 'Facebook Page aapki personal profile se alag hota hai.',
@@ -212,62 +252,127 @@ export const SOCIAL_MEDIA_GUIDES: Guide[] = [
         title: 'Find the Pages Section',
         titleHinglish: 'Pages Section Dhoondhein',
         description:
-          'Open the menu and look for Pages. Select the option to create a new Page. The exact menu location may vary.',
+          'Open the Facebook menu and find Pages. Select the option to create a new Page. The menu location may vary depending on your device and app version.',
         descriptionHinglish:
-          'Menu kholein aur Pages option dhoondhein. Naya Page banane ka option select karein. Menu ki location app version ke hisaab se badal sakti hai.',
+          'Facebook menu kholein aur Pages option dhoondhein. Naya Page banane ka option select karein. Menu ki location device aur app version ke hisaab se alag ho sakti hai.',
         image: {
           key: 'facebook-pages-step',
           type: 'step',
-          alt: 'Facebook Pages menu',
+          alt: 'Facebook Pages section on mobile and desktop',
         },
       },
       {
         id: 'facebook-step-3',
-        title: 'Enter Your Page Details',
-        titleHinglish: 'Apne Page Ki Details Bharein',
+        title: 'Start Creating Your Page',
+        titleHinglish: 'Apna Page Banana Shuru Karein',
         description:
-          'Enter your business name, choose a suitable category, and write a short description explaining what your business offers.',
+          'Select Create New Page and begin the setup process. Facebook will guide you through the required details.',
         descriptionHinglish:
-          'Apne business ka naam likhein, sahi category chunein aur ek short description likhein jisme batayein ki aapka business kya service ya product deta hai.',
+          'Create New Page select karein aur setup process shuru karein. Facebook aapse zaroori details fill karne ko kahega.',
         image: {
-          key: 'facebook-page-details-step',
+          key: 'facebook-create-page-step',
           type: 'step',
-          alt: 'Facebook Page details form',
+          alt: 'Facebook create new Page option',
         },
-        tip: 'Use your actual business name so customers can recognize you.',
-        tipHinglish:
-          'Apne business ka asli naam use karein taaki customers aapko pehchaan sakein.',
       },
       {
         id: 'facebook-step-4',
-        title: 'Add Your Profile and Cover Photos',
-        titleHinglish: 'Profile Aur Cover Photo Lagayein',
+        title: 'Enter Your Page Details',
+        titleHinglish: 'Apne Page Ki Details Bharein',
         description:
-          'Upload a suitable profile picture and cover photo. A clear logo or business image can help people recognize your Page.',
+          'Enter your business or brand name, choose a relevant category, and write a short description explaining your products or services.',
         descriptionHinglish:
-          'Apni Page par suitable profile picture aur cover photo upload karein. Clear logo ya business ki photo se log aapke Page ko aasani se pehchaan sakte hain.',
+          'Apne business ya brand ka naam likhein, relevant category chunein aur ek short description likhein jo aapke products ya services ke baare mein bataye.',
         image: {
-          key: 'facebook-page-photos-step',
+          key: 'facebook-page-details-step',
           type: 'step',
-          alt: 'Facebook Page profile and cover photos',
+          alt: 'Facebook Page name, category and description form',
         },
+        tip: 'Use your actual business name and a category that accurately describes your work.',
+        tipHinglish:
+          'Apne business ka asli naam aur apne kaam se match karti category use karein.',
       },
       {
         id: 'facebook-step-5',
-        title: 'Add Contact Details and Publish',
-        titleHinglish: 'Contact Details Add Karke Publish Karein',
+        title: 'Add Contact Information',
+        titleHinglish: 'Contact Information Add Karein',
         description:
-          'Add relevant contact information, business hours, location, or website if applicable. Review the details and publish your Page.',
+          'Add your business phone number, email, website, location, and business hours where applicable. Only provide information you want customers to see.',
         descriptionHinglish:
-          'Zaroori contact information, business hours, location ya website add karein. Details check karein aur apna Page publish karein.',
+          'Apna business phone number, email, website, location aur business hours zaroorat ke hisaab se add karein. Sirf wahi information dein jo aap customers ko dikhana chahte hain.',
         image: {
-          key: 'facebook-page-complete-step',
+          key: 'facebook-page-contact-step',
           type: 'step',
-          alt: 'Completed Facebook business page',
+          alt: 'Facebook Page contact information settings',
         },
-        tip: 'Keep your public business details accurate and up to date.',
+        tip: 'Use a contact number that customers can actually reach.',
         tipHinglish:
-          'Apne public business details ko sahi aur updated rakhein.',
+          'Wahi contact number use karein jis par customers aapse contact kar sakein.',
+      },
+      {
+        id: 'facebook-step-6',
+        title: 'Add Profile and Cover Photos',
+        titleHinglish: 'Profile Aur Cover Photos Lagayein',
+        description:
+          'Upload a clear profile picture, preferably your business logo, and a suitable cover photo that represents your business or services.',
+        descriptionHinglish:
+          'Ek clear profile picture upload karein, preferably apna business logo, aur ek suitable cover photo lagayein jo aapke business ya services ko represent kare.',
+        image: {
+          key: 'facebook-page-photos-step',
+          type: 'step',
+          alt: 'Facebook Page profile picture and cover photo setup',
+        },
+        tip: 'Use clear, properly sized images so your Page looks professional on mobile and desktop.',
+        tipHinglish:
+          'Clear aur properly sized images use karein taaki aapka Page mobile aur desktop dono par achha dikhe.',
+      },
+      {
+        id: 'facebook-step-7',
+        title: 'Customize Your Page',
+        titleHinglish: 'Apne Page Ko Customize Karein',
+        description:
+          'Set a memorable Page username, add a suitable action button such as Call Now or WhatsApp if available, and organize relevant Page information.',
+        descriptionHinglish:
+          'Apne Page ke liye ek yaad rehne wala username set karein. Available options mein se Call Now ya WhatsApp jaisa action button add karein aur Page ki zaroori information organize karein.',
+        image: {
+          key: 'facebook-page-customize-step',
+          type: 'step',
+          alt: 'Facebook Page username and action button customization',
+        },
+        tip: 'Choose a simple username that matches your business name.',
+        tipHinglish:
+          'Aisa simple username chunein jo aapke business name se match karta ho.',
+      },
+      {
+        id: 'facebook-step-8',
+        title: 'Review and Publish Your Page',
+        titleHinglish: 'Page Check Karke Publish Karein',
+        description:
+          'Review your Page name, category, description, photos, and contact details. Make sure everything is correct before publishing your Page.',
+        descriptionHinglish:
+          'Page ka naam, category, description, photos aur contact details check karein. Publish karne se pehle confirm karein ki sabhi details sahi hain.',
+        image: {
+          key: 'facebook-page-publish-step',
+          type: 'step',
+          alt: 'Facebook Page review and publish screen',
+        },
+      },
+      {
+        id: 'facebook-step-9',
+        title: 'Publish Your First Post',
+        titleHinglish: 'Apni Pehli Post Publish Karein',
+        description:
+          'Introduce your business with a welcome post. Share what you offer, add a relevant photo, and include a clear way for customers to contact you.',
+        descriptionHinglish:
+          'Ek welcome post ke through apne business ka introduction dein. Apni services ya products batayein, relevant photo add karein aur customers ko contact karne ka clear option dein.',
+        image: {
+          key: 'facebook-first-post-step',
+          type: 'step',
+          alt: 'Facebook business Page first post composer',
+        },
+        tip: 'Invite relevant friends to follow your Page and keep sharing useful updates.',
+        tipHinglish:
+          'Apne relevant friends ko Page follow karne ke liye invite karein aur useful updates share karte rahein.',
       },
     ],
     relatedGuideIds: [
@@ -553,13 +658,13 @@ export const SOCIAL_MEDIA_GUIDES: Guide[] = [
         title: 'Install and Open WhatsApp Business',
         titleHinglish: 'WhatsApp Business Install Karke Kholein',
         description:
-          'Install the official WhatsApp Business app from your phone’s app store and open it.',
+          'Install the official WhatsApp Business app from Google Play Store or Apple App Store and open it.',
         descriptionHinglish:
-          'Apne phone ke app store se official WhatsApp Business app install karein aur use kholein.',
+          'Google Play Store ya Apple App Store se official WhatsApp Business app install karein aur use kholein.',
         image: {
           key: 'whatsapp-business-app-step',
           type: 'step',
-          alt: 'WhatsApp Business app',
+          alt: 'WhatsApp Business app on a smartphone',
         },
         tip: 'WhatsApp Messenger and WhatsApp Business are separate apps.',
         tipHinglish: 'WhatsApp Messenger aur WhatsApp Business alag apps hain.',
@@ -569,66 +674,120 @@ export const SOCIAL_MEDIA_GUIDES: Guide[] = [
         title: 'Register Your Business Number',
         titleHinglish: 'Apna Business Number Register Karein',
         description:
-          'Follow the on-screen instructions to enter and verify your phone number. If you are moving an existing number, read the app’s migration instructions first.',
+          'Follow the on-screen instructions to enter your phone number and verify it using the code sent by WhatsApp. If you are moving an existing number, review the migration instructions first.',
         descriptionHinglish:
-          'Screen par diye gaye instructions follow karke apna phone number enter aur verify karein. Agar existing number transfer kar rahe hain, toh pehle app ke migration instructions padh lein.',
+          'Screen par diye gaye instructions follow karke phone number enter karein aur WhatsApp se aaye verification code se verify karein. Agar existing number transfer kar rahe hain, toh pehle migration instructions check karein.',
         image: {
           key: 'whatsapp-number-verification-step',
           type: 'step',
-          alt: 'WhatsApp Business phone number verification',
+          alt: 'WhatsApp Business phone number verification screen',
         },
         warning:
-          'Make sure you understand how moving a number may affect your existing WhatsApp account before proceeding.',
+          'Understand how moving a number may affect your existing WhatsApp account before proceeding.',
         warningHinglish:
-          'Number transfer karne se aapke existing WhatsApp account par kya asar padega, ye samajhne ke baad hi aage badhein.',
+          'Number transfer karne se existing WhatsApp account par kya asar padega, ye samajhne ke baad hi aage badhein.',
       },
       {
         id: 'whatsapp-step-3',
         title: 'Enter Your Business Name and Category',
         titleHinglish: 'Business Ka Naam Aur Category Bharein',
         description:
-          'Enter your business name and select the category that best describes your business. Add a profile photo or logo if available.',
+          'Enter your business name and select the category that best describes your products or services. Choose a recognizable name that customers can easily identify.',
         descriptionHinglish:
-          'Apne business ka naam enter karein aur sahi category select karein. Agar logo ya profile photo available hai, toh use add karein.',
+          'Apne business ka naam enter karein aur products ya services se match karti category select karein. Aisa naam choose karein jise customers aasani se pehchaan sakein.',
         image: {
           key: 'whatsapp-business-details-step',
           type: 'step',
-          alt: 'WhatsApp Business profile details',
+          alt: 'WhatsApp Business name and category setup',
         },
+        tip: 'Choose your business name carefully because changing it later may require additional steps.',
+        tipHinglish:
+          'Business name carefully choose karein kyunki baad mein change karne ke liye extra steps lag sakte hain.',
       },
       {
         id: 'whatsapp-step-4',
-        title: 'Complete Your Business Profile',
-        titleHinglish: 'Business Profile Complete Karein',
+        title: 'Add Your Business Profile Information',
+        titleHinglish: 'Business Profile Ki Information Add Karein',
         description:
-          'Open business profile settings and add relevant details such as your business description, address, email, website, and opening hours when applicable.',
+          'Open your business profile settings and add a profile photo or logo, business description, address, email, and website where applicable.',
         descriptionHinglish:
-          'Business profile settings kholein aur zaroori details add karein, jaise business description, address, email, website aur opening hours.',
+          'Business profile settings kholein aur profile photo ya logo, business description, address, email aur website zaroorat ke hisaab se add karein.',
         image: {
           key: 'whatsapp-business-profile-step',
           type: 'step',
-          alt: 'WhatsApp Business profile information',
+          alt: 'WhatsApp Business profile information settings',
         },
-        tip: 'Only add information that is accurate and that you want customers to see.',
+        tip: 'Use a clear business logo and a short description explaining what you offer.',
         tipHinglish:
-          'Sirf wahi information add karein jo sahi ho aur jise aap customers ko dikhana chahte hain.',
+          'Clear business logo aur short description use karein jo bataye ki aap kya services ya products offer karte hain.',
       },
       {
         id: 'whatsapp-step-5',
-        title: 'Set Up Business Tools',
-        titleHinglish: 'Business Tools Setup Karein',
+        title: 'Set Your Business Hours',
+        titleHinglish: 'Business Hours Set Karein',
         description:
-          'Explore available business tools such as greeting messages, away messages, quick replies, and product catalogs. Configure the features that suit your business.',
+          'Add your working days and opening hours in your business profile. Choose the correct availability so customers know when they can contact or visit you.',
         descriptionHinglish:
-          'Greeting messages, away messages, quick replies aur product catalog jaise business tools explore karein. Apne business ke hisaab se useful features setup karein.',
+          'Business profile mein working days aur opening hours add karein. Sahi timings set karein taaki customers ko pata rahe ki aapse kab contact ya visit kar sakte hain.',
+        image: {
+          key: 'whatsapp-business-hours-step',
+          type: 'step',
+          alt: 'WhatsApp Business opening hours settings',
+        },
+        tip: 'Keep your business hours updated, especially during holidays.',
+        tipHinglish:
+          'Business hours updated rakhein, especially holidays ke time.',
+      },
+      {
+        id: 'whatsapp-step-6',
+        title: 'Set Up Business Messaging Tools',
+        titleHinglish: 'Business Messaging Tools Setup Karein',
+        description:
+          'Explore greeting messages, away messages, and quick replies. Set up automatic responses for common questions and messages you receive from customers.',
+        descriptionHinglish:
+          'Greeting messages, away messages aur quick replies explore karein. Customers ke common questions aur messages ke liye automatic responses setup karein.',
         image: {
           key: 'whatsapp-business-tools-step',
           type: 'step',
-          alt: 'WhatsApp Business tools',
+          alt: 'WhatsApp Business messaging tools and automated replies',
         },
-        tip: 'Test your profile and message settings before sharing your business number with customers.',
+        tip: 'Write clear, helpful replies that sound natural and provide useful information.',
         tipHinglish:
-          'Customers ke saath business number share karne se pehle profile aur message settings test karein.',
+          'Clear aur helpful replies likhein jo natural lagein aur useful information dein.',
+      },
+      {
+        id: 'whatsapp-step-7',
+        title: 'Create Your Product or Service Catalog',
+        titleHinglish: 'Product Ya Service Catalog Banayein',
+        description:
+          'Add products or services to your WhatsApp catalog with clear names, descriptions, prices where applicable, and good-quality photos. This helps customers explore your offerings directly in WhatsApp.',
+        descriptionHinglish:
+          'WhatsApp catalog mein apne products ya services add karein. Clear names, descriptions, zaroorat ke hisaab se prices aur achhi quality ki photos lagayein. Isse customers WhatsApp par hi aapki offerings dekh sakte hain.',
+        image: {
+          key: 'whatsapp-business-catalog-step',
+          type: 'step',
+          alt: 'WhatsApp Business product and service catalog',
+        },
+        tip: 'Keep product details, prices, and photos accurate and updated.',
+        tipHinglish:
+          'Product details, prices aur photos ko accurate aur updated rakhein.',
+      },
+      {
+        id: 'whatsapp-step-8',
+        title: 'Review and Share Your Business Profile',
+        titleHinglish: 'Business Profile Check Karke Share Karein',
+        description:
+          'Review your profile, contact details, business hours, messaging tools, and catalog. Share your business profile using its QR code, short link, or other available sharing options.',
+        descriptionHinglish:
+          'Apna profile, contact details, business hours, messaging tools aur catalog check karein. QR code, short link ya available sharing options ke through apna business profile share karein.',
+        image: {
+          key: 'whatsapp-business-share-step',
+          type: 'step',
+          alt: 'WhatsApp Business profile sharing and QR code',
+        },
+        tip: 'Test your profile and messaging features before sharing your business number publicly.',
+        tipHinglish:
+          'Business number publicly share karne se pehle profile aur messaging features test karein.',
       },
     ],
     relatedGuideIds: [

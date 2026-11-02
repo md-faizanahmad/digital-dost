@@ -125,10 +125,10 @@ export interface Guide {
   searchKeywords: string[];
 
   /** Requirements or items needed before starting (English). */
-  prerequisites?: string[];
+  whatyouneed?: string[];
 
   /** Requirements or items needed before starting (Hinglish). */
-  prerequisitesHinglish?: string[];
+  whatyouneedHinglish?: string[];
 
   /** Ordered tutorial instructions in English and Hinglish. */
   steps: GuideStep[];

@@ -77,7 +77,7 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
   },
   {
     id: 'ai-prompts',
-    name: 'AI Prompts',
+    name: 'How Write Prompts',
     description: 'Learn to write clear and effective prompts for AI tools.',
     image: {
       key: 'ai-prompts-cover',
@@ -127,19 +127,19 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
     order: 9,
     group: 'digital-skills',
   },
-  {
-    id: 'online-safety',
-    name: 'Online Safety',
-    description: 'Learn about privacy, online scams, and account security.',
-    image: {
-      key: 'online-safety-cover',
-      type: 'cover',
-      alt: 'Online safety learning category',
-    },
-    isFeatured: true,
-    order: 10,
-    group: 'online-safety',
-  },
+  // {
+  //   id: 'online-safety',
+  //   name: 'Online Safety',
+  //   description: 'Learn about privacy, online scams, and account security.',
+  //   image: {
+  //     key: 'online-safety-cover',
+  //     type: 'cover',
+  //     alt: 'Online safety learning category',
+  //   },
+  //   isFeatured: true,
+  //   order: 10,
+  //   group: 'online-safety',
+  // },
   // {
   //   id: 'online-business',
   //   name: 'Online Business',

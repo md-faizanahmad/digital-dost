@@ -16,7 +16,7 @@ export default function ExploreCategories({
     category => category.isFeatured,
   )
     .sort((a, b) => a.order - b.order)
-    .slice(0, 3);
+    .slice(0, 4);
 
   return (
     <View style={styles.container}>

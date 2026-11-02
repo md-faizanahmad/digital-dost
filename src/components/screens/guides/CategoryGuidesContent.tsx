@@ -25,9 +25,9 @@ export default function CategoryGuidesContent({
 
   return (
     <View>
-      <Text style={guideContentStyles.listSubtitle}>
+      {/* <Text style={guideContentStyles.listSubtitle}>
         {guides.length} {guides.length === 1 ? 'guide' : 'guides'} available
-      </Text>
+      </Text> */}
 
       <View style={guideContentStyles.categoryList}>
         {guides.map(guide => (

@@ -39,12 +39,12 @@ export const SOCIAL_MEDIA_GUIDES: Guide[] = [
       'instagram business account kaise banaye',
       'instagram professional account kaise banaye',
     ],
-    prerequisites: [
+    whatyouneed: [
       'An Instagram account',
       'Instagram app installed on your phone',
       'A profile photo and basic business information',
     ],
-    prerequisitesHinglish: [
+    whatyouneedHinglish: [
       'Ek Instagram account',
       'Phone mein Instagram app installed hona chahiye',
       'Profile photo aur basic business information',
@@ -180,12 +180,12 @@ export const SOCIAL_MEDIA_GUIDES: Guide[] = [
       'business page banana',
       'online business',
     ],
-    prerequisites: [
+    whatyouneed: [
       'A Facebook account',
       'Facebook app or website access',
       'Business name, category, and a short description',
     ],
-    prerequisitesHinglish: [
+    whatyouneedHinglish: [
       'Ek Facebook account',
       'Facebook app ya website ka access',
       'Business ka naam, category aur short description',
@@ -320,12 +320,12 @@ export const SOCIAL_MEDIA_GUIDES: Guide[] = [
       'youtube video upload',
       'youtube channel settings',
     ],
-    prerequisites: [
+    whatyouneed: [
       'A Google account',
       'YouTube app or website access',
       'A channel name and optional profile image',
     ],
-    prerequisitesHinglish: [
+    whatyouneedHinglish: [
       'Ek Google account',
       'YouTube app ya website ka access',
       'Channel ka naam aur optional profile image',
@@ -537,12 +537,12 @@ export const SOCIAL_MEDIA_GUIDES: Guide[] = [
       'shop whatsapp account',
       'whatsapp business tools',
     ],
-    prerequisites: [
+    whatyouneed: [
       'A phone number you can use for your business',
       'WhatsApp Business app installed',
       'Business name, category, and optional logo',
     ],
-    prerequisitesHinglish: [
+    whatyouneedHinglish: [
       'Ek phone number jo aap business ke liye use kar sakein',
       'WhatsApp Business app installed hona chahiye',
       'Business ka naam, category aur optional logo',

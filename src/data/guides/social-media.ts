@@ -333,81 +333,157 @@ export const SOCIAL_MEDIA_GUIDES: Guide[] = [
     steps: [
       {
         id: 'youtube-step-1',
-        title: 'Open YouTube',
-        titleHinglish: 'YouTube Kholein',
+        title: 'Open YouTube and Sign In',
+        titleHinglish: 'YouTube Kholein Aur Sign In Karein',
         description:
-          'Open the YouTube app or website and sign in with your Google account.',
+          'Open the YouTube app or visit youtube.com in your browser. Sign in using your Google account to access YouTube features.',
         descriptionHinglish:
-          'YouTube app ya website kholein aur apne Google account se sign in karein.',
+          'YouTube app kholein ya browser mein youtube.com visit karein. YouTube ke features access karne ke liye apne Google account se sign in karein.',
         image: {
           key: 'youtube-home-step',
           type: 'step',
-          alt: 'YouTube home screen',
+          alt: 'YouTube home screen with Google account signed in',
         },
-        tip: 'Your Google account lets you access YouTube creator features.',
+        tip: 'If you do not have a Google account, create one before continuing.',
         tipHinglish:
-          'Google account se aap YouTube ke creator features access kar sakte hain.',
+          'Agar aapke paas Google account nahi hai, toh aage badhne se pehle ek account create karein.',
       },
       {
         id: 'youtube-step-2',
-        title: 'Open Your Channel Options',
-        titleHinglish: 'Channel Ke Options Kholein',
+        title: 'Create Your YouTube Channel',
+        titleHinglish: 'Apna YouTube Channel Banayein',
         description:
-          'Tap your profile picture and look for the option to create a channel or access your channel. Follow the available prompts.',
+          'Tap your profile picture in the top-right corner. Select the option to create a channel and follow the on-screen instructions.',
         descriptionHinglish:
-          'Apni profile picture par tap karein aur channel create karne ya apna channel access karne ka option dhoondhein. Screen par diye gaye instructions follow karein.',
+          'Top-right corner mein apni profile picture par tap karein. Channel create karne ka option select karein aur screen par diye gaye instructions follow karein.',
         image: {
           key: 'youtube-channel-menu-step',
           type: 'step',
-          alt: 'YouTube account and channel menu',
+          alt: 'YouTube profile menu showing channel creation option',
         },
+        tip: 'If you already have a channel, check whether you need to create a separate channel or use your existing one.',
+        tipHinglish:
+          'Agar aapka pehle se channel hai, toh check karein ki aapko naya channel banana hai ya existing channel use karna hai.',
       },
       {
         id: 'youtube-step-3',
-        title: 'Choose Your Channel Name',
-        titleHinglish: 'Apne Channel Ka Naam Chunein',
+        title: 'Choose Your Channel Name and Handle',
+        titleHinglish: 'Channel Ka Naam Aur Handle Chunein',
         description:
-          'Enter a channel name that represents your content, business, or personal brand. Choose a suitable handle if prompted.',
+          'Enter a channel name that represents your content, business, or personal brand. Choose an available handle starting with @ that people can easily remember and search for.',
         descriptionHinglish:
-          'Aisa channel name likhein jo aapke content, business ya personal brand ko represent kare. Agar handle choose karne ka option aaye, toh suitable handle select karein.',
+          'Aisa channel name enter karein jo aapke content, business ya personal brand ko represent kare. Ek available handle chunein jo @ se start hota ho aur log aasani se yaad rakh sakein.',
         image: {
           key: 'youtube-channel-name-step',
           type: 'step',
-          alt: 'YouTube channel name setup',
+          alt: 'YouTube channel name and handle setup screen',
         },
-        tip: 'Choose a name that is easy to remember and spell.',
-        tipHinglish: 'Aisa naam chunein jo yaad rakhna aur likhna aasaan ho.',
+        tip: 'Choose a simple and memorable name. You can change your channel name and handle later, subject to YouTube limits.',
+        tipHinglish:
+          'Simple aur yaad rehne wala naam chunein. YouTube ki limits ke according aap baad mein channel name aur handle change kar sakte hain.',
       },
       {
         id: 'youtube-step-4',
-        title: 'Customize Your Channel',
-        titleHinglish: 'Apne Channel Ko Customize Karein',
+        title: 'Add Your Channel Profile Picture',
+        titleHinglish: 'Channel Ki Profile Picture Add Karein',
         description:
-          'Add a profile picture, banner, and channel description. Explain what viewers can expect from your videos.',
+          'Choose a clear profile picture that represents you, your business, or your brand. Upload it through your channel customization settings.',
         descriptionHinglish:
-          'Profile picture, banner aur channel description add karein. Description mein batayein ki viewers aapke videos mein kya dekh sakte hain.',
+          'Ek clear profile picture choose karein jo aapko, aapke business ya brand ko represent kare. Channel customization settings se ise upload karein.',
         image: {
-          key: 'youtube-customize-step',
+          key: 'youtube-profile-picture-step',
           type: 'step',
-          alt: 'YouTube channel customization',
+          alt: 'YouTube channel profile picture customization',
         },
+        tip: 'Use a clear logo or recognizable image that looks good in a small circular display.',
+        tipHinglish:
+          'Clear logo ya pehchaan mein aane wali image use karein jo chhote circular display mein bhi achhi dikhe.',
       },
       {
         id: 'youtube-step-5',
-        title: 'Review Settings and Prepare Your First Video',
-        titleHinglish: 'Settings Check Karein Aur Pehla Video Ready Karein',
+        title: 'Create and Upload Your Channel Banner',
+        titleHinglish: 'Channel Banner Banayein Aur Upload Karein',
         description:
-          'Review your channel information and upload settings. When ready, use the Create button to upload your first video.',
+          'Create a channel banner that matches your content or brand. Add your channel name or a short tagline and upload it through YouTube Studio customization settings.',
         descriptionHinglish:
-          'Apne channel ki information aur upload settings check karein. Jab ready hon, Create button ka use karke apna pehla video upload karein.',
+          'Apne content ya brand se match karta hua channel banner banayein. Ismein channel name ya short tagline add karein aur YouTube Studio ki customization settings se upload karein.',
+        image: {
+          key: 'youtube-channel-banner-step',
+          type: 'step',
+          alt: 'YouTube channel banner customization preview',
+        },
+        tip: 'YouTube recommends a banner size of 2560 × 1440 pixels. Keep important text and logos within the safe area.',
+        tipHinglish:
+          'YouTube 2560 × 1440 pixels ka banner size recommend karta hai. Important text aur logo ko safe area ke andar rakhein.',
+      },
+      {
+        id: 'youtube-step-6',
+        title: 'Write Your Channel Description',
+        titleHinglish: 'Apne Channel Ki Description Likhein',
+        description:
+          'Open YouTube Studio and go to Customization > Profile. Write a short description explaining your channel, the topics you cover, and what viewers can expect. Add relevant links if needed.',
+        descriptionHinglish:
+          'YouTube Studio open karein aur Customization > Profile mein jaayein. Ek short description likhein jismein batayein ki aapka channel kis baare mein hai aur viewers ko kya dekhne ko milega. Zarurat ho toh relevant links bhi add karein.',
+        image: {
+          key: 'youtube-channel-description-step',
+          type: 'step',
+          alt: 'YouTube Studio channel description and links settings',
+        },
+        tip: 'Use relevant keywords naturally so viewers can understand your channel topic.',
+        tipHinglish:
+          'Relevant keywords naturally use karein, taaki viewers aasani se samajh sakein ki aapka channel kis topic par hai.',
+      },
+      {
+        id: 'youtube-step-7',
+        title: 'Customize Your Channel Layout',
+        titleHinglish: 'Apne Channel Ka Layout Customize Karein',
+        description:
+          'Open YouTube Studio > Customization > Home tab. Set up your channel homepage with a channel trailer, featured video, and content sections to help visitors explore your videos.',
+        descriptionHinglish:
+          'YouTube Studio > Customization > Home tab open karein. Apne channel homepage par channel trailer, featured video aur content sections set karein, taaki visitors aapke videos aasani se explore kar sakein.',
+        image: {
+          key: 'youtube-channel-layout-step',
+          type: 'step',
+          alt: 'YouTube Studio channel homepage layout customization',
+        },
+        tip: 'You can add or rearrange homepage sections as your channel grows.',
+        tipHinglish:
+          'Jaise-jaise aapka channel grow karega, aap homepage sections add ya rearrange kar sakte hain.',
+      },
+      {
+        id: 'youtube-step-8',
+        title: 'Review Channel Settings and Verify Your Account',
+        titleHinglish:
+          'Channel Settings Check Karein Aur Account Verify Karein',
+        description:
+          'Open YouTube Studio settings and review your channel details, audience settings, and other available options. Complete phone verification if you want access to additional creator features.',
+        descriptionHinglish:
+          'YouTube Studio settings open karein aur channel details, audience settings aur available options check karein. Additional creator features access karne ke liye phone verification complete karein.',
+        image: {
+          key: 'youtube-channel-settings-step',
+          type: 'step',
+          alt: 'YouTube Studio channel settings and feature eligibility',
+        },
+        tip: 'Set your audience accurately. For example, mark content as Made for Kids only if it is actually created for children.',
+        tipHinglish:
+          'Audience setting sahi select karein. Jaise, Made for Kids tabhi select karein jab content sach mein bachchon ke liye banaya gaya ho.',
+      },
+      {
+        id: 'youtube-step-9',
+        title: 'Review Your Channel and Prepare Your First Video',
+        titleHinglish: 'Channel Check Karein Aur Pehla Video Ready Karein',
+        description:
+          'Visit your channel and review its name, handle, profile picture, banner, description, and layout. Prepare your first video with a suitable title, thumbnail, description, and audience settings. You are now ready to upload.',
+        descriptionHinglish:
+          'Apna channel visit karein aur name, handle, profile picture, banner, description aur layout check karein. Apna pehla video suitable title, thumbnail, description aur audience settings ke saath ready karein. Ab aap video upload karne ke liye ready hain.',
         image: {
           key: 'youtube-first-video-step',
           type: 'step',
-          alt: 'YouTube video upload options',
+          alt: 'YouTube channel ready for first video upload',
         },
-        tip: 'Check the video title, description, audience setting, and visibility before publishing.',
+        tip: 'Before publishing, review your video visibility, audience selection, title, and description.',
         tipHinglish:
-          'Video publish karne se pehle title, description, audience setting aur visibility check karein.',
+          'Video publish karne se pehle visibility, audience selection, title aur description zaroor check karein.',
       },
     ],
     relatedGuideIds: [

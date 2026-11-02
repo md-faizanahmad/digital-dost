@@ -2,7 +2,7 @@ import { Image, Text, View } from 'react-native';
 import { Guide } from '../../../types/guide';
 import { GuideLanguage } from '../../../shared/TranslateButton';
 import { guideContentStyles } from '../../../styles/guideContent.styles';
-
+import { getGuideImage } from '../../../utils/getGuideImage';
 type GuideStep = Guide['steps'][number];
 
 type GuideStepItemProps = {
@@ -37,7 +37,7 @@ export default function GuideStepItem({
 
         {step.image ? (
           <Image
-            source={{ uri: step.image.key }}
+            source={getGuideImage(step.image.key)}
             accessibilityLabel={step.image.alt}
             style={guideContentStyles.stepImage}
             resizeMode="contain"

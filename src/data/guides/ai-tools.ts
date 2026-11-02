@@ -39,8 +39,8 @@ export const AI_TOOLS_GUIDES: Guide[] = [
       'chatgpt kaise use kare',
       'AI se kaam kaise kare',
     ],
-    prerequisites: ['A smartphone or computer', 'Internet connection'],
-    prerequisitesHinglish: ['Smartphone ya computer', 'Internet connection'],
+    whatyouneed: ['A smartphone or computer', 'Internet connection'],
+    whatyouneedHinglish: ['Smartphone ya computer', 'Internet connection'],
     steps: [
       {
         id: 'choose-ai-tool',
@@ -178,8 +178,8 @@ export const AI_TOOLS_GUIDES: Guide[] = [
       'ChatGPT prompt',
       'prompt writing in hinglish',
     ],
-    prerequisites: ['Basic knowledge of using an AI tool'],
-    prerequisitesHinglish: ['AI tool ko use karne ki basic knowledge'],
+    whatyouneed: ['Basic knowledge of using an AI tool'],
+    whatyouneedHinglish: ['AI tool ko use karne ki basic knowledge'],
     steps: [
       {
         id: 'prompt-define-role',
@@ -316,8 +316,8 @@ export const AI_TOOLS_GUIDES: Guide[] = [
       'ChatGPT kaise pooche',
       'ready to use prompts',
     ],
-    prerequisites: ['Access to an AI tool'],
-    prerequisitesHinglish: ['Kisi AI tool ka access'],
+    whatyouneed: ['Access to an AI tool'],
+    whatyouneedHinglish: ['Kisi AI tool ka access'],
     steps: [
       {
         id: 'prompt-example-learning',
@@ -454,8 +454,8 @@ export const AI_TOOLS_GUIDES: Guide[] = [
       'AI se poster banaye',
       'AI art for beginners',
     ],
-    prerequisites: ['Access to an AI image-generation tool'],
-    prerequisitesHinglish: ['Kisi AI image-generation tool ka access'],
+    whatyouneed: ['Access to an AI image-generation tool'],
+    whatyouneedHinglish: ['Kisi AI image-generation tool ka access'],
     steps: [
       {
         id: 'ai-image-choose-subject',

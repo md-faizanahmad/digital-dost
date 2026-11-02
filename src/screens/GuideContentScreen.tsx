@@ -16,6 +16,7 @@ import GuideDetails from '../components/screens/guides/GuideDetails';
 import { guideContentStyles as styles } from '../styles/guideContent.styles';
 import EmptyState from '../shared/EmptyState';
 import SaveGuideButton from './guides/SaveGuideButton';
+import GuideBanner from './guides/GuideBanner';
 
 type Navigation = NativeStackNavigationProp<RootStackParamList>;
 type GuideRoute = RouteProp<RootStackParamList, 'GuideContent'>;
@@ -92,6 +93,13 @@ export default function GuideContentScreen() {
                 ))
               : guide && <SaveGuideButton guideId={guide.id} />}
           </View>
+
+          {/* {!isCategoryMode && guide && <GuideBanner image={guide.coverImage} />} */}
+          {isCategoryMode
+            ? categoryGuides.map(guide => (
+                <GuideBanner key={guide.id} image={guide.coverImage} />
+              ))
+            : guide && <GuideBanner image={guide.coverImage} />}
 
           {isCategoryMode ? (
             <CategoryGuidesContent

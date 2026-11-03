@@ -1,154 +1,204 @@
-import type { Guide } from '../../types/guide';
+import { Guide } from '../../types/guide';
 
 /**
  * Digital Dost — AI Tools Guides
  *
- * Guides for using AI tools, writing prompts, practical prompt examples,
- * and generating images with AI.
+ * Guides for choosing AI tools, writing prompts,
+ * practical prompt examples, and generating images with AI.
  * Supports English and Hinglish (Roman script).
  */
 export const AI_TOOLS_GUIDES: Guide[] = [
   // ─────────────────────────────────────────────
-  // HOW TO USE AI TOOLS
+  // How to Choose AI
   // ─────────────────────────────────────────────
+
   {
-    id: 'how-to-use-ai-tools',
-    slug: 'how-to-use-ai-tools',
-    title: 'How to Use AI Tools',
-    titleHinglish: 'AI Tools Kaise Use Karein',
+    id: 'getting-started-with-ai-tools',
+    slug: 'getting-started-with-ai-tools',
+    title: 'How to Get Started with AI Tools',
+    titleHinglish: 'AI Tools Use Karna Kaise Shuru Karein',
     description:
-      'Learn how to use AI tools to ask questions, learn new skills, write content, and complete everyday tasks.',
+      'Learn what AI tools can do, how to choose the right tool, write prompts, improve results, and use AI safely for everyday tasks.',
     descriptionHinglish:
-      'AI tools se questions poochhna, nayi skills seekhna, content likhna aur daily tasks complete karna seekhein.',
-    categoryId: 'ai-tools',
+      'AI tools kya kar sakte hain, sahi tool kaise choose karein, prompts kaise likhein, results improve karein aur daily tasks ke liye AI safely use karna seekhein.',
+    categoryId: 'ai-choose-tools',
     difficulty: 'beginner',
-    estimatedMinutes: 5,
+    estimatedMinutes: 9,
     coverImage: {
-      key: 'ai-tools-basics-cover',
+      key: 'getting-started-ai-cover',
       type: 'cover',
-      alt: 'Person using an AI assistant on a computer',
+      alt: 'Beginner using an AI assistant on a laptop and smartphone',
     },
     searchKeywords: [
-      'ai tools',
       'how to use ai',
-      'artificial intelligence',
+      'getting started with ai',
+      'ai tools for beginners',
+      'choose ai tools',
+      'best ai tool for my work',
+      'artificial intelligence tutorial',
       'chatgpt tutorial',
-      'ai for beginners',
-      'AI tools kaise use kare',
-      'AI kaise chalaye',
-      'chatgpt kaise use kare',
-      'AI se kaam kaise kare',
+      'ai tools kaise use karein',
+      'ai tools kaise choose karein',
+      'chatgpt kaise chalaye',
+      'ai se kaam kaise kare',
     ],
-    whatyouneed: ['A smartphone or computer', 'Internet connection'],
-    whatyouneedHinglish: ['Smartphone ya computer', 'Internet connection'],
+    whatyouneed: [
+      'A smartphone or computer',
+      'An internet connection',
+      'Access to an AI tool',
+      'A task you want help with',
+    ],
+    whatyouneedHinglish: [
+      'Smartphone ya computer',
+      'Internet connection',
+      'Kisi AI tool ka access',
+      'Ek kaam jismein AI ki help chahiye',
+    ],
     steps: [
       {
-        id: 'choose-ai-tool',
-        title: 'Choose an AI Tool',
-        titleHinglish: 'Ek AI Tool Choose Karein',
+        id: 'ai-understand-capabilities',
+        title: 'Understand What AI Can Do',
+        titleHinglish: 'Samjhein AI Kya Kar Sakta Hai',
         description:
-          'Choose an AI tool based on your task. For example, use ChatGPT to ask questions, learn topics, write content, or brainstorm ideas.',
+          'AI tools can help with many tasks, such as writing content, learning new topics, researching information, creating images, generating videos, and coding. First identify the type of task you need help with.',
         descriptionHinglish:
-          'Apne kaam ke hisaab se AI tool choose karein. Jaise ChatGPT se questions poochh sakte hain, kuch seekh sakte hain, content likh sakte hain ya ideas le sakte hain.',
+          'AI tools kai kaamon mein help kar sakte hain, jaise content likhna, naye topics seekhna, information research karna, images banana, videos generate karna aur coding. Sabse pehle decide karein ki aapko kis kaam mein help chahiye.',
         image: {
-          key: 'ai-tools-choose-step',
+          key: 'ai-understand-tools-step',
           type: 'step',
-          alt: 'Choosing an AI assistant',
+          alt: 'Different tasks that AI tools can help with',
         },
-        tip: 'Start with one tool and learn its basics before trying many tools.',
+        tip: 'AI is a tool to assist your work, not a replacement for your own judgment.',
         tipHinglish:
-          'Pehle ek tool ko achhe se use karna seekhein, phir doosre tools try karein.',
+          'AI aapke kaam mein help karne wala tool hai, aapki khud ki soch ka replacement nahi.',
       },
       {
-        id: 'open-ai-tool',
-        title: 'Open the Tool',
-        titleHinglish: 'AI Tool Open Karein',
+        id: 'ai-choose-right-tool',
+        title: 'Choose the Right AI Tool',
+        titleHinglish: 'Sahi AI Tool Choose Karein',
         description:
-          'Open the official website or app. Sign in if required, and find the message box where you can type your request.',
+          'Choose a tool based on your task. General AI assistants can help with questions and writing, while specialised tools may be better for image generation, video creation, audio, or coding. Compare features, ease of use, language support, and free usage limits.',
         descriptionHinglish:
-          'AI tool ki official website ya app open karein. Agar zaroori ho to sign in karein aur message box dhoondhein jahan aap apna sawaal likh sakte hain.',
+          'Apne task ke hisaab se tool choose karein. General AI assistants questions aur writing mein help karte hain, jabki image generation, video creation, audio ya coding ke liye specialised tools useful ho sakte hain. Features, use karne ki aasani, language support aur free limits compare karein.',
         image: {
-          key: 'ai-tools-open-step',
+          key: 'ai-choose-tool-step',
           type: 'step',
-          alt: 'Opening an AI tool and finding the message box',
+          alt: 'Choosing an AI tool based on the required task',
         },
-        tip: 'Use the official app or website to avoid fake apps and websites.',
+        tip: 'Try the free version first when available. You do not need several tools for the same task.',
         tipHinglish:
-          'Fake apps aur websites se bachne ke liye official app ya website use karein.',
+          'Free version available ho toh pehle use try karein. Ek hi kaam ke liye kai tools ki zaroorat nahi hai.',
       },
       {
-        id: 'ask-clear-question',
-        title: 'Write a Clear Request',
-        titleHinglish: 'Apni Baat Saaf Likhein',
+        id: 'ai-open-tool',
+        title: 'Open and Set Up the Tool',
+        titleHinglish: 'Tool Open Aur Set Up Karein',
         description:
-          'Tell the AI exactly what you need. Instead of writing “business,” try “Give me five low-cost business ideas for a small shop in India.”',
+          'Visit the official website or install the official app of your chosen AI tool. Create an account or sign in if required. Check the available features and understand any usage limits before starting.',
         descriptionHinglish:
-          'AI ko clearly batayein ki aapko kya chahiye. Sirf “business” likhne ke bajaye likhein: “India mein ek chhoti shop ke liye 5 kam budget wale business ideas batao.”',
+          'Apne chosen AI tool ki official website visit karein ya official app install karein. Zaroorat ho toh account banayein ya sign in karein. Start karne se pehle available features aur usage limits samjhein.',
         image: {
-          key: 'ai-tools-clear-request-step',
+          key: 'ai-create-account-step',
           type: 'step',
-          alt: 'Typing a clear request into an AI assistant',
+          alt: 'Opening and setting up an AI tool',
         },
-        tip: 'Mention your goal, relevant details, and the type of answer you want.',
+        tip: 'Always check the website address or app publisher before signing in.',
         tipHinglish:
-          'Apna goal, zaroori details aur kis tarah ka answer chahiye, ye batayein.',
+          'Sign in karne se pehle website address ya app publisher zaroor check karein.',
       },
       {
-        id: 'review-ai-answer',
-        title: 'Read and Improve the Answer',
-        titleHinglish: 'Answer Padhein Aur Behtar Banayein',
+        id: 'ai-write-first-prompt',
+        title: 'Write Your First Prompt',
+        titleHinglish: 'Apna Pehla Prompt Likhein',
         description:
-          'Read the response carefully. If it is too complicated or incomplete, ask the AI to explain it simply, give an example, or provide step-by-step instructions.',
+          'Find the chat or prompt box and clearly explain what you need. Mention your task and add useful details. Example: “Explain digital marketing to a beginner using simple English and three practical examples.”',
         descriptionHinglish:
-          'Answer dhyan se padhein. Agar samajh na aaye ya answer adhura ho, to AI se simple language mein samjhane, example dene ya step-by-step batane ko kahein.',
+          'Chat ya prompt box mein apni requirement clearly likhein. Apna task batayein aur zaroori details add karein. Example: “Mujhe beginner ke liye digital marketing simple Hinglish mein 3 practical examples ke saath samjhao.”',
         image: {
-          key: 'ai-tools-review-answer-step',
+          key: 'ai-write-prompt-step',
           type: 'step',
-          alt: 'Reviewing and improving an AI-generated answer',
+          alt: 'Writing a first prompt in an AI assistant',
         },
-        tip: 'You can ask follow-up questions instead of starting a new conversation.',
+        tip: 'A clear prompt usually gives more useful results than a vague question.',
         tipHinglish:
-          'Har baar nayi chat shuru karne ke bajaye usi conversation mein follow-up question poochh sakte hain.',
+          'Clear prompt se usually vague question ke comparison mein zyada useful result milta hai.',
       },
       {
-        id: 'verify-ai-information',
-        title: 'Check Important Information',
-        titleHinglish: 'Zaroori Information Verify Karein',
+        id: 'ai-review-response',
+        title: 'Review the AI Response',
+        titleHinglish: 'AI Response Check Karein',
         description:
-          'AI can make mistakes or provide outdated information. Verify important facts, prices, medical advice, legal information, and financial decisions using reliable sources.',
+          'Read the complete response and check whether it answers your question. If the answer is too long, difficult, or incomplete, identify what needs to change.',
         descriptionHinglish:
-          'AI kabhi-kabhi galat ya purani information de sakta hai. Important facts, prices, health, legal aur financial information ko reliable sources se verify karein.',
+          'Poora response padhein aur check karein ki aapke question ka answer mila hai ya nahi. Agar answer bahut long, difficult ya incomplete hai, toh identify karein ki kya change karna hai.',
         image: {
-          key: 'ai-tools-verify-information-step',
+          key: 'ai-improve-results-step',
           type: 'step',
-          alt: 'Checking AI information against a reliable source',
+          alt: 'Reviewing an AI-generated response',
         },
+        tip: 'Do not accept an answer without checking whether it meets your requirements.',
+        tipHinglish:
+          'Bina check kiye answer accept na karein. Dekhein ki woh aapki requirements poori karta hai ya nahi.',
+      },
+      {
+        id: 'ai-improve-results',
+        title: 'Improve the Result',
+        titleHinglish: 'Result Improve Karein',
+        description:
+          'Continue the conversation with follow-up instructions. You can ask the AI to add examples, explain something in more detail, make the answer shorter, change the tone, or show the process step by step.',
+        descriptionHinglish:
+          'Follow-up instructions dekar conversation continue karein. AI se examples add karne, kisi topic ko detail mein samjhane, answer short karne, tone change karne ya process step by step batane ko keh sakte hain.',
+        image: {
+          key: 'ai-add-context-step',
+          type: 'step',
+          alt: 'Improving an AI response with follow-up instructions',
+        },
+        tip: 'Change one thing at a time so you can understand how each instruction affects the result.',
+        tipHinglish:
+          'Ek baar mein ek hi cheez change karein, taaki samajh sakein ki har instruction result ko kaise affect karta hai.',
+      },
+      {
+        id: 'ai-verify-information',
+        title: 'Verify Information and Use AI Safely',
+        titleHinglish: 'Information Verify Karein Aur AI Safely Use Karein',
+        description:
+          'AI can sometimes provide incorrect or outdated information. Verify important facts, dates, prices, and instructions using reliable sources. Never share passwords, OTPs, banking details, or sensitive personal information with AI tools.',
+        descriptionHinglish:
+          'AI kabhi-kabhi galat ya purani information de sakta hai. Important facts, dates, prices aur instructions ko reliable sources se verify karein. AI tools ke saath password, OTP, banking details ya sensitive personal information kabhi share na karein.',
+        image: {
+          key: 'ai-verify-information-step',
+          type: 'step',
+          alt: 'Verifying AI information and using tools safely',
+        },
+        tip: 'Use AI for assistance, but verify important information before making decisions.',
+        tipHinglish:
+          'AI ki help lein, lekin important decisions lene se pehle information verify zaroor karein.',
         warning:
-          'Do not share passwords, OTPs, banking details, or other sensitive personal information with an AI tool.',
+          'Do not blindly trust AI-generated information or share confidential information with AI tools.',
         warningHinglish:
-          'AI tool ke saath password, OTP, banking details ya sensitive personal information share na karein.',
+          'AI ki information par bina check kiye bharosa na karein aur confidential information share na karein.',
       },
     ],
     relatedGuideIds: [
       'write-better-ai-prompts',
-      'practical-ai-prompt-examples',
       'generate-images-with-ai',
+      'generate-videos-with-ai',
     ],
     sources: [
       {
         title: 'OpenAI Help Center',
         url: 'https://help.openai.com/',
-        description: 'Official help and guidance for using OpenAI products.',
+        description: 'Official help and guidance for using AI tools.',
       },
     ],
     isFeatured: true,
     status: 'published',
-    createdAt: '2026-10-29T00:00:00.000Z',
-    updatedAt: '2026-10-29T00:00:00.000Z',
+    createdAt: '2026-11-03T00:00:00.000Z',
+    updatedAt: '2026-11-03T00:00:00.000Z',
   },
 
   // ─────────────────────────────────────────────
-  // AI PROMPTS
+  // PROMPT WRITING
   // ─────────────────────────────────────────────
   {
     id: 'write-better-ai-prompts',
@@ -156,12 +206,12 @@ export const AI_TOOLS_GUIDES: Guide[] = [
     title: 'How to Write Better AI Prompts',
     titleHinglish: 'AI Ke Liye Achhe Prompts Kaise Likhein',
     description:
-      'Learn a simple prompt-writing pattern to get clearer, more useful results from AI tools.',
+      'Learn how to write clear AI prompts step by step, with practical examples for learning and everyday work.',
     descriptionHinglish:
-      'AI se clear aur useful answers paane ke liye achhe prompts likhne ka simple tareeka seekhein.',
+      'Step by step clear AI prompts likhna seekhein, saath hi learning aur daily work ke practical examples dekhein.',
     categoryId: 'ai-prompts',
     difficulty: 'beginner',
-    estimatedMinutes: 6,
+    estimatedMinutes: 8,
     coverImage: {
       key: 'ai-prompt-writing-cover',
       type: 'cover',
@@ -170,108 +220,150 @@ export const AI_TOOLS_GUIDES: Guide[] = [
     searchKeywords: [
       'prompt writing',
       'how to write prompts',
-      'AI prompt formula',
+      'ai prompt formula',
       'prompt engineering basics',
-      'better AI answers',
+      'better ai answers',
       'prompt kaise likhe',
-      'AI prompt examples',
-      'ChatGPT prompt',
+      'chatgpt prompt',
       'prompt writing in hinglish',
+      'ai prompt examples',
+      'ready to use prompts',
     ],
     whatyouneed: ['Basic knowledge of using an AI tool'],
-    whatyouneedHinglish: ['AI tool ko use karne ki basic knowledge'],
+    whatyouneedHinglish: ['AI tool use karne ki basic knowledge'],
     steps: [
       {
         id: 'prompt-define-role',
-        title: 'Give the AI a Role',
-        titleHinglish: 'AI Ko Role Batayein',
+        title: 'Start with Your Goal',
+        titleHinglish: 'Apne Goal Se Shuru Karein',
         description:
-          'Tell the AI what kind of helper you need. Example: “Act as a beginner-friendly English teacher.”',
+          'First decide what result you want from AI. Do you need to learn something, write content, plan a task, solve a problem, or create an idea? A clear goal helps you write a focused prompt.',
         descriptionHinglish:
-          'AI ko batayein ki aapko kis tarah ki help chahiye. Example: “Ek beginner-friendly English teacher ki tarah samjhao.”',
+          'Sabse pehle decide karein ki AI se aapko kya result chahiye. Kuch seekhna hai, content likhna hai, task plan karna hai, problem solve karni hai ya idea banana hai? Clear goal se focused prompt likhne mein help milti hai.',
         image: {
           key: 'ai-prompt-role-step',
           type: 'step',
-          alt: 'Defining a role for an AI assistant',
+          alt: 'Planning the goal of an AI prompt',
         },
-        tip: 'A role is useful when you need a specific style of explanation.',
+        tip: 'One clear goal usually works better than several unrelated requests in one prompt.',
         tipHinglish:
-          'Jab aapko kisi particular style mein explanation chahiye, tab role dena useful hota hai.',
+          'Ek clear goal dena, ek hi prompt mein kai unrelated requests dene se behtar hota hai.',
       },
       {
         id: 'prompt-state-task',
-        title: 'Explain the Task',
-        titleHinglish: 'Kaam Clearly Batayein',
+        title: 'Tell the AI What to Do',
+        titleHinglish: 'AI Ko Batayein Kya Karna Hai',
         description:
-          'Tell the AI exactly what to do. Example: “Teach me five common English sentences used in daily conversation.”',
+          'Use a clear action word such as explain, write, compare, create, summarize, translate, or review. For example, write “Explain digital marketing to a beginner” instead of “Tell me about marketing.”',
         descriptionHinglish:
-          'AI ko clearly batayein ki kya karna hai. Example: “Mujhe daily conversation mein use hone wale 5 common English sentences sikhao.”',
+          'Explain, write, compare, create, summarize, translate ya review jaise clear action words use karein. Jaise “Marketing ke baare mein batao” ke bajaye likhein: “Digital marketing ko beginner ke liye samjhao.”',
         image: {
           key: 'ai-prompt-task-step',
           type: 'step',
           alt: 'Writing a clear task for an AI tool',
         },
-        tip: 'Use specific action words such as explain, compare, create, summarize, or translate.',
+        tip: 'Avoid vague requests such as “Tell me something” or “Make it better.”',
         tipHinglish:
-          'Explain, compare, create, summarize ya translate jaise clear action words use karein.',
+          '“Kuch batao” ya “Isko better banao” jaise unclear requests avoid karein.',
       },
       {
         id: 'prompt-add-context',
-        title: 'Add Relevant Context',
+        title: 'Add Useful Context',
         titleHinglish: 'Zaroori Details Add Karein',
         description:
-          'Share the details that affect the answer, such as your skill level, audience, budget, location, or purpose.',
+          'Give details that help the AI understand your situation. Mention your skill level, audience, purpose, location, budget, or the material you want it to work with when relevant.',
         descriptionHinglish:
-          'Answer ko useful banane ke liye apna skill level, audience, budget, location ya purpose jaisi zaroori details dein.',
+          'AI ko situation samjhane ke liye zaroori details dein. Zaroorat ke hisaab se apna skill level, audience, purpose, location, budget ya jis material par kaam karwana hai woh batayein.',
         image: {
           key: 'ai-prompt-context-step',
           type: 'step',
-          alt: 'Adding context to an AI prompt',
+          alt: 'Adding useful context to an AI prompt',
         },
-        tip: 'Share only information needed for the task. Avoid sensitive personal details.',
+        tip: 'Include only details that are relevant to the task.',
         tipHinglish:
-          'Sirf kaam se related information share karein. Sensitive personal details na dein.',
+          'Sirf wahi details dein jo aapke task ke liye relevant hain.',
       },
       {
         id: 'prompt-set-requirements',
-        title: 'Mention Your Requirements',
-        titleHinglish: 'Apni Requirements Batayein',
+        title: 'Set Clear Requirements',
+        titleHinglish: 'Apni Requirements Clear Rakhein',
         description:
-          'Specify the language, tone, length, number of examples, or other constraints. Example: “Use simple English and give three examples.”',
+          'Mention the language, tone, length, audience, and any limits. For example: “Use simple English, keep it under 100 words, and make it friendly.”',
         descriptionHinglish:
-          'Language, tone, answer ki length aur examples ki sankhya batayein. Example: “Simple English use karo aur 3 examples do.”',
+          'Language, tone, length, audience aur zaroori limits batayein. Example: “Simple English use karo, 100 words se kam rakho aur friendly tone rakho.”',
         image: {
           key: 'ai-prompt-requirements-step',
           type: 'step',
-          alt: 'Setting requirements for an AI-generated response',
+          alt: 'Setting clear requirements for an AI response',
         },
-        tip: 'Clear requirements reduce unnecessary or irrelevant answers.',
+        tip: 'If you have a sample or reference, share it to explain what you want.',
         tipHinglish:
-          'Clear requirements dene se faltu ya irrelevant answers kam milte hain.',
+          'Agar aapke paas sample ya reference hai, toh apni requirement samjhane ke liye share karein.',
       },
       {
         id: 'prompt-specify-format',
-        title: 'Choose the Output Format',
-        titleHinglish: 'Answer Ka Format Batayein',
+        title: 'Choose the Answer Format',
+        titleHinglish: 'Answer Ka Format Choose Karein',
         description:
-          'Tell the AI how you want the result: a checklist, table, numbered steps, short paragraph, or ready-to-use draft.',
+          'Tell the AI how to present the result: numbered steps, a checklist, a table, bullet points, or a short paragraph. A useful prompt pattern is Goal + Task + Context + Requirements + Output Format.',
         descriptionHinglish:
-          'AI ko batayein ki answer kis format mein chahiye: checklist, table, numbered steps, short paragraph ya ready-to-use draft.',
+          'AI ko batayein ki result kis format mein chahiye: numbered steps, checklist, table, bullet points ya short paragraph. Ek useful prompt pattern hai: Goal + Task + Context + Requirements + Output Format.',
         image: {
           key: 'ai-prompt-format-step',
           type: 'step',
           alt: 'Choosing an output format for an AI response',
         },
-        tip: 'A simple pattern is Role + Task + Context + Requirements + Output Format.',
+        tip: 'You do not need every part for every prompt. Include the details that help with your task.',
         tipHinglish:
-          'Ek simple pattern yaad rakhein: Role + Task + Context + Requirements + Output Format.',
+          'Har prompt mein sabhi details dena zaroori nahi hai. Apne task ke liye useful details hi include karein.',
+      },
+      {
+        id: 'prompt-example-learning',
+        title: 'Example 1: Create a Learning Prompt',
+        titleHinglish: 'Example 1: Seekhne Ke Liye Prompt Banayein',
+        description:
+          'Try this complete prompt: “Teach me the basics of digital marketing as a beginner. Use simple English, explain one concept at a time, give three examples from Indian businesses, and ask me three questions at the end.” This prompt clearly explains the goal, your level, language, teaching style, and expected result.',
+        descriptionHinglish:
+          'Ye complete prompt try karein: “Mujhe beginner ke level par digital marketing ki basics sikhao. Simple Hinglish use karo, ek baar mein ek concept samjhao, Indian businesses ke 3 examples do aur end mein 3 questions poochho.” Is prompt mein goal, aapka level, language, teaching style aur expected result clear hai.',
+        tip: 'Replace the topic with anything you want to learn, such as English, coding, or online marketing.',
+        tipHinglish:
+          'Topic ko apni zaroorat ke hisaab se badal sakte hain, jaise English, coding ya online marketing.',
+      },
+      {
+        id: 'prompt-example-writing',
+        title: 'Example 2: Write a Professional Message',
+        titleHinglish: 'Example 2: Professional Message Likhein',
+        description:
+          'Try this complete prompt: “Write a polite WhatsApp message to a customer about a delayed order. Keep it under 80 words, use a friendly professional tone, and do not make promises about a delivery date.” Notice how the task, audience, platform, length, tone, and restriction are all included.',
+        descriptionHinglish:
+          'Ye complete prompt try karein: “Customer ko delayed order ke baare mein ek polite WhatsApp message likho. 80 words se kam rakho, friendly professional tone use karo aur delivery date ka koi promise mat karo.” Ismein task, audience, platform, length, tone aur restriction sab clear hain.',
+        tip: 'Replace the situation with your own task, such as replying to a customer or writing a business announcement.',
+        tipHinglish:
+          'Situation ko apne task ke hisaab se badlein, jaise customer ko reply dena ya business announcement likhna.',
+      },
+      {
+        id: 'prompt-review-and-refine',
+        title: 'Review and Improve the Result',
+        titleHinglish: 'Result Check Karein Aur Improve Karein',
+        description:
+          'Read the AI response and identify what is missing or incorrect. Give a follow-up instruction such as “Add two examples,” “Make it shorter,” or “Explain step 2 in more detail.” Keep improving until the result meets your needs.',
+        descriptionHinglish:
+          'AI ka response padhein aur dekhein kya missing ya incorrect hai. Follow-up instruction dein, jaise “Do examples add karo,” “Isko short karo,” ya “Step 2 detail mein samjhao.” Jab tak result aapki zaroorat ke hisaab se na ho, improve karte rahein.',
+        image: {
+          key: 'ai-prompt-format-step',
+          type: 'step',
+          alt: 'Reviewing and improving an AI response',
+        },
+        tip: 'Check important facts and details. AI responses can sometimes be incorrect.',
+        tipHinglish:
+          'Important facts aur details check karein. AI ke responses kabhi-kabhi galat ho sakte hain.',
+        warning:
+          'Do not include passwords, OTPs, banking details, or sensitive personal information in your prompts.',
+        warningHinglish:
+          'Apne prompts mein password, OTP, banking details ya sensitive personal information include na karein.',
       },
     ],
-    relatedGuideIds: [
-      'how-to-use-ai-tools',
-      'practical-ai-prompt-examples',
-      'generate-images-with-ai',
-    ],
+    relatedGuideIds: ['how-to-use-ai-tools', 'generate-images-with-ai'],
     sources: [
       {
         title: 'OpenAI Help Center',
@@ -282,145 +374,7 @@ export const AI_TOOLS_GUIDES: Guide[] = [
     isFeatured: true,
     status: 'published',
     createdAt: '2026-10-29T00:00:00.000Z',
-    updatedAt: '2026-10-29T00:00:00.000Z',
-  },
-
-  // ─────────────────────────────────────────────
-  // AI PROMPT EXAMPLES
-  // ─────────────────────────────────────────────
-  {
-    id: 'practical-ai-prompt-examples',
-    slug: 'practical-ai-prompt-examples',
-    title: 'Practical AI Prompt Examples',
-    titleHinglish: 'AI Prompts Ke Practical Examples',
-    description:
-      'Explore ready-to-use prompts for learning, writing, small businesses, resumes, and coding.',
-    descriptionHinglish:
-      'Learning, writing, small business, resume aur coding ke liye ready-to-use AI prompts dekhein.',
-    categoryId: 'ai-prompt-examples',
-    difficulty: 'beginner',
-    estimatedMinutes: 6,
-    coverImage: {
-      key: 'ai-prompt-examples-cover',
-      type: 'cover',
-      alt: 'Examples of useful prompts for different everyday tasks',
-    },
-    searchKeywords: [
-      'AI prompt examples',
-      'best ChatGPT prompts',
-      'AI prompts for students',
-      'business prompts',
-      'resume prompt',
-      'coding prompts',
-      'AI prompt example Hindi',
-      'ChatGPT kaise pooche',
-      'ready to use prompts',
-    ],
-    whatyouneed: ['Access to an AI tool'],
-    whatyouneedHinglish: ['Kisi AI tool ka access'],
-    steps: [
-      {
-        id: 'prompt-example-learning',
-        title: 'Learn a New Topic',
-        titleHinglish: 'Naya Topic Seekhein',
-        description:
-          'Example prompt: “Explain digital marketing to a complete beginner in simple English. Give five examples from Indian businesses and finish with a short quiz.”',
-        descriptionHinglish:
-          'Example prompt: “Digital marketing ko ek beginner ko simple Hinglish mein samjhao. Indian businesses ke 5 examples do aur end mein ek chhota quiz lo.”',
-        image: {
-          key: 'ai-example-learning-step',
-          type: 'step',
-          alt: 'Using AI to learn a new topic',
-        },
-        tip: 'Ask for examples from situations you already understand.',
-        tipHinglish:
-          'Aise examples maangein jo aapki samajh mein aane wali situations se related hon.',
-      },
-      {
-        id: 'prompt-example-writing',
-        title: 'Write a Professional Message',
-        titleHinglish: 'Professional Message Likhein',
-        description:
-          'Example prompt: “Write a polite WhatsApp message to a customer about a delayed order. Keep it under 80 words and use a professional, friendly tone.”',
-        descriptionHinglish:
-          'Example prompt: “Customer ko delayed order ke baare mein ek polite WhatsApp message likho. Message 80 words se kam ho aur professional, friendly tone mein ho.”',
-        image: {
-          key: 'ai-example-writing-step',
-          type: 'step',
-          alt: 'Using AI to draft a professional customer message',
-        },
-        tip: 'Review names, dates, prices, and promises before sending the message.',
-        tipHinglish:
-          'Message bhejne se pehle names, dates, prices aur promises check karein.',
-      },
-      {
-        id: 'prompt-example-business',
-        title: 'Get Small Business Ideas',
-        titleHinglish: 'Small Business Ideas Lein',
-        description:
-          'Example prompt: “Suggest five ways a small luggage repair shop in India can attract more local customers. Give low-cost ideas and a simple action plan for each.”',
-        descriptionHinglish:
-          'Example prompt: “India mein ek chhoti luggage repair shop ke liye local customers badhane ke 5 tareeke batao. Kam budget wale ideas aur har idea ka simple action plan do.”',
-        image: {
-          key: 'ai-example-business-step',
-          type: 'step',
-          alt: 'Using AI to plan small business marketing ideas',
-        },
-        tip: 'Add your business type, location, and budget for more relevant ideas.',
-        tipHinglish:
-          'Behtar ideas ke liye business type, location aur budget batayein.',
-      },
-      {
-        id: 'prompt-example-resume',
-        title: 'Improve Your Resume',
-        titleHinglish: 'Apna Resume Behtar Banayein',
-        description:
-          'Example prompt: “Review this resume summary for a junior frontend developer. Improve clarity and grammar without inventing experience or skills. Suggest three improvements.”',
-        descriptionHinglish:
-          'Example prompt: “Junior frontend developer ke is resume summary ko review karo. Experience ya skills invent kiye bina clarity aur grammar improve karo. 3 improvements suggest karo.”',
-        image: {
-          key: 'ai-example-resume-step',
-          type: 'step',
-          alt: 'Using AI to improve a resume summary',
-        },
-        tip: 'Remove personal contact details before sharing your resume with an AI tool.',
-        tipHinglish:
-          'Resume AI tool ko dene se pehle personal contact details hata dein.',
-      },
-      {
-        id: 'prompt-example-coding',
-        title: 'Understand a Coding Problem',
-        titleHinglish: 'Coding Problem Samjhein',
-        description:
-          'Example prompt: “Explain this React error to a beginner. Identify the likely cause, show the smallest safe fix, and explain why it works. Do not rewrite the entire project.”',
-        descriptionHinglish:
-          'Example prompt: “Is React error ko beginner ke liye samjhao. Possible cause batao, sabse chhota safe fix dikhao aur samjhao ki ye kaise kaam karta hai. Poora project rewrite mat karo.”',
-        image: {
-          key: 'ai-example-coding-step',
-          type: 'step',
-          alt: 'Using AI to understand and fix a coding error',
-        },
-        tip: 'Check AI-generated code before using it, especially in production projects.',
-        tipHinglish:
-          'AI ke code ko use karne se pehle check karein, khaaskar production projects mein.',
-      },
-    ],
-    relatedGuideIds: [
-      'how-to-use-ai-tools',
-      'write-better-ai-prompts',
-      'generate-images-with-ai',
-    ],
-    sources: [
-      {
-        title: 'OpenAI Help Center',
-        url: 'https://help.openai.com/',
-        description: 'Official help for working with AI tools.',
-      },
-    ],
-    isFeatured: true,
-    status: 'published',
-    createdAt: '2026-10-29T00:00:00.000Z',
-    updatedAt: '2026-10-29T00:00:00.000Z',
+    updatedAt: '2026-11-03T00:00:00.000Z',
   },
 
   // ─────────────────────────────────────────────
@@ -432,126 +386,145 @@ export const AI_TOOLS_GUIDES: Guide[] = [
     title: 'How to Generate Images with AI',
     titleHinglish: 'AI Se Images Kaise Banayein',
     description:
-      'Learn how to describe an image, write an image-generation prompt, review results, and improve the final image.',
+      'Learn how to choose an image tool, describe your idea, write an image prompt, generate a result, and refine it.',
     descriptionHinglish:
-      'AI se image banane ke liye sahi description likhna, prompt banana, result check karna aur image improve karna seekhein.',
+      'AI image tool choose karna, apna idea describe karna, image prompt likhna, image generate karna aur result improve karna seekhein.',
     categoryId: 'ai-image-generation',
     difficulty: 'beginner',
-    estimatedMinutes: 7,
+    estimatedMinutes: 8,
     coverImage: {
       key: 'ai-image-generation-cover',
       type: 'cover',
       alt: 'AI-generated visual artwork displayed on a screen',
     },
     searchKeywords: [
-      'AI image generation',
+      'ai image generation',
       'image prompt',
-      'AI photo generator',
-      'generate images with AI',
+      'ai photo generator',
+      'generate images with ai',
       'product poster prompt',
-      'AI image kaise banaye',
+      'ai image kaise banaye',
       'image prompt kaise likhe',
-      'AI se poster banaye',
-      'AI art for beginners',
+      'ai se poster banaye',
+      'ai art for beginners',
     ],
-    whatyouneed: ['Access to an AI image-generation tool'],
-    whatyouneedHinglish: ['Kisi AI image-generation tool ka access'],
+    whatyouneed: [
+      'Access to an AI image-generation tool',
+      'A clear idea of the image you want',
+    ],
+    whatyouneedHinglish: [
+      'Kisi AI image-generation tool ka access',
+      'Image ka ek clear idea',
+    ],
     steps: [
       {
         id: 'ai-image-choose-subject',
-        title: 'Describe the Main Subject',
-        titleHinglish: 'Main Subject Batayein',
+        title: 'Choose an AI Image Tool',
+        titleHinglish: 'AI Image Tool Choose Karein',
         description:
-          'Start by describing exactly what should appear in the image. Example: “A single black travel suitcase with four wheels.”',
+          'Choose a tool that supports image generation. Open its official website or app and check whether image creation is available in your account and plan.',
         descriptionHinglish:
-          'Sabse pehle batayein ki image mein kya dikhna chahiye. Example: “Chaar wheels wala ek black travel suitcase.”',
+          'Aisa tool choose karein jo image generation support karta ho. Uski official website ya app open karein aur check karein ki aapke account aur plan mein image creation available hai ya nahi.',
         image: {
           key: 'ai-image-subject-step',
           type: 'step',
-          alt: 'Describing the main subject for an AI-generated image',
+          alt: 'Opening an AI image-generation tool',
         },
-        tip: 'Be specific about the object, person, product, or scene.',
+        tip: 'Start with a tool you can access easily; you do not need several tools at once.',
         tipHinglish:
-          'Object, person, product ya scene ko clearly describe karein.',
+          'Aise tool se start karein jiska access aasani se mil jaye. Ek saath kai tools ki zaroorat nahi hai.',
       },
       {
         id: 'ai-image-add-style',
-        title: 'Choose a Visual Style',
-        titleHinglish: 'Image Ka Style Choose Karein',
+        title: 'Describe the Main Subject',
+        titleHinglish: 'Main Subject Describe Karein',
         description:
-          'Specify the style you want, such as realistic product photography, illustration, 3D render, or flat vector art.',
+          'Explain exactly what should appear in the image. Mention the main object, person, product, or scene. Example: “A single black travel suitcase with four wheels.”',
         descriptionHinglish:
-          'Image ka style batayein, jaise realistic product photography, illustration, 3D render ya flat vector art.',
+          'Clearly batayein ki image mein kya dikhna chahiye. Main object, person, product ya scene describe karein. Example: “Chaar wheels wala ek black travel suitcase.”',
         image: {
           key: 'ai-image-style-step',
           type: 'step',
-          alt: 'Choosing a visual style for image generation',
+          alt: 'Describing the main subject for image generation',
         },
-        tip: 'Choose one clear style instead of mixing several conflicting styles.',
+        tip: 'Focus on the main subject first; add extra details after that.',
         tipHinglish:
-          'Ek clear style choose karein; bahut saare conflicting styles ek saath na dein.',
+          'Pehle main subject par focus karein. Extra details baad mein add karein.',
       },
       {
         id: 'ai-image-set-scene',
-        title: 'Describe Background and Lighting',
-        titleHinglish: 'Background Aur Lighting Batayein',
+        title: 'Add Style and Visual Details',
+        titleHinglish: 'Style Aur Visual Details Add Karein',
         description:
-          'Describe the background, lighting, colors, and mood. Example: “Clean white background, soft studio lighting, realistic details, and subtle shadows.”',
+          'Choose a visual style such as realistic photography, illustration, 3D render, or vector art. Then describe useful details such as material, colour, texture, and level of realism.',
         descriptionHinglish:
-          'Background, lighting, colors aur mood batayein. Example: “Clean white background, soft studio lighting, realistic details aur halki shadows.”',
+          'Realistic photography, illustration, 3D render ya vector art jaisa visual style choose karein. Phir material, colour, texture aur realism jaisi useful details batayein.',
         image: {
           key: 'ai-image-scene-step',
           type: 'step',
-          alt: 'Describing background and lighting for an AI image',
+          alt: 'Choosing the visual style and details for an AI image',
         },
-        tip: 'Mention whether the image is for a product listing, social post, or presentation.',
+        tip: 'Use one clear style instead of combining styles that do not match.',
         tipHinglish:
-          'Batayein ki image product listing, social media post ya presentation ke liye hai.',
+          'Ek clear style use karein. Aise styles ko mix na karein jo ek doosre se match nahi karte.',
       },
       {
         id: 'ai-image-control-layout',
-        title: 'Specify Composition and Size',
-        titleHinglish: 'Composition Aur Size Batayein',
+        title: 'Describe the Background and Layout',
+        titleHinglish: 'Background Aur Layout Batayein',
         description:
-          'Tell the AI how the subject should be positioned and choose an aspect ratio. For example, use 1:1 for a square post or 16:9 for a wide banner when supported.',
+          'Explain the background, lighting, colours, and subject position. Mention the image shape if needed: 1:1 for a square post or 16:9 for a wide banner, when supported by the tool.',
         descriptionHinglish:
-          'AI ko batayein ki subject kahan hona chahiye aur aspect ratio choose karein. Jaise square post ke liye 1:1 ya wide banner ke liye 16:9, agar tool support karta ho.',
+          'Background, lighting, colours aur subject ki position batayein. Zaroorat ho toh image ka size bhi batayein: square post ke liye 1:1 ya wide banner ke liye 16:9, agar tool support karta ho.',
         image: {
           key: 'ai-image-layout-step',
           type: 'step',
-          alt: 'Choosing image composition and aspect ratio',
+          alt: 'Describing image background, layout, and aspect ratio',
         },
-        tip: 'If you do not want text or extra objects, say so explicitly in the prompt.',
+        tip: 'If you do not want text, logos, or extra objects, clearly mention that in your prompt.',
         tipHinglish:
-          'Agar image mein text ya extra objects nahi chahiye, to prompt mein clearly likhein.',
+          'Agar text, logo ya extra objects nahi chahiye, toh prompt mein clearly mention karein.',
       },
       {
         id: 'ai-image-refine-result',
-        title: 'Generate and Improve the Image',
-        titleHinglish: 'Image Banayein Aur Improve Karein',
+        title: 'Write the Prompt and Generate',
+        titleHinglish: 'Prompt Likhein Aur Image Generate Karein',
         description:
-          'Generate the image and review it. If something is wrong, request a focused change, such as “Keep the suitcase unchanged and remove the extra objects from the background.”',
+          'Combine the subject, style, visual details, background, and layout into one clear prompt. Submit it to the tool and wait for the image to generate.',
         descriptionHinglish:
-          'Image generate karein aur result check karein. Agar kuch galat ho, to ek specific change maangein, jaise “Suitcase ko unchanged rakho aur background se extra objects hata do.”',
+          'Subject, style, visual details, background aur layout ko mila kar ek clear prompt likhein. Tool mein submit karein aur image generate hone ka wait karein.',
         image: {
           key: 'ai-image-refine-step',
           type: 'step',
-          alt: 'Reviewing and refining an AI-generated image',
+          alt: 'Generating an image from a written AI prompt',
         },
-        tip: 'Check object details, hands, logos, spelling, and any text before publishing.',
+        tip: 'Keep your first prompt clear and focused. You can add more details after seeing the result.',
         tipHinglish:
-          'Publish karne se pehle objects, hands, logos, spelling aur text ko check karein.',
+          'Pehla prompt clear aur focused rakhein. Result dekhne ke baad aur details add kar sakte hain.',
+      },
+      {
+        id: 'ai-image-review-result',
+        title: 'Review and Improve the Image',
+        titleHinglish: 'Image Check Karein Aur Improve Karein',
+        description:
+          'Check whether the subject, colours, background, and layout match your idea. If something is wrong, request one specific change at a time. For example: “Keep the suitcase unchanged and remove the extra objects from the background.”',
+        descriptionHinglish:
+          'Check karein ki subject, colours, background aur layout aapke idea se match karte hain ya nahi. Agar kuch galat ho, toh ek baar mein ek specific change maangein. Example: “Suitcase ko unchanged rakho aur background se extra objects hata do.”',
+        image: {
+          key: 'ai-image-refine-step',
+          type: 'step',
+          alt: 'Reviewing and improving an AI-generated image',
+        },
+        tip: 'Check object details, hands, logos, spelling, and text before using or publishing the image.',
+        tipHinglish:
+          'Image use ya publish karne se pehle objects, hands, logos, spelling aur text check karein.',
         warning:
-          'AI may produce inaccurate text or logos. Review the result and add important text separately when necessary.',
+          'AI may produce inaccurate text, logos, or product details. Review the image carefully and add important text separately when needed.',
         warningHinglish:
-          'AI text ya logos galat bana sakta hai. Result check karein aur zaroori text ko zarurat padne par alag se add karein.',
+          'AI text, logos ya product details galat bana sakta hai. Image dhyan se check karein aur zaroori text ko zaroorat padne par alag se add karein.',
       },
     ],
-    relatedGuideIds: [
-      'how-to-use-ai-tools',
-      'write-better-ai-prompts',
-      'practical-ai-prompt-examples',
-    ],
+    relatedGuideIds: ['write-better-ai-prompts', 'generate-images-with-ai'],
     sources: [
       {
         title: 'OpenAI Help Center',
@@ -563,170 +536,141 @@ export const AI_TOOLS_GUIDES: Guide[] = [
     isFeatured: true,
     status: 'published',
     createdAt: '2026-10-29T00:00:00.000Z',
-    updatedAt: '2026-10-29T00:00:00.000Z',
+    updatedAt: '2026-11-03T00:00:00.000Z',
   },
 
   // ─────────────────────────────────────────────
-  // AI IMAGE GENERATION
-
+  // AI VIDEO GENERATION
+  // ─────────────────────────────────────────────
   {
-    id: 'getting-started-with-ai-tools',
-    slug: 'getting-started-with-ai-tools',
-    title: 'Getting Started with AI Tools',
-    titleHinglish: 'AI Tools Ka Use Karna Seekhein',
+    id: 'generate-videos-with-ai',
+    slug: 'generate-videos-with-ai',
+    title: 'How to Generate Videos with AI',
+    titleHinglish: 'AI Se Videos Kaise Banayein',
     description:
-      'Learn how to use AI tools effectively for writing, research, learning, brainstorming, and everyday tasks. Understand how to write prompts and improve AI-generated results.',
+      'Learn how to choose an AI video tool, prepare an idea, write a video prompt, generate clips, and improve the final video.',
     descriptionHinglish:
-      'Writing, research, learning, naye ideas aur daily tasks ke liye AI tools ka sahi use karna seekhein. Prompts likhna aur AI se better results lena samjhein.',
-    categoryId: 'ai-tools',
+      'AI video tool choose karna, idea prepare karna, video prompt likhna, clips generate karna aur final video improve karna seekhein.',
+    categoryId: 'ai-video-generation',
     difficulty: 'beginner',
-    estimatedMinutes: 10,
+    estimatedMinutes: 9,
     coverImage: {
-      key: 'getting-started-ai-cover',
+      key: 'ai-video-generation-cover',
       type: 'cover',
-      alt: 'Beginner learning to use AI tools on a laptop and smartphone',
+      alt: 'Creating a video with an AI video-generation tool',
     },
     searchKeywords: [
-      'AI tools',
-      'artificial intelligence',
-      'how to use AI',
-      'AI for beginners',
-      'AI prompts',
-      'AI learning',
-      'ChatGPT',
-      'AI productivity',
-      'AI tools kaise use karein',
-      'AI seekhna',
-      'AI prompts kaise likhein',
+      'ai video generation',
+      'how to make videos with ai',
+      'text to video',
+      'image to video',
+      'ai video generator',
+      'video prompt',
+      'ai se video kaise banaye',
+      'ai video kaise create kare',
+      'text se video banana',
+      'photo se video banana',
     ],
     whatyouneed: [
       'A smartphone or computer',
-      'An internet connection',
-      'Basic knowledge of using apps or websites',
+      'Access to an AI video-generation tool',
+      'An idea, script, or image for your video',
     ],
     whatyouneedHinglish: [
       'Smartphone ya computer',
-      'Internet connection',
-      'Apps ya websites use karne ki basic knowledge',
+      'Kisi AI video-generation tool ka access',
+      'Video ke liye ek idea, script ya image',
     ],
     steps: [
       {
-        id: 'ai-getting-started-step-1',
-        title: 'Understand What AI Tools Can Do',
-        titleHinglish: 'Samjhein AI Tools Kya Kar Sakte Hain',
+        id: 'ai-video-choose-tool',
+        title: 'Choose an AI Video Tool',
+        titleHinglish: 'AI Video Tool Choose Karein',
         description:
-          'AI tools can help you write content, summarize information, generate ideas, explain difficult topics, create images, and assist with everyday tasks. Different tools are designed for different purposes.',
+          'Choose a tool that supports the type of video you want to make. Some tools create videos from text prompts, while others can animate an image or help edit existing clips. Check the features, free limits, and supported video formats.',
         descriptionHinglish:
-          'AI tools content likhne, information summarize karne, ideas generate karne, difficult topics samjhane, images banane aur daily tasks mein help kar sakte hain. Alag-alag tools alag kaam ke liye design kiye gaye hain.',
-        image: {
-          key: 'ai-understand-tools-step',
-          type: 'step',
-          alt: 'Different AI tools helping with writing, research and creativity',
-        },
-      },
-      {
-        id: 'ai-getting-started-step-2',
-        title: 'Choose the Right AI Tool',
-        titleHinglish: 'Sahi AI Tool Choose Karein',
-        description:
-          'Identify what you want to accomplish first. Choose a suitable AI tool for writing, research, image creation, coding, or productivity. Check its features, pricing, and limitations before using it.',
-        descriptionHinglish:
-          'Sabse pehle decide karein ki aapko kya kaam karna hai. Writing, research, image creation, coding ya productivity ke liye suitable AI tool choose karein. Use karne se pehle features, pricing aur limitations check karein.',
-        image: {
-          key: 'ai-choose-tool-step',
-          type: 'step',
-          alt: 'Comparing different AI tools for different tasks',
-        },
-        tip: 'You do not need multiple AI subscriptions to get started. Begin with a suitable free option.',
+          'Aisa tool choose karein jo aapke required video type ko support karta ho. Kuch tools text prompt se video banate hain, jabki kuch image ko animate karte hain ya existing clips edit karne mein help karte hain. Features, free limits aur supported video formats check karein.',
+        tip: 'Start with one tool and check its available features before creating an account or paying.',
         tipHinglish:
-          'Shuru karne ke liye multiple AI subscriptions ki zaroorat nahi hai. Ek suitable free option se start karein.',
+          'Ek tool se start karein. Account banane ya payment karne se pehle uske available features check karein.',
       },
       {
-        id: 'ai-getting-started-step-3',
-        title: 'Create an Account and Explore',
-        titleHinglish: 'Account Banayein Aur Explore Karein',
+        id: 'ai-video-plan-idea',
+        title: 'Plan Your Video Idea',
+        titleHinglish: 'Apne Video Ka Idea Plan Karein',
         description:
-          'Visit the official website or app of your selected AI tool. Create an account if required, explore its main features, and understand where to enter your instructions.',
+          'Decide what your video should show and why you are creating it. Note the main subject, action, location, mood, and purpose. For a longer video, prepare a short script or divide the idea into scenes.',
         descriptionHinglish:
-          'Apne selected AI tool ki official website ya app open karein. Zaroorat ho toh account banayein, main features explore karein aur samjhein ki instructions kahan enter karni hain.',
-        image: {
-          key: 'ai-create-account-step',
-          type: 'step',
-          alt: 'Opening an AI tool and exploring its interface',
-        },
-        tip: 'Always use the official website or app to avoid fake AI services.',
+          'Decide karein ki video mein kya dikhana hai aur video banane ka purpose kya hai. Main subject, action, location, mood aur purpose note karein. Long video ke liye short script banayein ya idea ko alag-alag scenes mein divide karein.',
+        tip: 'Keep the first video simple. One subject and one clear action are easier to control.',
         tipHinglish:
-          'Fake AI services se bachne ke liye hamesha official website ya app use karein.',
+          'Pehla video simple rakhein. Ek subject aur ek clear action ko control karna aasaan hota hai.',
       },
       {
-        id: 'ai-getting-started-step-4',
-        title: 'Write Your First Prompt',
-        titleHinglish: 'Apna Pehla Prompt Likhein',
+        id: 'ai-video-write-prompt',
+        title: 'Write a Clear Video Prompt',
+        titleHinglish: 'Clear Video Prompt Likhein',
         description:
-          'A prompt is an instruction or question you give to an AI tool. Clearly explain what you need. For example, instead of writing "Write something", try "Write a short professional introduction for a small clothing business."',
+          'Describe the subject, action, setting, visual style, and camera movement. Example: “A red bicycle moving slowly along a quiet village road at sunrise, realistic cinematic style, camera tracking beside the bicycle.”',
         descriptionHinglish:
-          'Prompt ek instruction ya question hota hai jo aap AI tool ko dete hain. Clearly batayein ki aapko kya chahiye. Jaise "Write something" ke bajaye likhein "Ek small clothing business ke liye short professional introduction likho."',
-        image: {
-          key: 'ai-write-prompt-step',
-          type: 'step',
-          alt: 'Writing a clear instruction in an AI chat interface',
-        },
-        tip: 'Be specific about your task, audience, language, and expected result.',
+          'Subject, action, setting, visual style aur camera movement describe karein. Example: “Sunrise ke time ek red bicycle shaant village road par dheere-dheere chal rahi hai, realistic cinematic style, camera bicycle ke saath move kar raha hai.”',
+        tip: 'Describe what should happen in the video, not only what the scene looks like.',
         tipHinglish:
-          'Apne task, audience, language aur expected result ke baare mein clearly batayein.',
+          'Sirf scene kaisa dikhega ye nahi, balki video mein kya action hoga ye bhi batayein.',
       },
       {
-        id: 'ai-getting-started-step-5',
-        title: 'Give More Context and Instructions',
-        titleHinglish: 'AI Ko Detailed Instructions Dein',
+        id: 'ai-video-set-format',
+        title: 'Choose Video Settings',
+        titleHinglish: 'Video Settings Choose Karein',
         description:
-          'Help the AI understand your requirements by adding relevant details, examples, preferred tone, format, and length. Better context can lead to more useful responses.',
+          'Choose the aspect ratio, duration, and resolution if the tool provides these options. Use a vertical format such as 9:16 for Reels or Shorts, and a horizontal format such as 16:9 for regular widescreen videos.',
         descriptionHinglish:
-          'AI ko apni requirements samjhane ke liye relevant details, examples, preferred tone, format aur content ki length batayein. Better context se zyada useful responses mil sakte hain.',
-        image: {
-          key: 'ai-add-context-step',
-          type: 'step',
-          alt: 'Adding context and specific instructions to an AI prompt',
-        },
-      },
-      {
-        id: 'ai-getting-started-step-6',
-        title: 'Review and Improve the Results',
-        titleHinglish: 'Results Check Aur Improve Karein',
-        description:
-          'Read the AI-generated response carefully. If something is unclear or incorrect, ask follow-up questions and provide corrections. You can request shorter, clearer, or more detailed results.',
-        descriptionHinglish:
-          'AI ke response ko dhyan se padhein. Agar kuch unclear ya incorrect hai, toh follow-up questions poochein aur corrections dein. Aap shorter, clearer ya more detailed results maang sakte hain.',
-        image: {
-          key: 'ai-improve-results-step',
-          type: 'step',
-          alt: 'Reviewing and refining AI-generated responses',
-        },
-        tip: 'You can continue the same conversation to improve the result instead of starting again.',
+          'Agar tool options deta hai toh aspect ratio, duration aur resolution choose karein. Reels ya Shorts ke liye 9:16 vertical format aur normal widescreen videos ke liye 16:9 horizontal format use karein.',
+        tip: 'Choose the format according to where you plan to publish the video.',
         tipHinglish:
-          'Result improve karne ke liye baar-baar nayi chat start karne ke bajaye same conversation continue kar sakte hain.',
+          'Video kahan publish karna hai, uske hisaab se format choose karein.',
       },
       {
-        id: 'ai-getting-started-step-7',
-        title: 'Verify Information Before Using It',
-        titleHinglish: 'Information Use Karne Se Pehle Verify Karein',
+        id: 'ai-video-generate',
+        title: 'Generate Your Video',
+        titleHinglish: 'Apna Video Generate Karein',
         description:
-          'AI tools can sometimes generate incorrect or outdated information. Verify important facts, figures, links, and recommendations using reliable sources before sharing or acting on them.',
+          'Enter your prompt or upload an image if the tool supports image-to-video generation. Select the available settings and start generating. Some tools may create a short clip first, which you can use as one scene in a longer video.',
         descriptionHinglish:
-          'AI tools kabhi-kabhi incorrect ya outdated information de sakte hain. Important facts, numbers, links aur recommendations ko share ya use karne se pehle reliable sources se verify karein.',
-        image: {
-          key: 'ai-verify-information-step',
-          type: 'step',
-          alt: 'Checking AI-generated information against reliable sources',
-        },
+          'Apna prompt enter karein ya image upload karein, agar tool image-to-video generation support karta hai. Available settings select karke generation start karein. Kuch tools pehle short clip banate hain, jise longer video ke ek scene ki tarah use kar sakte hain.',
+        tip: 'Generation can take time and may use credits or have daily limits.',
+        tipHinglish:
+          'Video generate hone mein time lag sakta hai aur credits ya daily limits apply ho sakti hain.',
+      },
+      {
+        id: 'ai-video-review-edit',
+        title: 'Review and Improve the Video',
+        titleHinglish: 'Video Check Karein Aur Improve Karein',
+        description:
+          'Watch the complete clip. Check whether the subject, movement, background, and timing match your idea. If something is wrong, change the prompt or settings and generate another version. Use a video editor to join clips, add captions, music, or voice-over when needed.',
+        descriptionHinglish:
+          'Poora clip dekhein. Check karein ki subject, movement, background aur timing aapke idea se match karte hain ya nahi. Agar kuch galat ho toh prompt ya settings change karke doosra version generate karein. Zaroorat ke hisaab se video editor mein clips join karein, captions, music ya voice-over add karein.',
+        tip: 'Review the final video before publishing, especially faces, hands, object movement, text, and audio.',
+        tipHinglish:
+          'Publish karne se pehle final video check karein, khaaskar faces, hands, objects ki movement, text aur audio.',
         warning:
-          'Avoid entering passwords, financial details, or sensitive personal information into AI tools.',
+          'AI-generated videos can contain visual errors or misleading details. Do not present generated scenes as real events or real footage.',
         warningHinglish:
-          'AI tools mein passwords, financial details ya sensitive personal information enter na karein.',
+          'AI-generated videos mein visual errors ya misleading details ho sakti hain. Generated scenes ko real events ya asli footage ki tarah present na karein.',
       },
     ],
-    relatedGuideIds: [],
-    sources: [],
+    relatedGuideIds: [
+      'how-to-use-ai-tools',
+      'write-better-ai-prompts',
+      'generate-images-with-ai',
+    ],
+    sources: [
+      {
+        title: 'OpenAI Help Center',
+        url: 'https://help.openai.com/',
+        description: 'Official help and guidance for supported AI features.',
+      },
+    ],
     isFeatured: true,
     status: 'published',
     createdAt: '2026-11-03T00:00:00.000Z',

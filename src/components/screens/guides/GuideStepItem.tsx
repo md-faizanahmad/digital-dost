@@ -3,6 +3,7 @@ import { Guide } from '../../../types/guide';
 import { GuideLanguage } from '../../../shared/TranslateButton';
 import { guideContentStyles } from '../../../styles/guideContent.styles';
 import { getGuideImage } from '../../../utils/getGuideImage';
+
 type GuideStep = Guide['steps'][number];
 
 type GuideStepItemProps = {
@@ -17,6 +18,8 @@ export default function GuideStepItem({
   language,
 }: GuideStepItemProps) {
   const isHinglish = language === 'hinglish';
+
+  const imageSource = step.image?.key ? getGuideImage(step.image.key) : null;
 
   return (
     <View style={guideContentStyles.step}>
@@ -35,10 +38,10 @@ export default function GuideStepItem({
             : step.description}
         </Text>
 
-        {step.image ? (
+        {imageSource ? (
           <Image
-            source={getGuideImage(step.image.key)}
-            accessibilityLabel={step.image.alt}
+            source={imageSource}
+            accessibilityLabel={step.image?.alt || step.title}
             style={guideContentStyles.stepImage}
             resizeMode="contain"
           />

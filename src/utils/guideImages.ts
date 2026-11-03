@@ -50,4 +50,24 @@ export const GUIDE_IMAGES = {
   'whatsapp-business-tools-step': require('../assets/images/guides/whatsapp/whatsapp-business-tools.png'),
   'whatsapp-business-catalog-step': require('../assets/images/guides/whatsapp/whatsapp-business-catalog.png'),
   'whatsapp-business-share-step': require('../assets/images/guides/whatsapp/whatsapp-business-share.png'),
+
+  // AI How to Choose RIght AI
+  'getting-started-ai-cover': require('../assets/images/guides/ai/getting-started-ai.png'),
+
+  // Cover for ai-prompt-writing-cover
+  'ai-prompt-writing-cover': require('../assets/images/guides/ai/ai-prompt-writing-cover.png'),
+
+  // Cover for ai-prompt-writing-cover
+  'ai-image-generation-cover': require('../assets/images/guides/ai/ai-image-generation-cover.png'),
+
+  // Cover for ai-prompt-writing-cover
+  'ai-video-generation-cover': require('../assets/images/guides/ai/ai-video-generation-cover.png'),
+
+  // 'ai-understand-tools-step': require('../assets/images/guides/ai/ai-understand-tools.png'),
+  // 'ai-choose-tool-step': require('../assets/images/guides/ai/ai-choose-tool.png'),
+  // 'ai-create-account-step': require('../assets/images/guides/ai/ai-create-account.png'),
+  // 'ai-write-prompt-step': require('../assets/images/guides/ai/ai-write-prompt.png'),
+  // 'ai-add-context-step': require('../assets/images/guides/ai/ai-add-context.png'),
+  // 'ai-improve-results-step': require('../assets/images/guides/ai/ai-improve-results.png'),
+  // 'ai-verify-information-step': require('../assets/images/guides/ai/ai-verify-information.png'),
 } as const;
